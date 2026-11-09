@@ -15,6 +15,37 @@ document.addEventListener("DOMContentLoaded", function () {
         checkHeaderScroll();
     }
 
+    /* =====================================================
+       INNER PAGE HERO WAVE INJECTION & BODY CLASS
+    ===================================================== */
+    const pageHero = document.querySelector('.page-hero');
+    if (pageHero) {
+        document.body.classList.add('has-hero');
+        if (!pageHero.querySelector('.hero-wave-divider')) {
+            const waveDivider = document.createElement('div');
+            waveDivider.className = 'hero-wave-divider';
+            waveDivider.setAttribute('aria-hidden', 'true');
+            waveDivider.innerHTML = `
+                <div class="hero-wave-track hero-wave-track-1">
+                    <svg viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0,35 C90,12 270,12 360,35 C450,58 630,58 720,35 C810,12 990,12 1080,35 C1170,58 1350,58 1440,35 C1530,12 1710,12 1800,35 C1890,58 2070,58 2160,35 C2250,12 2430,12 2520,35 C2610,58 2790,58 2880,35 L2880,120 L0,120 Z" fill="rgba(34, 197, 94, 0.22)"></path>
+                    </svg>
+                </div>
+                <div class="hero-wave-track hero-wave-track-2">
+                    <svg viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0,48 C90,70 270,70 360,48 C450,26 630,26 720,48 C810,70 990,70 1080,48 C1170,26 1350,26 1440,48 C1530,70 1710,70 1800,48 C1890,26 2070,26 2160,48 C2250,70 2430,70 2520,48 C2610,26 2790,26 2880,48 L2880,120 L0,120 Z" fill="rgba(16, 185, 129, 0.32)"></path>
+                    </svg>
+                </div>
+                <div class="hero-wave-track hero-wave-track-3">
+                    <svg viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0,62 C60,44 180,44 240,62 C300,80 420,80 480,62 C540,44 660,44 720,62 C780,80 900,80 960,62 C1020,44 1140,44 1200,62 C1260,80 1380,80 1440,62 C1500,44 1620,44 1680,62 C1740,80 1860,80 1920,62 C1980,44 2100,44 2160,62 C2220,80 2340,80 2400,62 C2460,44 2580,44 2640,62 C2700,80 2820,80 2880,62 L2880,120 L0,120 Z" fill="#ffffff"></path>
+                    </svg>
+                </div>
+            `;
+            pageHero.appendChild(waveDivider);
+        }
+    }
+
 
     /* =====================================================
        ACTIVE NAVBAR

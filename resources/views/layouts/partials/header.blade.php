@@ -1,4 +1,7 @@
-<header class="site-header {{ request()->routeIs('home') ? 'is-transparent-header' : 'is-solid-header' }}" id="siteHeader">
+@php
+    $hasHeroPage = request()->routeIs('home') || !request()->routeIs(['berita.show', 'kegiatan.show', 'prestasi.show']);
+@endphp
+<header class="site-header {{ $hasHeroPage ? 'is-transparent-header' : 'is-solid-header' }}" id="siteHeader">
     <div class="header-container">
         <!-- BRAND LOGO & NAME -->
         <a href="{{ route('home') }}" class="brand-link">
