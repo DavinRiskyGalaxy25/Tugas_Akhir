@@ -2023,10 +2023,15 @@ body:not(.home-page) {
     margin: 0 auto !important;
     padding: 0 24px !important;
     display: flex !important;
-    justify-content: space-between !important;
+    justify-content: center !important;
+    text-align: center !important;
     align-items: center !important;
     font-size: 0.85rem !important;
     color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.footer-bottom-text {
+    text-align: center !important;
 }
 
 .footer-bottom p {
@@ -2040,55 +2045,37 @@ body:not(.home-page) {
     margin-top: 3px !important;
 }
 
-.footer-back-top {
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.08);
-    border: none !important;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.footer-back-top:hover {
-    background: #16a34a;
-    color: #ffffff;
-    transform: translateY(-2px);
-}
-
 /* ==========================================================================
-   FLOATING BACK TO TOP (RESPONSIVE SCROLL-PROGRESS BUTTON)
+   FLOATING BACK TO TOP (GAME-HUD MINIMALIST CIRCULAR PROGRESS DIAL)
    ========================================================================== */
 .floating-back-to-top {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 48px;
-    height: 48px;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: #ffffff;
-    border: 1px solid rgba(22, 163, 74, 0.22);
-    color: #15803d;
+    /* Dark glass center, completely removing the outer white body and white border */
+    background: rgba(4, 22, 11, 0.82) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: none !important;
+    color: #4ade80 !important;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 25px -4px rgba(15, 23, 42, 0.12), 0 4px 10px -2px rgba(22, 163, 74, 0.1);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 12px rgba(34, 197, 94, 0.18) !important;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateY(16px) scale(0.88);
-    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    transform: translateY(14px) scale(0.85);
+    transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.28s cubic-bezier(0.16, 1, 0.3, 1),
                 background-color 0.22s ease,
-                border-color 0.22s ease,
                 box-shadow 0.22s ease,
-                color 0.22s ease;
+                color 0.22s ease !important;
     z-index: 990;
     padding: 0;
     outline: none;
@@ -2103,23 +2090,22 @@ body:not(.home-page) {
 }
 
 .floating-back-to-top:hover {
-    background: #15803d;
-    border-color: #15803d;
-    color: #ffffff;
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 14px 32px -4px rgba(22, 163, 74, 0.45);
+    background: rgba(16, 85, 42, 0.95) !important;
+    color: #ffffff !important;
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5), 0 0 20px rgba(74, 222, 128, 0.45) !important;
 }
 
 .floating-back-to-top:active {
-    transform: translateY(0) scale(0.96);
+    transform: translateY(0) scale(0.94);
 }
 
 .floating-back-to-top:focus-visible {
-    outline: 2px solid #22c55e;
+    outline: 2px solid #4ade80;
     outline-offset: 3px;
 }
 
-/* Circular SVG Reading Progress Ring */
+/* Outermost Game-HUD Circular Progress Ring (Zero outer white rim) */
 .floating-back-to-top .progress-ring {
     position: absolute;
     inset: 0;
@@ -2131,19 +2117,20 @@ body:not(.home-page) {
 
 .floating-back-to-top .progress-ring-bg {
     fill: none;
-    stroke: rgba(22, 163, 74, 0.15);
-    stroke-width: 2.5;
+    stroke: rgba(74, 222, 128, 0.22);
+    stroke-width: 2.6;
     transition: stroke 0.22s ease;
 }
 
 .floating-back-to-top .progress-ring-fill {
     fill: none;
-    stroke: #16a34a;
-    stroke-width: 2.5;
+    stroke: #22c55e;
+    stroke-width: 2.8;
     stroke-linecap: round;
-    stroke-dasharray: 119.38;
-    stroke-dashoffset: 119.38;
-    transition: stroke-dashoffset 0.1s linear, stroke 0.22s ease;
+    stroke-dasharray: 128.81;
+    stroke-dashoffset: 128.81;
+    transition: stroke-dashoffset 0.08s linear, stroke 0.22s ease;
+    filter: drop-shadow(0 0 3px rgba(34, 197, 94, 0.7));
 }
 
 .floating-back-to-top:hover .progress-ring-bg {
@@ -2151,15 +2138,16 @@ body:not(.home-page) {
 }
 
 .floating-back-to-top:hover .progress-ring-fill {
-    stroke: #4ade80;
+    stroke: #86efac;
+    filter: drop-shadow(0 0 6px rgba(134, 239, 172, 0.9));
 }
 
-/* Arrow Icon */
+/* Minimalist Arrow Icon */
 .floating-back-to-top .back-to-top-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
+    font-size: 14px;
     position: relative;
     z-index: 2;
     transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), color 0.22s ease;
@@ -3544,13 +3532,13 @@ button[type="reset"].secondary-button:hover {
         padding-right: 18px !important;
     }
     .floating-back-to-top {
-        bottom: 22px !important;
-        right: 20px !important;
-        width: 44px !important;
-        height: 44px !important;
+        bottom: 20px !important;
+        right: 18px !important;
+        width: 40px !important;
+        height: 40px !important;
     }
     .floating-back-to-top .back-to-top-icon {
-        font-size: 14px !important;
+        font-size: 13px !important;
     }
     .form-card {
         padding: 26px 18px !important;

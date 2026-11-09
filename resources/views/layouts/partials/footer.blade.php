@@ -137,18 +137,15 @@
                 <p>&copy; {{ date('Y') }} {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}. Seluruh hak cipta dilindungi undang-undang.</p>
                 <p class="footer-credits">Supported by RPL SMK Krian 1 Sidoarjo &middot; <a href="{{ route('admin.login') }}" style="color: inherit; text-decoration: none; opacity: 0.85;" title="Login Staf / Administrator">Portal Staf</a></p>
             </div>
-            <a href="#siteHeader" class="footer-back-top" aria-label="Kembali ke atas" title="Kembali ke atas">
-                <i class="fa-solid fa-arrow-up"></i>
-            </a>
         </div>
     </div>
 </footer>
 
-<!-- TOMBOL KEMBALI KE ATAS MELAYANG (FLOATING RESPONSIVE BACK TO TOP) -->
+<!-- TOMBOL KEMBALI KE ATAS MELAYANG (GAME-HUD MINIMALIST BACK TO TOP) -->
 <button type="button" id="floatingBackToTop" class="floating-back-to-top" aria-label="Kembali ke atas" title="Kembali ke atas">
     <svg class="progress-ring" viewBox="0 0 44 44" aria-hidden="true">
-        <circle class="progress-ring-bg" cx="22" cy="22" r="19"></circle>
-        <circle class="progress-ring-fill" id="progressRingFill" cx="22" cy="22" r="19"></circle>
+        <circle class="progress-ring-bg" cx="22" cy="22" r="20.5"></circle>
+        <circle class="progress-ring-fill" id="progressRingFill" cx="22" cy="22" r="20.5"></circle>
     </svg>
     <span class="back-to-top-icon">
         <i class="fa-solid fa-arrow-up"></i>

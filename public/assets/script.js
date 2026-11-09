@@ -20,8 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ===================================================== */
     const backToTopBtn = document.getElementById("floatingBackToTop");
     const progressFill = document.getElementById("progressRingFill");
-    const footerBackTop = document.querySelector(".footer-back-top");
-    const circumference = 119.38; // 2 * Math.PI * 19
+    const circumference = 128.81; // 2 * Math.PI * 20.5
 
     function updateBackToTop() {
         if (!backToTopBtn) return;
@@ -56,9 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (backToTopBtn) {
         backToTopBtn.addEventListener("click", scrollToTop);
-    }
-    if (footerBackTop) {
-        footerBackTop.addEventListener("click", scrollToTop);
     }
 
     // Scroll performance optimization using requestAnimationFrame
