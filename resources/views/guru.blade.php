@@ -6,9 +6,7 @@
 <main class="page-content">
     <section class="page-hero">
         <div class="page-hero-content">
-            <span class="section-label">AKADEMIK</span>
             <h2>Guru &amp; Tenaga Kependidikan</h2>
-            <p>Tenaga pendidik dan kependidikan {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.</p>
         </div>
     </section>
 

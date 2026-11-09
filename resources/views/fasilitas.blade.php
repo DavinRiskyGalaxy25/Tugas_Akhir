@@ -6,9 +6,7 @@
 <main class="page-content">
     <section class="page-hero">
         <div class="page-hero-content">
-            <span class="section-label">AKADEMIK</span>
             <h2>Fasilitas</h2>
-            <p>Fasilitas yang tersedia untuk mendukung kegiatan belajar dan aktivitas siswa {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad' }}.</p>
         </div>
     </section>
 

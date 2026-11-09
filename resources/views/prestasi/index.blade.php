@@ -6,9 +6,7 @@
 <main>
     <section class="page-hero">
         <div class="page-hero-content">
-            <span class="section-label">CAPAIAN MEMBANGGAKAN</span>
             <h2>Prestasi Siswa</h2>
-            <p>Pencapaian dan prestasi kejuaraan yang diraih oleh siswa-siswi {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.</p>
         </div>
     </section>
 

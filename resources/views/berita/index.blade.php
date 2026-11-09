@@ -6,9 +6,7 @@
 <main>
     <section class="page-hero">
         <div class="page-hero-content">
-            <span class="section-label">KABAR TERKINI</span>
             <h2>Berita &amp; Pengumuman</h2>
-            <p>Kumpulan berita, artikel, dan informasi terbaru seputar {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.</p>
         </div>
     </section>
 

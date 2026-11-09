@@ -6,9 +6,7 @@
 <main class="page-content">
     <section class="page-hero">
         <div class="page-hero-content">
-            <span class="section-label">KONTAK KAMI</span>
-            <h2>Hubungi {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}</h2>
-            <p>Silakan hubungi kami untuk informasi seputar pendaftaran, akademik, dan layanan sekolah.</p>
+            <h2>Kontak Kami</h2>
         </div>
     </section>
 

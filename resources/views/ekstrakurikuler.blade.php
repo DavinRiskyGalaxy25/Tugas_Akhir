@@ -6,9 +6,7 @@
 <main class="page-content">
     <section class="page-hero">
         <div class="page-hero-content">
-            <span class="section-label">KESISWAAN</span>
             <h2>Ekstrakurikuler</h2>
-            <p>Berbagai kegiatan ekstrakurikuler yang dapat diikuti oleh siswa {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.</p>
         </div>
     </section>
 

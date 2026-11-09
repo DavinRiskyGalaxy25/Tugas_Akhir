@@ -7,9 +7,7 @@
 
     <section class="page-hero">
         <div class="page-hero-content">
-            <span class="section-label">AKADEMIK</span>
-            <h2>Guru &amp; Fasilitas</h2>
-            <p>Mengenal guru, tenaga kependidikan, dan fasilitas SMP Al Ahmad.</p>
+            <h2>Akademik</h2>
         </div>
     </section>
 

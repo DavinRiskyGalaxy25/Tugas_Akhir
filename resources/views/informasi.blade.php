@@ -7,9 +7,7 @@
 
     <section class="page-hero">
         <div class="page-hero-content">
-            <span class="section-label">INFORMASI</span>
-            <h2>Berita &amp; Informasi Sekolah</h2>
-            <p>Berita, alumni, PPDB, dan kontak.</p>
+            <h2>Informasi Sekolah</h2>
         </div>
     </section>
 

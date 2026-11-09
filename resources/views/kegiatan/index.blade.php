@@ -6,9 +6,7 @@
 <main>
     <section class="page-hero">
         <div class="page-hero-content">
-            <span class="section-label">AKTIVITAS SISWA</span>
             <h2>Kegiatan Sekolah</h2>
-            <p>Dokumentasi aktivitas pembelajaran, kepesantrenan, dan kesiswaan {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.</p>
         </div>
     </section>
 

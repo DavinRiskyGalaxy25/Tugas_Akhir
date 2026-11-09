@@ -6,9 +6,7 @@
 <main class="page-content">
     <section class="page-hero">
         <div class="page-hero-content">
-            <span class="section-label">ALUMNI</span>
             <h2>Kesan &amp; Pesan Alumni</h2>
-            <p>Bagikan pengalamanmu selama bersekolah di {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.</p>
         </div>
     </section>
 
