@@ -25,27 +25,20 @@
     <div class="footer-ambient-glow glow-1" aria-hidden="true"></div>
     <div class="footer-ambient-glow glow-2" aria-hidden="true"></div>
 
-    <!-- GEOMETRIC ISLAMIC LATTICE PATTERN BACKGROUND -->
+    <!-- GEOMETRIC ISLAMIC STAR PATTERN BACKGROUND (CLEAN STARS ONLY) -->
     <div class="footer-pattern-overlay" aria-hidden="true">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <defs>
-                <pattern id="islamicLatticePattern" width="100" height="100" patternUnits="userSpaceOnUse">
-                    <!-- Diagonal guideline dashes -->
-                    <line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="0.5" opacity="0.25" stroke-dasharray="3 4"/>
-                    <line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="0.5" opacity="0.25" stroke-dasharray="3 4"/>
-                    <!-- 8-Pointed Star (Rub el Hizb) Center -->
-                    <polygon points="50,28 55,41 68,36 63,49 76,54 63,59 68,72 55,67 50,80 45,67 32,72 37,59 24,54 37,49 32,36 45,41" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.6"/>
-                    <circle cx="50" cy="50" r="5" fill="none" stroke="currentColor" stroke-width="0.7" opacity="0.45"/>
-                    <circle cx="50" cy="50" r="1.5" fill="currentColor" opacity="0.6"/>
-                    <!-- Corner Stars & Nodes -->
-                    <circle cx="0" cy="0" r="2.5" fill="currentColor" opacity="0.4"/>
-                    <circle cx="100" cy="0" r="2.5" fill="currentColor" opacity="0.4"/>
-                    <circle cx="0" cy="100" r="2.5" fill="currentColor" opacity="0.4"/>
-                    <circle cx="100" cy="100" r="2.5" fill="currentColor" opacity="0.4"/>
-                    <circle cx="50" cy="0" r="2" fill="currentColor" opacity="0.35"/>
-                    <circle cx="50" cy="100" r="2.5" fill="currentColor" opacity="0.35"/>
-                    <circle cx="0" cy="50" r="2" fill="currentColor" opacity="0.35"/>
-                    <circle cx="100" cy="50" r="2.5" fill="currentColor" opacity="0.35"/>
+                <g id="footerStar">
+                    <polygon points="0,-24 5,-10 17,-17 10,-5 24,0 10,5 17,17 5,10 0,24 -5,10 -17,17 -10,5 -24,0 -10,-5 -17,-17 -5,-10" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/>
+                    <polygon points="0,-13 3,-6 9,-9 6,-3 13,0 6,3 9,9 3,6 0,13 -3,6 -9,9 -6,3 -13,0 -6,-3 -9,-9 -3,-6" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.32"/>
+                </g>
+                <pattern id="islamicLatticePattern" width="120" height="120" patternUnits="userSpaceOnUse">
+                    <use href="#footerStar" x="60" y="60"/>
+                    <use href="#footerStar" x="0" y="0"/>
+                    <use href="#footerStar" x="120" y="0"/>
+                    <use href="#footerStar" x="0" y="120"/>
+                    <use href="#footerStar" x="120" y="120"/>
                 </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#islamicLatticePattern)" />
