@@ -21,9 +21,6 @@
         </div>
     </div>
 
-    <!-- LUMINOUS ACCENT BORDER LINE -->
-    <div class="footer-accent-line" aria-hidden="true"></div>
-
     <!-- AMBIENT GLOW ORBS -->
     <div class="footer-ambient-glow glow-1" aria-hidden="true"></div>
     <div class="footer-ambient-glow glow-2" aria-hidden="true"></div>
