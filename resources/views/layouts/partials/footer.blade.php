@@ -79,22 +79,6 @@
                 </div>
             </div>
 
-            <!-- PETA SITUS / NAVIGASI -->
-            <div class="footer-column">
-                <h3>Navigasi Cepat</h3>
-                <ul class="footer-links">
-                    <li><a href="{{ route('home') }}">Beranda Utama</a></li>
-                    <li><a href="{{ route('profil') }}#tentang">Tentang &amp; Sejarah</a></li>
-                    <li><a href="{{ route('profil') }}#visi-misi">Visi &amp; Misi</a></li>
-                    <li><a href="{{ route('profil') }}#struktur">Struktur Organisasi</a></li>
-                    <li><a href="{{ route('akademik') }}#guru">Tenaga Pendidik &amp; Staf</a></li>
-                    <li><a href="{{ route('kesiswaan') }}#prestasi">Galeri Prestasi</a></li>
-                    <li><a href="{{ route('ppdb.create') }}">Pendaftaran SPMB Online</a></li>
-                    <li><a href="{{ route('kontak') }}">Hubungi Sekolah</a></li>
-                    <li><a href="{{ route('admin.login') }}">Portal Guru &amp; Staf</a></li>
-                </ul>
-            </div>
-
             <!-- KONTAK & JAM OPERASIONAL -->
             <div class="footer-column">
                 <h3>Hubungi Kami</h3>
