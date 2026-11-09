@@ -1684,22 +1684,71 @@ body:not(.home-page) {
     overflow: hidden;
 }
 
-/* SVG MULTI-LAYER WAVE DIVIDER */
+/* SVG ANIMATED MOVING WAVES DIVIDER */
 .footer-wave-divider {
+    position: relative;
     width: 100%;
+    height: 85px;
     overflow: hidden;
     line-height: 0;
     font-size: 0;
     background: transparent !important;
-    position: relative;
     z-index: 2;
     margin-bottom: -1px;
 }
 
-.footer-wave-divider svg {
-    width: 100%;
-    height: 75px;
+.wave-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    will-change: transform;
+    pointer-events: none;
+}
+
+.wave-track svg {
     display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.wave-track-1 {
+    z-index: 1;
+    animation: footerWaveSlide 20s linear infinite;
+}
+
+.wave-track-2 {
+    z-index: 2;
+    animation: footerWaveSlide 14s linear infinite reverse;
+}
+
+.wave-track-3 {
+    z-index: 3;
+    animation: footerWaveSlide 9s linear infinite;
+}
+
+@keyframes footerWaveSlide {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wave-track-1,
+    .wave-track-2,
+    .wave-track-3 {
+        animation: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-wave-divider {
+        height: 55px;
+    }
 }
 
 /* LUMINOUS ACCENT LINE */
