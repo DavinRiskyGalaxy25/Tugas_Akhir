@@ -122,17 +122,12 @@
         <div class="editorial-photo-side">
             <div class="editorial-photo-wrapper">
                 <img src="{{ $sambutanFoto }}" alt="Kepala Sekolah {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad' }}">
-                <div class="photo-floating-badge">
-                    <i class="fa-solid fa-quote-left"></i>
-                    <span>Keteladanan &amp; Akhlak</span>
-                </div>
             </div>
         </div>
 
         <!-- TEKS SAMBUTAN & KUTIPAN -->
         <div class="editorial-content-side">
-            <div class="section-kicker">SAMBUTAN KEPALA SEKOLAH</div>
-            <h2 class="editorial-heading">Membimbing dengan Hati, Mendidik dengan Karakter</h2>
+            <h2 class="editorial-heading">Sambutan Kepala Sekolah SMP Al Ahmad</h2>
 
             <div class="editorial-quote-box">
                 <p>&ldquo;{{ $sambutanQuote }}&rdquo;</p>
@@ -161,7 +156,6 @@
 <section class="section-about-overview">
     <div class="about-overview-container">
         <div class="about-content-column">
-            <div class="section-kicker">MENGENAL KAMI</div>
             <h2 class="about-main-title">Membangun Insan Berprestasi di Lingkungan Pendidikan yang Kondusif</h2>
             <p class="about-lead-text">{{ $tentangTeks }}</p>
             
@@ -220,9 +214,7 @@
 <section class="section-explore-hub">
     <div class="explore-container">
         <div class="explore-header-center">
-            <div class="section-kicker">INFORMASI SEKOLAH</div>
             <h2 class="explore-title">Jelajahi {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad' }}</h2>
-            <p class="explore-subtitle">Temukan seluruh informasi yang Anda butuhkan seputar profil, pembelajaran, dan layanan sekolah.</p>
         </div>
 
         <div class="explore-cards-grid">

@@ -2277,7 +2277,7 @@ body:has(.page-hero) {
     overflow: hidden !important;
     text-align: left !important;
     border-bottom: none !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18) !important;
+    box-shadow: none !important;
 }
 
 /* Ambient glow orbs + Pure Islamic 8-Pointed Star Ornaments (No lines, no dots) */
@@ -2294,20 +2294,9 @@ body:has(.page-hero) {
     z-index: 1 !important;
 }
 
-/* Fallback CSS wave at bottom of hero (when JS divider is pending) */
+/* Fallback CSS wave at bottom of hero disabled to prevent duplicate wave lines */
 .page-hero:not(:has(.hero-wave-divider))::after {
-    content: "" !important;
-    position: absolute !important;
-    bottom: -1px !important;
-    left: 0 !important;
-    width: 200% !important;
-    height: 52px !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,45 C150,90 350,10 500,55 C650,100 900,20 1200,60 L1200,120 L0,120 Z' fill='%23ffffff'/%3E%3C/svg%3E") !important;
-    background-size: 50% 100% !important;
-    background-repeat: repeat-x !important;
-    animation: heroWaveSlide 22s linear infinite alternate !important;
-    pointer-events: none !important;
-    z-index: 3 !important;
+    display: none !important;
 }
 
 .page-hero-content {
