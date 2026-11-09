@@ -1685,6 +1685,16 @@ body:not(.home-page) {
 }
 
 /* SVG ANIMATED MOVING WAVES DIVIDER */
+:root {
+    --footer-wave-fill: #ffffff;
+}
+
+main:has(> section:last-of-type.alternate-section) + .site-footer,
+main:has(> .alternate-section:last-child) + .site-footer,
+main:has(.alternate-section:last-child) + .site-footer {
+    --footer-wave-fill: #f8fafc;
+}
+
 .footer-wave-divider {
     position: relative;
     width: 100%;
@@ -1692,27 +1702,9 @@ body:not(.home-page) {
     overflow: hidden;
     line-height: 0;
     font-size: 0;
-    background: #ffffff !important;
+    background: transparent !important;
     z-index: 2;
-    margin-bottom: -1px;
-}
-
-main:has(> section:last-of-type.alternate-section) + .site-footer .footer-wave-divider,
-main:has(> .alternate-section:last-child) + .site-footer .footer-wave-divider,
-main:has(.alternate-section:last-child) + .site-footer .footer-wave-divider {
-    background: #f8fafc !important;
-}
-
-.footer-wave-divider::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 20px;
-    background: linear-gradient(180deg, rgba(7, 33, 19, 0) 0%, rgba(7, 33, 19, 0.65) 50%, #072113 100%);
-    pointer-events: none;
-    z-index: 5;
+    margin-top: -1px;
 }
 
 .wave-track {
