@@ -1920,11 +1920,29 @@ const teacherNext = document.querySelector(".teacher-next");
 
 if (teacherSlider && teacherWindow && teacherTrack) {
     let teacherPosition = 0;
+    const teacherGap = 12;
+
+    function resizeTeacherCards() {
+        if (!teacherWindow || !teacherTrack) return;
+        const windowWidth = teacherWindow.clientWidth;
+        if (!windowWidth) return;
+
+        // Tepat 5 kartu per view di layar normal (>= 600px), atau 3 kartu di mobile sangat sempit
+        const cardsPerView = windowWidth < 600 ? 3 : 5;
+        const totalGaps = (cardsPerView - 1) * teacherGap;
+        const cardWidth = Math.floor((windowWidth - totalGaps) / cardsPerView);
+
+        const cards = teacherTrack.querySelectorAll(".teacher-card");
+        cards.forEach(function (card) {
+            card.style.setProperty("width", cardWidth + "px", "important");
+            card.style.setProperty("min-width", cardWidth + "px", "important");
+            card.style.setProperty("max-width", cardWidth + "px", "important");
+            card.style.setProperty("flex", "0 0 " + cardWidth + "px", "important");
+        });
+    }
 
     function getTeacherStep() {
-        const gap = parseFloat(getComputedStyle(teacherTrack).gap) || 12;
-        // Geser tepat 5 kartu sekaligus (1 tampilan penuh)
-        return teacherWindow.clientWidth + gap;
+        return teacherWindow.clientWidth + teacherGap;
     }
 
     function getTeacherMaxPosition() {
@@ -1933,6 +1951,7 @@ if (teacherSlider && teacherWindow && teacherTrack) {
     }
 
     function updateTeacherSlider() {
+        resizeTeacherCards();
         const max = getTeacherMaxPosition();
         if (teacherPosition < 0) teacherPosition = 0;
         if (teacherPosition > max) teacherPosition = max;
@@ -1942,13 +1961,13 @@ if (teacherSlider && teacherWindow && teacherTrack) {
         if (teacherPrev) {
             const isPrevDisabled = teacherPosition <= 0 || max === 0;
             teacherPrev.disabled = isPrevDisabled;
-            teacherPrev.style.opacity = isPrevDisabled ? "0.35" : "1";
+            teacherPrev.style.opacity = isPrevDisabled ? "0.3" : "1";
             teacherPrev.style.pointerEvents = isPrevDisabled ? "none" : "auto";
         }
         if (teacherNext) {
             const isNextDisabled = teacherPosition >= max || max === 0;
             teacherNext.disabled = isNextDisabled;
-            teacherNext.style.opacity = isNextDisabled ? "0.35" : "1";
+            teacherNext.style.opacity = isNextDisabled ? "0.3" : "1";
             teacherNext.style.pointerEvents = isNextDisabled ? "none" : "auto";
         }
     }
@@ -1973,7 +1992,12 @@ if (teacherSlider && teacherWindow && teacherTrack) {
         updateTeacherSlider();
     });
 
+    resizeTeacherCards();
     updateTeacherSlider();
+    window.addEventListener("load", function () {
+        resizeTeacherCards();
+        updateTeacherSlider();
+    });
 }
 
 /* =====================================================

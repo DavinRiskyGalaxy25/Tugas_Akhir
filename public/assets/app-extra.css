@@ -4054,10 +4054,10 @@ button[type="reset"].secondary-button:hover {
 
 /* Selalu tampil tepat 5 kartu per tampilan ("5 5") */
 .teacher-slider-window .teacher-card {
-    flex: 0 0 calc((100% - (4 * 12px)) / 5) !important;
-    width: calc((100% - (4 * 12px)) / 5) !important;
-    min-width: calc((100% - (4 * 12px)) / 5) !important;
-    max-width: calc((100% - (4 * 12px)) / 5) !important;
+    flex: 0 0 185px !important;
+    width: 185px !important;
+    min-width: 0 !important;
+    max-width: none !important;
     box-sizing: border-box !important;
     margin: 0 !important;
     border-radius: 12px !important;
@@ -4076,8 +4076,8 @@ button[type="reset"].secondary-button:hover {
 .teacher-slider-window .teacher-photo,
 .teacher-directory-card .teacher-photo {
     width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 3 / 4 !important;
+    height: 220px !important;
+    aspect-ratio: auto !important;
     border: none !important;
     background: #f1f5f9 !important;
     display: block !important;
