@@ -3,17 +3,82 @@ document.addEventListener("DOMContentLoaded", function () {
        HEADER TRANSPARENT / SOLID ON SCROLL
     ===================================================== */
     const siteHeader = document.getElementById("siteHeader") || document.querySelector(".site-header");
-    if (siteHeader) {
-        function checkHeaderScroll() {
-            if (window.scrollY > 30) {
-                siteHeader.classList.add("scrolled");
-            } else {
-                siteHeader.classList.remove("scrolled");
-            }
+    function checkHeaderScroll() {
+        if (!siteHeader) return;
+        if (window.scrollY > 30) {
+            siteHeader.classList.add("scrolled");
+        } else {
+            siteHeader.classList.remove("scrolled");
         }
-        window.addEventListener("scroll", checkHeaderScroll, { passive: true });
+    }
+    if (siteHeader) {
         checkHeaderScroll();
     }
+
+    /* =====================================================
+       RESPONSIVE FLOATING BACK TO TOP WITH SCROLL PROGRESS
+    ===================================================== */
+    const backToTopBtn = document.getElementById("floatingBackToTop");
+    const progressFill = document.getElementById("progressRingFill");
+    const footerBackTop = document.querySelector(".footer-back-top");
+    const circumference = 119.38; // 2 * Math.PI * 19
+
+    function updateBackToTop() {
+        if (!backToTopBtn) return;
+        const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight;
+        const winHeight = window.innerHeight;
+        const maxScroll = docHeight - winHeight;
+
+        // Tampilkan tombol saat pengguna telah scroll turun lebih dari 280px
+        if (scrollY > 280) {
+            backToTopBtn.classList.add("is-visible");
+        } else {
+            backToTopBtn.classList.remove("is-visible");
+        }
+
+        // Perbarui stroke-dashoffset indikator lingkar keterbacaan (reading/scroll progress)
+        if (progressFill && maxScroll > 0) {
+            const scrollRatio = Math.min(Math.max(scrollY / maxScroll, 0), 1);
+            const offset = circumference - (scrollRatio * circumference);
+            progressFill.style.strokeDashoffset = offset.toFixed(2);
+        }
+    }
+
+    function scrollToTop(e) {
+        if (e) e.preventDefault();
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({
+            top: 0,
+            behavior: prefersReducedMotion ? 'auto' : 'smooth'
+        });
+    }
+
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener("click", scrollToTop);
+    }
+    if (footerBackTop) {
+        footerBackTop.addEventListener("click", scrollToTop);
+    }
+
+    // Scroll performance optimization using requestAnimationFrame
+    let scrollTicking = false;
+    function onScrollOrResize() {
+        if (!scrollTicking) {
+            window.requestAnimationFrame(function () {
+                checkHeaderScroll();
+                updateBackToTop();
+                scrollTicking = false;
+            });
+            scrollTicking = true;
+        }
+    }
+
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize, { passive: true });
+
+    // Inisialisasi awal saat halaman dimuat
+    updateBackToTop();
 
     /* =====================================================
        INNER PAGE HERO WAVE INJECTION & BODY CLASS

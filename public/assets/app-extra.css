@@ -2061,6 +2061,131 @@ body:not(.home-page) {
 }
 
 /* ==========================================================================
+   FLOATING BACK TO TOP (RESPONSIVE SCROLL-PROGRESS BUTTON)
+   ========================================================================== */
+.floating-back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid rgba(22, 163, 74, 0.22);
+    color: #15803d;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px -4px rgba(15, 23, 42, 0.12), 0 4px 10px -2px rgba(22, 163, 74, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(16px) scale(0.88);
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.22s ease,
+                border-color 0.22s ease,
+                box-shadow 0.22s ease,
+                color 0.22s ease;
+    z-index: 990;
+    padding: 0;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.floating-back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+.floating-back-to-top:hover {
+    background: #15803d;
+    border-color: #15803d;
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 14px 32px -4px rgba(22, 163, 74, 0.45);
+}
+
+.floating-back-to-top:active {
+    transform: translateY(0) scale(0.96);
+}
+
+.floating-back-to-top:focus-visible {
+    outline: 2px solid #22c55e;
+    outline-offset: 3px;
+}
+
+/* Circular SVG Reading Progress Ring */
+.floating-back-to-top .progress-ring {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    pointer-events: none;
+}
+
+.floating-back-to-top .progress-ring-bg {
+    fill: none;
+    stroke: rgba(22, 163, 74, 0.15);
+    stroke-width: 2.5;
+    transition: stroke 0.22s ease;
+}
+
+.floating-back-to-top .progress-ring-fill {
+    fill: none;
+    stroke: #16a34a;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 119.38;
+    stroke-dashoffset: 119.38;
+    transition: stroke-dashoffset 0.1s linear, stroke 0.22s ease;
+}
+
+.floating-back-to-top:hover .progress-ring-bg {
+    stroke: rgba(255, 255, 255, 0.25);
+}
+
+.floating-back-to-top:hover .progress-ring-fill {
+    stroke: #4ade80;
+}
+
+/* Arrow Icon */
+.floating-back-to-top .back-to-top-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), color 0.22s ease;
+}
+
+.floating-back-to-top:hover .back-to-top-icon {
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-back-to-top {
+        transition: none !important;
+    }
+    .floating-back-to-top .progress-ring-fill {
+        transition: none !important;
+    }
+    .floating-back-to-top:hover {
+        transform: none !important;
+    }
+    .floating-back-to-top:hover .back-to-top-icon {
+        transform: none !important;
+    }
+}
+
+/* ==========================================================================
    RESPONSIVE (MOBILE & TABLET ADAPTATION)
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -3417,6 +3542,15 @@ button[type="reset"].secondary-button:hover {
     .section-container {
         padding-left: 18px !important;
         padding-right: 18px !important;
+    }
+    .floating-back-to-top {
+        bottom: 22px !important;
+        right: 20px !important;
+        width: 44px !important;
+        height: 44px !important;
+    }
+    .floating-back-to-top .back-to-top-icon {
+        font-size: 14px !important;
     }
     .form-card {
         padding: 26px 18px !important;
