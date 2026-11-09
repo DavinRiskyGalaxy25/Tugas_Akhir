@@ -1695,6 +1695,8 @@ body:not(.home-page) {
     background: transparent !important;
     z-index: 2;
     margin-bottom: -1px;
+    -webkit-mask-image: linear-gradient(180deg, #000000 0%, #000000 45%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(180deg, #000000 0%, #000000 45%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0) 100%);
 }
 
 .wave-track {
