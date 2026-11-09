@@ -3775,7 +3775,7 @@ button[type="reset"].secondary-button:hover {
 
 
 /* ==========================================================================
-   GURU & TENAGA KEPENDIDIKAN: MODAL ZOOM FOTO & INFORMASI LENGKAP
+   GURU & TENAGA KEPENDIDIKAN: MODAL ZOOM BERSIH & MINIMALIS (SESUAI CONTOH)
    ========================================================================== */
 .teacher-modal-overlay {
     position: fixed !important;
@@ -3788,7 +3788,7 @@ button[type="reset"].secondary-button:hover {
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
-    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease !important;
+    transition: opacity 0.25s ease, visibility 0.25s ease !important;
 }
 
 .teacher-modal-overlay.is-active {
@@ -3800,9 +3800,9 @@ button[type="reset"].secondary-button:hover {
 .teacher-modal-backdrop {
     position: absolute !important;
     inset: 0 !important;
-    background: rgba(8, 28, 16, 0.78) !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
+    background: rgba(15, 23, 42, 0.55) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
     cursor: pointer !important;
 }
 
@@ -3810,90 +3810,71 @@ button[type="reset"].secondary-button:hover {
     position: relative !important;
     z-index: 2 !important;
     width: 100% !important;
-    max-width: 860px !important;
-    max-height: calc(100vh - 48px) !important;
+    max-width: 760px !important;
     background: #ffffff !important;
-    border-radius: 24px !important;
-    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.4) !important;
+    border-radius: 8px !important; /* Kotak dengan rounded sedikit saja */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.16) !important;
     overflow: hidden !important;
-    transform: scale(0.92) translateY(20px) !important;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transform: scale(0.95) !important;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    border: none !important; /* Tanpa border sama sekali */
+    padding: 38px 44px !important;
 }
 
 .teacher-modal-overlay.is-active .teacher-modal-dialog {
-    transform: scale(1) translateY(0) !important;
+    transform: scale(1) !important;
 }
 
 .teacher-modal-close {
     position: absolute !important;
     top: 16px !important;
-    right: 16px !important;
-    width: 42px !important;
-    height: 42px !important;
-    border-radius: 50% !important;
-    background: #ffffff !important;
-    color: #176b3a !important;
-    border: 1px solid #e2e8f0 !important;
+    right: 20px !important;
+    width: 34px !important;
+    height: 34px !important;
+    background: transparent !important;
+    border: none !important;
+    color: #94a3b8 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    font-size: 1.25rem !important;
+    font-size: 1.3rem !important;
     cursor: pointer !important;
-    z-index: 20 !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14) !important;
-    transition: all 0.25s ease !important;
+    z-index: 10 !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
 }
 
 .teacher-modal-close:hover {
-    background: #176b3a !important;
-    color: #ffffff !important;
-    transform: rotate(90deg) scale(1.05) !important;
+    color: #0f172a !important;
+    background: transparent !important;
+    transform: scale(1.1) !important;
 }
 
 .teacher-modal-body {
     display: grid !important;
-    grid-template-columns: 360px 1fr !important;
-    align-items: stretch !important;
-    max-height: calc(100vh - 48px) !important;
-    overflow-y: auto !important;
+    grid-template-columns: 240px 1fr !important;
+    gap: 40px !important;
+    align-items: center !important;
+    background: #ffffff !important;
+    border: none !important;
 }
 
 .teacher-modal-photo-col {
-    background: linear-gradient(135deg, #072213 0%, #176b3a 100%) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 30px 24px !important;
-    min-height: 440px !important;
-    position: relative !important;
-}
-
-.teacher-modal-photo-col::before {
-    content: '' !important;
-    position: absolute !important;
-    inset: 0 !important;
-    background-image: radial-gradient(circle at 30% 30%, rgba(34, 197, 94, 0.25) 0%, transparent 60%) !important;
-    pointer-events: none !important;
-}
-
-.teacher-modal-photo-wrap {
     width: 100% !important;
-    max-width: 300px !important;
-    height: 100% !important;
-    max-height: 380px !important;
-    border-radius: 18px !important;
+    max-width: 240px !important;
+    aspect-ratio: 4 / 5 !important;
+    border-radius: 6px !important;
     overflow: hidden !important;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35) !important;
-    border: 3px solid rgba(255, 255, 255, 0.25) !important;
-    background: #0a301a !important;
+    background: #f8fafc !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    position: relative !important;
-    z-index: 1 !important;
+    border: none !important; /* Tanpa border */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: unset !important;
 }
 
 .teacher-modal-img {
@@ -3902,129 +3883,62 @@ button[type="reset"].secondary-button:hover {
     object-fit: cover !important;
     object-position: center top !important;
     display: block !important;
+    border: none !important;
 }
 
 .teacher-modal-info-col {
-    padding: 40px 36px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
-    background: #ffffff !important;
-    position: relative !important;
-    z-index: 1 !important;
-}
-
-.teacher-modal-header {
-    margin-bottom: 22px !important;
-}
-
-.teacher-modal-badge {
-    display: inline-block !important;
-    padding: 6px 14px !important;
-    background: #e8f5ec !important;
-    color: #176b3a !important;
-    font-size: 0.78rem !important;
-    font-weight: 800 !important;
-    letter-spacing: 0.8px !important;
-    border-radius: 30px !important;
-    margin-bottom: 12px !important;
-    text-transform: uppercase !important;
-    border: 1px solid rgba(23, 107, 58, 0.2) !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
 }
 
 .teacher-modal-name {
     font-family: 'Poppins', -apple-system, sans-serif !important;
-    font-size: 1.65rem !important;
+    font-size: 1.85rem !important;
     font-weight: 800 !important;
-    color: #0f3d24 !important;
-    margin: 0 !important;
+    color: #0f172a !important; /* Teks tegas dan jelas seperti referensi */
+    margin: 0 0 10px 0 !important;
     line-height: 1.25 !important;
+    border: none !important;
 }
 
-.teacher-modal-details {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 14px !important;
-}
-
-.teacher-modal-detail-item {
-    display: flex !important;
-    align-items: flex-start !important;
-    gap: 14px !important;
-    padding: 14px 16px !important;
-    background: #f8faf8 !important;
-    border-radius: 14px !important;
-    border: 1px solid #e8efe9 !important;
-    transition: background 0.2s ease !important;
-}
-
-.teacher-modal-detail-item:hover {
-    background: #f1f8f3 !important;
-}
-
-.teacher-modal-detail-item .detail-icon {
-    width: 38px !important;
-    height: 38px !important;
-    border-radius: 10px !important;
-    background: #e8f5ec !important;
-    color: #176b3a !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+.teacher-modal-role {
+    font-family: 'Poppins', -apple-system, sans-serif !important;
     font-size: 1.05rem !important;
-    flex-shrink: 0 !important;
-}
-
-.teacher-modal-detail-item .detail-content {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2px !important;
-    min-width: 0 !important;
-}
-
-.teacher-modal-detail-item .detail-label {
-    font-size: 0.74rem !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.6px !important;
-    color: #64748b !important;
-    font-weight: 700 !important;
-}
-
-.teacher-modal-detail-item strong.detail-val {
-    font-size: 0.98rem !important;
-    font-weight: 700 !important;
-    color: #1e293b !important;
-}
-
-.teacher-modal-detail-item p.detail-val {
-    font-size: 0.92rem !important;
-    color: #334155 !important;
-    line-height: 1.55 !important;
+    font-weight: 500 !important;
+    color: #64748b !important; /* Subtitle abu-abu bersih seperti referensi */
     margin: 0 !important;
+    line-height: 1.5 !important;
+    border: none !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
+    .teacher-modal-dialog {
+        padding: 30px 20px 24px !important;
+        max-width: 92vw !important;
+    }
     .teacher-modal-body {
         grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        text-align: center !important;
+        justify-items: center !important;
     }
     .teacher-modal-photo-col {
-        min-height: 260px !important;
-        padding: 24px 20px 16px !important;
-    }
-    .teacher-modal-photo-wrap {
-        max-width: 200px !important;
-        max-height: 240px !important;
-    }
-    .teacher-modal-info-col {
-        padding: 24px 20px !important;
+        max-width: 190px !important;
     }
     .teacher-modal-name {
-        font-size: 1.35rem !important;
+        font-size: 1.4rem !important;
+    }
+    .teacher-modal-role {
+        font-size: 0.95rem !important;
     }
 }
 
 /* ==========================================================================
-   SLIDER GURU: MAKS 5 KARTU PER PREVIEW & NAVIGASI PANAH
+   SLIDER GURU: TEPAT 5 KARTU PER PREVIEW (DESKTOP / LAPTOP)
    ========================================================================== */
 .section-heading-with-action {
     display: flex !important;
@@ -4074,38 +3988,122 @@ button[type="reset"].secondary-button:hover {
     transform: translateX(4px) !important;
 }
 
-/* Explicit 5 cards per view on Desktop */
-@media (min-width: 1120px) {
+.teacher-slider {
+    position: relative !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+/* Tepat 5 kartu tampil sekaligus pada semua layar desktop / laptop / tablet landscape */
+@media (min-width: 768px) {
     .teacher-slider-window {
         overflow: hidden !important;
+        width: 100% !important;
     }
     .teacher-slider-track {
-        gap: 16px !important;
+        display: flex !important;
+        align-items: stretch !important;
+        gap: 14px !important;
+        width: max-content !important;
+        transition: transform 0.4s ease !important;
     }
     .teacher-slider-window .teacher-card {
-        flex: 0 0 calc((100% - (4 * 16px)) / 5) !important;
-        width: calc((100% - (4 * 16px)) / 5) !important;
-        min-width: calc((100% - (4 * 16px)) / 5) !important;
-        max-width: calc((100% - (4 * 16px)) / 5) !important;
+        flex: 0 0 calc((100% - (4 * 14px)) / 5) !important;
+        width: calc((100% - (4 * 14px)) / 5) !important;
+        min-width: calc((100% - (4 * 14px)) / 5) !important;
+        max-width: calc((100% - (4 * 14px)) / 5) !important;
     }
 }
 
-@media (min-width: 860px) and (max-width: 1119px) {
+@media (max-width: 767px) and (min-width: 480px) {
+    .teacher-slider-window {
+        overflow: hidden !important;
+        width: 100% !important;
+    }
+    .teacher-slider-track {
+        display: flex !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        width: max-content !important;
+    }
     .teacher-slider-window .teacher-card {
-        flex: 0 0 calc((100% - (3 * 16px)) / 4) !important;
-        width: calc((100% - (3 * 16px)) / 4) !important;
-        min-width: calc((100% - (3 * 16px)) / 4) !important;
-        max-width: calc((100% - (3 * 16px)) / 4) !important;
+        flex: 0 0 calc((100% - (2 * 12px)) / 3) !important;
+        width: calc((100% - (2 * 12px)) / 3) !important;
+        min-width: calc((100% - (2 * 12px)) / 3) !important;
+        max-width: calc((100% - (2 * 12px)) / 3) !important;
     }
 }
 
-@media (min-width: 600px) and (max-width: 859px) {
-    .teacher-slider-window .teacher-card {
-        flex: 0 0 calc((100% - (2 * 14px)) / 3) !important;
-        width: calc((100% - (2 * 14px)) / 3) !important;
-        min-width: calc((100% - (2 * 14px)) / 3) !important;
-        max-width: calc((100% - (2 * 14px)) / 3) !important;
+@media (max-width: 479px) {
+    .teacher-slider-window {
+        overflow: hidden !important;
+        width: 100% !important;
     }
+    .teacher-slider-track {
+        display: flex !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+        width: max-content !important;
+    }
+    .teacher-slider-window .teacher-card {
+        flex: 0 0 calc((100% - 10px) / 2) !important;
+        width: calc((100% - 10px) / 2) !important;
+        min-width: calc((100% - 10px) / 2) !important;
+        max-width: calc((100% - 10px) / 2) !important;
+    }
+}
+
+/* Card image & info tuning */
+.teacher-slider-window .teacher-photo,
+.teacher-directory-card .teacher-photo {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 3 / 4 !important;
+    border: none !important;
+}
+
+.teacher-slider-window .teacher-card,
+.teacher-directory-card {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+
+.teacher-slider-window .teacher-info,
+.teacher-directory-card .teacher-info {
+    padding: 14px 12px !important;
+}
+
+.teacher-slider-window .teacher-info h3,
+.teacher-directory-card .teacher-info h3 {
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    margin: 3px 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.teacher-slider-window .teacher-info p,
+.teacher-directory-card .teacher-info p {
+    font-size: 0.8rem !important;
+    color: #64748b !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.teacher-slider-window .teacher-info > span,
+.teacher-directory-card .teacher-info > span {
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    color: #176b3a !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    margin-bottom: 2px !important;
 }
 
 /* ==========================================================================
@@ -4114,7 +4112,7 @@ button[type="reset"].secondary-button:hover {
 .teacher-directory-grid {
     display: grid !important;
     grid-template-columns: repeat(5, 1fr) !important;
-    gap: 20px !important;
+    gap: 18px !important;
     margin-bottom: 45px !important;
 }
 

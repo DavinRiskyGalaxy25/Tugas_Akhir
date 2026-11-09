@@ -152,7 +152,7 @@
     </div>
 </div>
 
-<!-- MODAL DETAIL GURU (FOTO DIPERBESAR DI KIRI & INFORMASI DI KANAN) -->
+<!-- MODAL DETAIL GURU (BERSIH & MINIMALIS SESUAI CONTOH) -->
 <div class="teacher-modal-overlay" id="teacherModal" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="teacher-modal-backdrop" id="teacherModalBackdrop"></div>
     <div class="teacher-modal-dialog">
@@ -160,41 +160,14 @@
             <i class="fa-solid fa-xmark"></i>
         </button>
         <div class="teacher-modal-body">
-            <!-- Kolom Kiri: Foto Guru Diperbesar -->
+            <!-- Kolom Kiri: Foto Guru Diperbesar (Jelas tanpa gap & tanpa border) -->
             <div class="teacher-modal-photo-col">
-                <div class="teacher-modal-photo-wrap">
-                    <img src="" alt="" id="teacherModalImg" class="teacher-modal-img">
-                </div>
+                <img src="" alt="" id="teacherModalImg" class="teacher-modal-img">
             </div>
-            <!-- Kolom Kanan: Informasi Guru -->
+            <!-- Kolom Kanan: Informasi Guru (Hanya Nama dan Jabatan/Pelajaran) -->
             <div class="teacher-modal-info-col">
-                <div class="teacher-modal-header">
-                    <span class="teacher-modal-badge" id="teacherModalJabatan">GURU</span>
-                    <h3 class="teacher-modal-name" id="teacherModalName">Nama Guru</h3>
-                </div>
-                <div class="teacher-modal-details">
-                    <div class="teacher-modal-detail-item" id="teacherModalMapelRow">
-                        <div class="detail-icon"><i class="fa-solid fa-book-open"></i></div>
-                        <div class="detail-content">
-                            <span class="detail-label">Mata Pelajaran</span>
-                            <strong class="detail-val" id="teacherModalMapel">-</strong>
-                        </div>
-                    </div>
-                    <div class="teacher-modal-detail-item" id="teacherModalNipRow">
-                        <div class="detail-icon"><i class="fa-solid fa-id-card"></i></div>
-                        <div class="detail-content">
-                            <span class="detail-label">NIP / NIK</span>
-                            <strong class="detail-val" id="teacherModalNip">-</strong>
-                        </div>
-                    </div>
-                    <div class="teacher-modal-detail-item" id="teacherModalDescRow">
-                        <div class="detail-icon"><i class="fa-solid fa-circle-info"></i></div>
-                        <div class="detail-content">
-                            <span class="detail-label">Keterangan / Profil</span>
-                            <p class="detail-val" id="teacherModalDesc">-</p>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="teacher-modal-name" id="teacherModalName">Nama Guru</h3>
+                <p class="teacher-modal-role" id="teacherModalRole">Jabatan &bull; Pelajaran</p>
             </div>
         </div>
     </div>

@@ -1924,13 +1924,13 @@ if (teacherSlider && teacherWindow && teacherTrack) {
     function getTeacherStep() {
         const card = teacherTrack.querySelector(".teacher-card");
         if (!card) return 0;
-        const gap = parseFloat(getComputedStyle(teacherTrack).gap) || 16;
+        const gap = parseFloat(getComputedStyle(teacherTrack).gap) || 14;
         return card.offsetWidth + gap;
     }
 
     function getTeacherMaxPosition() {
         const maxScroll = teacherTrack.scrollWidth - teacherWindow.clientWidth;
-        return Math.max(0, maxScroll);
+        return maxScroll > 2 ? maxScroll : 0;
     }
 
     function updateTeacherSlider() {
@@ -1941,14 +1941,16 @@ if (teacherSlider && teacherWindow && teacherTrack) {
         teacherTrack.style.transform = "translateX(-" + teacherPosition + "px)";
 
         if (teacherPrev) {
-            teacherPrev.disabled = teacherPosition <= 0;
-            teacherPrev.style.opacity = teacherPosition <= 0 ? "0.4" : "1";
-            teacherPrev.style.pointerEvents = teacherPosition <= 0 ? "none" : "auto";
+            const isPrevDisabled = teacherPosition <= 0 || max === 0;
+            teacherPrev.disabled = isPrevDisabled;
+            teacherPrev.style.opacity = isPrevDisabled ? "0.35" : "1";
+            teacherPrev.style.pointerEvents = isPrevDisabled ? "none" : "auto";
         }
         if (teacherNext) {
-            teacherNext.disabled = teacherPosition >= max;
-            teacherNext.style.opacity = teacherPosition >= max ? "0.4" : "1";
-            teacherNext.style.pointerEvents = teacherPosition >= max ? "none" : "auto";
+            const isNextDisabled = teacherPosition >= max || max === 0;
+            teacherNext.disabled = isNextDisabled;
+            teacherNext.style.opacity = isNextDisabled ? "0.35" : "1";
+            teacherNext.style.pointerEvents = isNextDisabled ? "none" : "auto";
         }
     }
 
@@ -1976,63 +1978,49 @@ if (teacherSlider && teacherWindow && teacherTrack) {
 }
 
 /* =====================================================
-   MODAL DETAIL GURU (FOTO DIPERBESAR & INFORMASI DI KANAN)
+   MODAL DETAIL GURU (BERSIH & MINIMALIS SESUAI CONTOH)
 ===================================================== */
 const teacherModal = document.getElementById("teacherModal");
 const teacherModalBackdrop = document.getElementById("teacherModalBackdrop");
 const teacherModalClose = document.getElementById("teacherModalClose");
 const teacherModalImg = document.getElementById("teacherModalImg");
 const teacherModalName = document.getElementById("teacherModalName");
-const teacherModalJabatan = document.getElementById("teacherModalJabatan");
-const teacherModalMapel = document.getElementById("teacherModalMapel");
-const teacherModalNip = document.getElementById("teacherModalNip");
-const teacherModalDesc = document.getElementById("teacherModalDesc");
-const teacherModalMapelRow = document.getElementById("teacherModalMapelRow");
-const teacherModalNipRow = document.getElementById("teacherModalNipRow");
-const teacherModalDescRow = document.getElementById("teacherModalDescRow");
+const teacherModalRole = document.getElementById("teacherModalRole");
 
 function openTeacherModal(card) {
     if (!teacherModal || !card) return;
 
     const foto = card.getAttribute("data-foto") || card.querySelector("img")?.src || "";
     const nama = card.getAttribute("data-nama") || card.querySelector("h3")?.textContent || "";
-    const jabatan = card.getAttribute("data-jabatan") || "GURU";
+    const jabatan = card.getAttribute("data-jabatan") || "";
     const mapel = card.getAttribute("data-mapel") || "";
-    const nip = card.getAttribute("data-nip") || "";
-    const desc = card.getAttribute("data-deskripsi") || "";
 
     if (teacherModalImg) {
         teacherModalImg.src = foto;
         teacherModalImg.alt = nama;
     }
-    if (teacherModalName) teacherModalName.textContent = nama;
-    if (teacherModalJabatan) teacherModalJabatan.textContent = jabatan.toUpperCase();
-
-    if (teacherModalMapel) {
-        if (mapel && mapel !== "-" && mapel !== "null") {
-            teacherModalMapel.textContent = mapel;
-            if (teacherModalMapelRow) teacherModalMapelRow.style.display = "flex";
-        } else {
-            if (teacherModalMapelRow) teacherModalMapelRow.style.display = "none";
-        }
+    if (teacherModalName) {
+        teacherModalName.textContent = nama;
     }
+    if (teacherModalRole) {
+        const cleanJabatan = (jabatan && jabatan !== "-" && jabatan !== "null") ? jabatan.trim() : "";
+        const cleanMapel = (mapel && mapel !== "-" && mapel !== "null") ? mapel.trim() : "";
 
-    if (teacherModalNip) {
-        if (nip && nip !== "-" && nip !== "null") {
-            teacherModalNip.textContent = nip;
-            if (teacherModalNipRow) teacherModalNipRow.style.display = "flex";
+        let roleText = "";
+        if (cleanJabatan && cleanMapel && cleanJabatan.toLowerCase() !== cleanMapel.toLowerCase()) {
+            if (cleanJabatan.toLowerCase() === "guru") {
+                roleText = "Guru " + cleanMapel;
+            } else {
+                roleText = cleanJabatan + " \u2022 " + cleanMapel;
+            }
+        } else if (cleanJabatan) {
+            roleText = cleanJabatan;
+        } else if (cleanMapel) {
+            roleText = cleanMapel;
         } else {
-            if (teacherModalNipRow) teacherModalNipRow.style.display = "none";
+            roleText = "Tenaga Pendidik";
         }
-    }
-
-    if (teacherModalDesc) {
-        if (desc && desc !== "-" && desc !== "null") {
-            teacherModalDesc.textContent = desc;
-            if (teacherModalDescRow) teacherModalDescRow.style.display = "flex";
-        } else {
-            if (teacherModalDescRow) teacherModalDescRow.style.display = "none";
-        }
+        teacherModalRole.textContent = roleText;
     }
 
     teacherModal.classList.add("is-active");
