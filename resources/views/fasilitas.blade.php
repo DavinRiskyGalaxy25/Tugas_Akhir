@@ -20,7 +20,6 @@
                         </div>
                         <div class="facility-info">
                             <h3>{{ $f->nama }}</h3>
-                            <p>{{ $f->deskripsi }}</p>
                             @if($f->kondisi || $f->lokasi)
                                 <p><small>@if($f->kondisi){{ $f->kondisi }}@endif @if($f->lokasi) &middot; {{ $f->lokasi }} @endif</small></p>
                             @endif

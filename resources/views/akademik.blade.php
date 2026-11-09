@@ -75,7 +75,6 @@
                         </div>
                         <div class="facility-info">
                             <h3>{{ $f->nama }}</h3>
-                            <p>{{ $f->deskripsi }}</p>
                         </div>
                     </article>
                 @empty

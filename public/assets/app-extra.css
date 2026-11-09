@@ -2828,7 +2828,7 @@ body:has(.page-hero) {
 }
 
 .facility-info {
-    padding: 22px 20px !important;
+    padding: 18px 20px !important;
 }
 
 .facility-info h3 {
@@ -2836,7 +2836,11 @@ body:has(.page-hero) {
     font-size: 1.15rem !important;
     font-weight: 700 !important;
     color: #0f172a !important;
-    margin: 0 0 8px 0 !important;
+    margin: 0 !important;
+}
+
+.facility-info h3:not(:last-child) {
+    margin-bottom: 6px !important;
 }
 
 .facility-info p {
