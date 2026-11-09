@@ -1,27 +1,47 @@
 <footer class="site-footer">
-    <!-- SVG ORGANIC WAVE DIVIDER -->
+    <!-- SVG MULTI-LAYER ORGANIC WAVE DIVIDER -->
     <div class="footer-wave-divider" aria-hidden="true">
-        <svg viewBox="0 0 1440 90" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,45 C320,85 480,10 720,40 C960,70 1120,20 1440,50 L1440,90 L0,90 Z" fill="currentColor"></path>
+        <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Layer 1: Back Luminous Ripple -->
+            <path d="M0,32 C240,90 480,10 720,50 C960,90 1200,20 1440,60 L1440,120 L0,120 Z" fill="rgba(34, 197, 94, 0.12)"></path>
+            <!-- Layer 2: Mid Emerald Flow -->
+            <path d="M0,52 C320,105 540,25 820,65 C1100,105 1280,35 1440,75 L1440,120 L0,120 Z" fill="rgba(16, 185, 129, 0.22)"></path>
+            <!-- Layer 3: Foreground Main Dark Wave -->
+            <path d="M0,72 C280,115 520,45 780,82 C1040,115 1240,55 1440,88 L1440,120 L0,120 Z" fill="#072113"></path>
         </svg>
     </div>
 
-    <!-- BOTANICAL LEAF SUBTLE PATTERN BACKGROUND -->
+    <!-- LUMINOUS ACCENT BORDER LINE -->
+    <div class="footer-accent-line" aria-hidden="true"></div>
+
+    <!-- AMBIENT GLOW ORBS -->
+    <div class="footer-ambient-glow glow-1" aria-hidden="true"></div>
+    <div class="footer-ambient-glow glow-2" aria-hidden="true"></div>
+
+    <!-- GEOMETRIC ISLAMIC LATTICE PATTERN BACKGROUND -->
     <div class="footer-pattern-overlay" aria-hidden="true">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <defs>
-                <pattern id="botanicalLeafPattern" width="160" height="160" patternUnits="userSpaceOnUse">
-                    <!-- Subtle natural botanical leaf motifs -->
-                    <path d="M40,20 C45,35 60,45 80,45 C65,45 55,60 55,80 C50,65 35,55 15,55 C30,55 40,40 40,20 Z" fill="currentColor"/>
-                    <path d="M120,100 C125,115 140,125 160,125 C145,125 135,140 135,160 C130,145 115,135 95,135 C110,135 120,120 120,100 Z" fill="currentColor"/>
-                    <path d="M110,30 C125,25 135,40 130,55 C115,60 105,45 110,30 Z" fill="currentColor"/>
-                    <path d="M30,110 C45,105 55,120 50,135 C35,140 25,125 30,110 Z" fill="currentColor"/>
-                    <!-- Delicate branch strokes -->
-                    <path d="M40,45 Q60,70 80,75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-                    <path d="M120,125 Q140,150 160,155" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                <pattern id="islamicLatticePattern" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <!-- Diagonal guideline dashes -->
+                    <line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="0.5" opacity="0.25" stroke-dasharray="3 4"/>
+                    <line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="0.5" opacity="0.25" stroke-dasharray="3 4"/>
+                    <!-- 8-Pointed Star (Rub el Hizb) Center -->
+                    <polygon points="50,28 55,41 68,36 63,49 76,54 63,59 68,72 55,67 50,80 45,67 32,72 37,59 24,54 37,49 32,36 45,41" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.6"/>
+                    <circle cx="50" cy="50" r="5" fill="none" stroke="currentColor" stroke-width="0.7" opacity="0.45"/>
+                    <circle cx="50" cy="50" r="1.5" fill="currentColor" opacity="0.6"/>
+                    <!-- Corner Stars & Nodes -->
+                    <circle cx="0" cy="0" r="2.5" fill="currentColor" opacity="0.4"/>
+                    <circle cx="100" cy="0" r="2.5" fill="currentColor" opacity="0.4"/>
+                    <circle cx="0" cy="100" r="2.5" fill="currentColor" opacity="0.4"/>
+                    <circle cx="100" cy="100" r="2.5" fill="currentColor" opacity="0.4"/>
+                    <circle cx="50" cy="0" r="2" fill="currentColor" opacity="0.35"/>
+                    <circle cx="50" cy="100" r="2.5" fill="currentColor" opacity="0.35"/>
+                    <circle cx="0" cy="50" r="2" fill="currentColor" opacity="0.35"/>
+                    <circle cx="100" cy="50" r="2.5" fill="currentColor" opacity="0.35"/>
                 </pattern>
             </defs>
-            <rect width="100%" height="100%" fill="url(#botanicalLeafPattern)" />
+            <rect width="100%" height="100%" fill="url(#islamicLatticePattern)" />
         </svg>
     </div>
 
