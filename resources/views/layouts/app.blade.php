@@ -8,15 +8,12 @@
     <link rel="icon" type="image/png" href="{{ $pengaturan['logo_url'] ?? asset('assets/img/logo.png') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    {{-- Design fonts: Lora (display) + DM Sans (body) --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/app-extra.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/redesign.css') }}">
     @stack('styles')
 </head>
 <body class="@yield('body-class', '')">
@@ -29,7 +26,6 @@
     @include('layouts.partials.footer')
 
     <script src="{{ asset('assets/script.js') }}"></script>
-    <script src="{{ asset('assets/motion.js') }}" defer></script>
     @stack('scripts')
 </body>
 </html>

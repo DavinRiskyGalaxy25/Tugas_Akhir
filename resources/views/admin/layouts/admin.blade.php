@@ -15,7 +15,6 @@
 
     <!-- Admin Theme Stylesheet -->
     <link rel="stylesheet" href="{{ asset('assets/admin.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/admin-redesign.css') }}">
     @stack('styles')
 </head>
 <body>
