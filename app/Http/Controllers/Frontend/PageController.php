@@ -55,7 +55,7 @@ class PageController extends Controller
 
     public function guru(): View
     {
-        $guru = Guru::aktif()->orderBy('urutan')->orderBy('nama')->get();
+        $guru = Guru::aktif()->orderBy('urutan')->orderBy('nama')->paginate(10);
 
         return view('guru', compact('guru'));
     }

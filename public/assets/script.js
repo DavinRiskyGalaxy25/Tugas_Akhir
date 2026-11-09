@@ -1912,239 +1912,178 @@ document.addEventListener("DOMContentLoaded", function () {
    SLIDER GURU
 ===================================================== */
 
-const teacherSlider =
-    document.querySelector(".teacher-slider");
+const teacherSlider = document.querySelector(".teacher-slider");
+const teacherWindow = document.querySelector(".teacher-slider-window");
+const teacherTrack = document.querySelector(".teacher-slider-track");
+const teacherPrev = document.querySelector(".teacher-prev");
+const teacherNext = document.querySelector(".teacher-next");
 
-const teacherWindow =
-    document.querySelector(".teacher-slider-window");
-
-const teacherTrack =
-    document.querySelector(".teacher-slider-track");
-
-const teacherPrev =
-    document.querySelector(".teacher-prev");
-
-const teacherNext =
-    document.querySelector(".teacher-next");
-
-
-if (
-    teacherSlider &&
-    teacherWindow &&
-    teacherTrack
-) {
-
+if (teacherSlider && teacherWindow && teacherTrack) {
     let teacherPosition = 0;
 
-
     function getTeacherStep() {
-
-        const card =
-            teacherTrack.querySelector(
-                ".teacher-card"
-            );
-
-        if (!card) {
-
-            return 0;
-
-        }
-
-
-        const gap =
-            parseFloat(
-                getComputedStyle(
-                    teacherTrack
-                ).gap
-            ) || 18;
-
-
-        return (
-            card.offsetWidth +
-            gap
-        );
-
+        const card = teacherTrack.querySelector(".teacher-card");
+        if (!card) return 0;
+        const gap = parseFloat(getComputedStyle(teacherTrack).gap) || 16;
+        return card.offsetWidth + gap;
     }
-
 
     function getTeacherMaxPosition() {
-
-        const maxScroll =
-            teacherTrack.scrollWidth -
-            teacherWindow.clientWidth;
-
-
-        return Math.max(
-            0,
-            maxScroll
-        );
-
+        const maxScroll = teacherTrack.scrollWidth - teacherWindow.clientWidth;
+        return Math.max(0, maxScroll);
     }
-
 
     function updateTeacherSlider() {
+        const max = getTeacherMaxPosition();
+        if (teacherPosition < 0) teacherPosition = 0;
+        if (teacherPosition > max) teacherPosition = max;
 
-        if (
-            window.innerWidth <= 800
-        ) {
-
-            teacherTrack.style.transform =
-                "none";
-
-            if (teacherPrev) {
-
-                teacherPrev.style.display =
-                    "flex";
-
-            }
-
-            if (teacherNext) {
-
-                teacherNext.style.display =
-                    "flex";
-
-            }
-
-            return;
-
-        }
-
-
-        const max =
-            getTeacherMaxPosition();
-
-
-        if (
-            teacherPosition < 0
-        ) {
-
-            teacherPosition = 0;
-
-        }
-
-
-        if (
-            teacherPosition > max
-        ) {
-
-            teacherPosition = max;
-
-        }
-
-
-        teacherTrack.style.transform =
-            "translateX(-" +
-            teacherPosition +
-            "px)";
-
+        teacherTrack.style.transform = "translateX(-" + teacherPosition + "px)";
 
         if (teacherPrev) {
-
-            teacherPrev.disabled =
-                teacherPosition <= 0;
-
+            teacherPrev.disabled = teacherPosition <= 0;
+            teacherPrev.style.opacity = teacherPosition <= 0 ? "0.4" : "1";
+            teacherPrev.style.pointerEvents = teacherPosition <= 0 ? "none" : "auto";
         }
-
-
         if (teacherNext) {
-
-            teacherNext.disabled =
-                teacherPosition >= max;
-
+            teacherNext.disabled = teacherPosition >= max;
+            teacherNext.style.opacity = teacherPosition >= max ? "0.4" : "1";
+            teacherNext.style.pointerEvents = teacherPosition >= max ? "none" : "auto";
         }
-
     }
-
 
     if (teacherNext) {
-
-        teacherNext.addEventListener(
-            "click",
-            function () {
-
-                const step =
-                    getTeacherStep();
-
-
-                teacherPosition += step;
-
-
-                updateTeacherSlider();
-
-            }
-        );
-
+        teacherNext.addEventListener("click", function () {
+            const step = getTeacherStep();
+            teacherPosition += step;
+            updateTeacherSlider();
+        });
     }
-
 
     if (teacherPrev) {
-
-        teacherPrev.addEventListener(
-            "click",
-            function () {
-
-                const step =
-                    getTeacherStep();
-
-
-                teacherPosition -= step;
-
-
-                updateTeacherSlider();
-
-            }
-        );
-
+        teacherPrev.addEventListener("click", function () {
+            const step = getTeacherStep();
+            teacherPosition -= step;
+            updateTeacherSlider();
+        });
     }
 
-
-    window.addEventListener(
-        "resize",
-        function () {
-
-            updateTeacherSlider();
-
-        }
-    );
-
+    window.addEventListener("resize", function () {
+        updateTeacherSlider();
+    });
 
     updateTeacherSlider();
-
 }
 
-    /* =====================================================
-       KEYBOARD ESCAPE
-    ===================================================== */
+/* =====================================================
+   MODAL DETAIL GURU (FOTO DIPERBESAR & INFORMASI DI KANAN)
+===================================================== */
+const teacherModal = document.getElementById("teacherModal");
+const teacherModalBackdrop = document.getElementById("teacherModalBackdrop");
+const teacherModalClose = document.getElementById("teacherModalClose");
+const teacherModalImg = document.getElementById("teacherModalImg");
+const teacherModalName = document.getElementById("teacherModalName");
+const teacherModalJabatan = document.getElementById("teacherModalJabatan");
+const teacherModalMapel = document.getElementById("teacherModalMapel");
+const teacherModalNip = document.getElementById("teacherModalNip");
+const teacherModalDesc = document.getElementById("teacherModalDesc");
+const teacherModalMapelRow = document.getElementById("teacherModalMapelRow");
+const teacherModalNipRow = document.getElementById("teacherModalNipRow");
+const teacherModalDescRow = document.getElementById("teacherModalDescRow");
 
-    document.addEventListener(
-        "keydown",
-        function (event) {
+function openTeacherModal(card) {
+    if (!teacherModal || !card) return;
 
-            if (
-                event.key === "Escape"
-            ) {
+    const foto = card.getAttribute("data-foto") || card.querySelector("img")?.src || "";
+    const nama = card.getAttribute("data-nama") || card.querySelector("h3")?.textContent || "";
+    const jabatan = card.getAttribute("data-jabatan") || "GURU";
+    const mapel = card.getAttribute("data-mapel") || "";
+    const nip = card.getAttribute("data-nip") || "";
+    const desc = card.getAttribute("data-deskripsi") || "";
 
-                closeMobileSidebar();
+    if (teacherModalImg) {
+        teacherModalImg.src = foto;
+        teacherModalImg.alt = nama;
+    }
+    if (teacherModalName) teacherModalName.textContent = nama;
+    if (teacherModalJabatan) teacherModalJabatan.textContent = jabatan.toUpperCase();
 
-                closeSearch();
-
-                closeGallery();
-
-
-                dropdowns.forEach(
-                    function (dropdown) {
-
-                        dropdown.classList.remove(
-                            "open"
-                        );
-
-                    }
-                );
-
-            }
-
+    if (teacherModalMapel) {
+        if (mapel && mapel !== "-" && mapel !== "null") {
+            teacherModalMapel.textContent = mapel;
+            if (teacherModalMapelRow) teacherModalMapelRow.style.display = "flex";
+        } else {
+            if (teacherModalMapelRow) teacherModalMapelRow.style.display = "none";
         }
-    );
+    }
+
+    if (teacherModalNip) {
+        if (nip && nip !== "-" && nip !== "null") {
+            teacherModalNip.textContent = nip;
+            if (teacherModalNipRow) teacherModalNipRow.style.display = "flex";
+        } else {
+            if (teacherModalNipRow) teacherModalNipRow.style.display = "none";
+        }
+    }
+
+    if (teacherModalDesc) {
+        if (desc && desc !== "-" && desc !== "null") {
+            teacherModalDesc.textContent = desc;
+            if (teacherModalDescRow) teacherModalDescRow.style.display = "flex";
+        } else {
+            if (teacherModalDescRow) teacherModalDescRow.style.display = "none";
+        }
+    }
+
+    teacherModal.classList.add("is-active");
+    teacherModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+}
+
+function closeTeacherModal() {
+    if (!teacherModal) return;
+    teacherModal.classList.remove("is-active");
+    teacherModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+}
+
+if (teacherModal) {
+    if (teacherModalClose) {
+        teacherModalClose.addEventListener("click", closeTeacherModal);
+    }
+    if (teacherModalBackdrop) {
+        teacherModalBackdrop.addEventListener("click", closeTeacherModal);
+    }
+}
+
+// Delegated click listener on teacher cards or photos
+document.addEventListener("click", function (e) {
+    const trigger = e.target.closest(".teacher-photo, .teacher-card");
+    if (trigger) {
+        const card = trigger.classList.contains("teacher-card") ? trigger : trigger.closest(".teacher-card");
+        if (card) {
+            e.preventDefault();
+            openTeacherModal(card);
+        }
+    }
+});
+
+/* =====================================================
+   KEYBOARD ESCAPE
+===================================================== */
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        closeMobileSidebar();
+        closeSearch();
+        closeGallery();
+        closeTeacherModal();
+
+        dropdowns.forEach(function (dropdown) {
+            dropdown.classList.remove("open");
+        });
+    }
+});
 
 /* =====================================================
    FASILITAS

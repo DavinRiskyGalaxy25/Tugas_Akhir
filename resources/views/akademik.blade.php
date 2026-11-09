@@ -13,10 +13,14 @@
 
     <section id="guru" class="content-section">
         <div class="section-container">
-            <div class="section-heading">
-                <span class="section-label">TENAGA PENDIDIK</span>
-                <h2>Guru &amp; Tenaga Kependidikan</h2>
-                <p>Tenaga pendidik dan kependidikan {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.</p>
+            <div class="section-heading-with-action">
+                <div class="section-heading-text">
+                    <h2>Guru &amp; Tenaga Kependidikan</h2>
+                </div>
+                <a href="{{ route('guru') }}" class="btn-daftar-guru" title="Lihat Semua Daftar Guru">
+                    <span>Daftar Guru</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
 
             <div class="teacher-slider">
@@ -27,9 +31,15 @@
                 <div class="teacher-slider-window">
                     <div class="teacher-slider-track">
                         @forelse($guru as $g)
-                            <article class="teacher-card">
-                                <button type="button" class="teacher-photo" data-image="{{ $g->foto_url }}" data-name="{{ $g->nama }}">
-                                    <img src="{{ $g->foto_url }}" alt="{{ $g->nama }}">
+                            <article class="teacher-card"
+                                data-nama="{{ $g->nama }}"
+                                data-jabatan="{{ $g->jabatan }}"
+                                data-mapel="{{ $g->mata_pelajaran ?? '-' }}"
+                                data-nip="{{ $g->nip_nik ?? '-' }}"
+                                data-foto="{{ $g->foto_url }}"
+                                data-deskripsi="{{ $g->deskripsi ?? 'Tenaga pendidik profesional di SMP Al Ahmad Krian.' }}">
+                                <button type="button" class="teacher-photo" aria-label="Lihat foto dan informasi {{ $g->nama }}">
+                                    <img src="{{ $g->foto_url }}" alt="{{ $g->nama }}" loading="lazy">
                                     <span class="teacher-photo-overlay"><i class="fa-solid fa-expand"></i></span>
                                 </button>
                                 <div class="teacher-info">
@@ -54,9 +64,7 @@
     <section id="fasilitas" class="content-section alternate-section">
         <div class="section-container">
             <div class="section-heading center">
-                <span class="section-label">SARANA PRASARANA</span>
                 <h2>Fasilitas Sekolah</h2>
-                <p>Fasilitas yang tersedia untuk mendukung kegiatan belajar dan aktivitas siswa {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad' }}.</p>
             </div>
 
             <div class="facility-grid">

@@ -3772,3 +3772,434 @@ button[type="reset"].secondary-button:hover {
         margin-bottom: 16px !important;
     }
 }
+
+
+/* ==========================================================================
+   GURU & TENAGA KEPENDIDIKAN: MODAL ZOOM FOTO & INFORMASI LENGKAP
+   ========================================================================== */
+.teacher-modal-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 3500 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 24px 16px !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease !important;
+}
+
+.teacher-modal-overlay.is-active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+.teacher-modal-backdrop {
+    position: absolute !important;
+    inset: 0 !important;
+    background: rgba(8, 28, 16, 0.78) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    cursor: pointer !important;
+}
+
+.teacher-modal-dialog {
+    position: relative !important;
+    z-index: 2 !important;
+    width: 100% !important;
+    max-width: 860px !important;
+    max-height: calc(100vh - 48px) !important;
+    background: #ffffff !important;
+    border-radius: 24px !important;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.4) !important;
+    overflow: hidden !important;
+    transform: scale(0.92) translateY(20px) !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.teacher-modal-overlay.is-active .teacher-modal-dialog {
+    transform: scale(1) translateY(0) !important;
+}
+
+.teacher-modal-close {
+    position: absolute !important;
+    top: 16px !important;
+    right: 16px !important;
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
+    color: #176b3a !important;
+    border: 1px solid #e2e8f0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.25rem !important;
+    cursor: pointer !important;
+    z-index: 20 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14) !important;
+    transition: all 0.25s ease !important;
+}
+
+.teacher-modal-close:hover {
+    background: #176b3a !important;
+    color: #ffffff !important;
+    transform: rotate(90deg) scale(1.05) !important;
+}
+
+.teacher-modal-body {
+    display: grid !important;
+    grid-template-columns: 360px 1fr !important;
+    align-items: stretch !important;
+    max-height: calc(100vh - 48px) !important;
+    overflow-y: auto !important;
+}
+
+.teacher-modal-photo-col {
+    background: linear-gradient(135deg, #072213 0%, #176b3a 100%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 30px 24px !important;
+    min-height: 440px !important;
+    position: relative !important;
+}
+
+.teacher-modal-photo-col::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background-image: radial-gradient(circle at 30% 30%, rgba(34, 197, 94, 0.25) 0%, transparent 60%) !important;
+    pointer-events: none !important;
+}
+
+.teacher-modal-photo-wrap {
+    width: 100% !important;
+    max-width: 300px !important;
+    height: 100% !important;
+    max-height: 380px !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35) !important;
+    border: 3px solid rgba(255, 255, 255, 0.25) !important;
+    background: #0a301a !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.teacher-modal-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    display: block !important;
+}
+
+.teacher-modal-info-col {
+    padding: 40px 36px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    background: #ffffff !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.teacher-modal-header {
+    margin-bottom: 22px !important;
+}
+
+.teacher-modal-badge {
+    display: inline-block !important;
+    padding: 6px 14px !important;
+    background: #e8f5ec !important;
+    color: #176b3a !important;
+    font-size: 0.78rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.8px !important;
+    border-radius: 30px !important;
+    margin-bottom: 12px !important;
+    text-transform: uppercase !important;
+    border: 1px solid rgba(23, 107, 58, 0.2) !important;
+}
+
+.teacher-modal-name {
+    font-family: 'Poppins', -apple-system, sans-serif !important;
+    font-size: 1.65rem !important;
+    font-weight: 800 !important;
+    color: #0f3d24 !important;
+    margin: 0 !important;
+    line-height: 1.25 !important;
+}
+
+.teacher-modal-details {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+}
+
+.teacher-modal-detail-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+    padding: 14px 16px !important;
+    background: #f8faf8 !important;
+    border-radius: 14px !important;
+    border: 1px solid #e8efe9 !important;
+    transition: background 0.2s ease !important;
+}
+
+.teacher-modal-detail-item:hover {
+    background: #f1f8f3 !important;
+}
+
+.teacher-modal-detail-item .detail-icon {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 10px !important;
+    background: #e8f5ec !important;
+    color: #176b3a !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.05rem !important;
+    flex-shrink: 0 !important;
+}
+
+.teacher-modal-detail-item .detail-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+    min-width: 0 !important;
+}
+
+.teacher-modal-detail-item .detail-label {
+    font-size: 0.74rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.6px !important;
+    color: #64748b !important;
+    font-weight: 700 !important;
+}
+
+.teacher-modal-detail-item strong.detail-val {
+    font-size: 0.98rem !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+}
+
+.teacher-modal-detail-item p.detail-val {
+    font-size: 0.92rem !important;
+    color: #334155 !important;
+    line-height: 1.55 !important;
+    margin: 0 !important;
+}
+
+@media (max-width: 768px) {
+    .teacher-modal-body {
+        grid-template-columns: 1fr !important;
+    }
+    .teacher-modal-photo-col {
+        min-height: 260px !important;
+        padding: 24px 20px 16px !important;
+    }
+    .teacher-modal-photo-wrap {
+        max-width: 200px !important;
+        max-height: 240px !important;
+    }
+    .teacher-modal-info-col {
+        padding: 24px 20px !important;
+    }
+    .teacher-modal-name {
+        font-size: 1.35rem !important;
+    }
+}
+
+/* ==========================================================================
+   SLIDER GURU: MAKS 5 KARTU PER PREVIEW & NAVIGASI PANAH
+   ========================================================================== */
+.section-heading-with-action {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    margin-bottom: 30px !important;
+    flex-wrap: wrap !important;
+}
+
+.section-heading-with-action .section-heading-text h2 {
+    font-family: 'Poppins', -apple-system, sans-serif !important;
+    font-size: clamp(1.8rem, 2.5vw, 2.2rem) !important;
+    font-weight: 800 !important;
+    color: #0f3d24 !important;
+    margin: 0 !important;
+}
+
+.btn-daftar-guru {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 11px 24px !important;
+    background: #176b3a !important;
+    color: #ffffff !important;
+    font-size: 0.92rem !important;
+    font-weight: 700 !important;
+    border-radius: 30px !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 16px rgba(23, 107, 58, 0.28) !important;
+    transition: all 0.25s ease !important;
+}
+
+.btn-daftar-guru:hover {
+    background: #0f3d24 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(23, 107, 58, 0.38) !important;
+}
+
+.btn-daftar-guru i {
+    font-size: 0.85rem !important;
+    transition: transform 0.22s ease !important;
+}
+
+.btn-daftar-guru:hover i {
+    transform: translateX(4px) !important;
+}
+
+/* Explicit 5 cards per view on Desktop */
+@media (min-width: 1120px) {
+    .teacher-slider-window {
+        overflow: hidden !important;
+    }
+    .teacher-slider-track {
+        gap: 16px !important;
+    }
+    .teacher-slider-window .teacher-card {
+        flex: 0 0 calc((100% - (4 * 16px)) / 5) !important;
+        width: calc((100% - (4 * 16px)) / 5) !important;
+        min-width: calc((100% - (4 * 16px)) / 5) !important;
+        max-width: calc((100% - (4 * 16px)) / 5) !important;
+    }
+}
+
+@media (min-width: 860px) and (max-width: 1119px) {
+    .teacher-slider-window .teacher-card {
+        flex: 0 0 calc((100% - (3 * 16px)) / 4) !important;
+        width: calc((100% - (3 * 16px)) / 4) !important;
+        min-width: calc((100% - (3 * 16px)) / 4) !important;
+        max-width: calc((100% - (3 * 16px)) / 4) !important;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 859px) {
+    .teacher-slider-window .teacher-card {
+        flex: 0 0 calc((100% - (2 * 14px)) / 3) !important;
+        width: calc((100% - (2 * 14px)) / 3) !important;
+        min-width: calc((100% - (2 * 14px)) / 3) !important;
+        max-width: calc((100% - (2 * 14px)) / 3) !important;
+    }
+}
+
+/* ==========================================================================
+   HALAMAN KHUSUS DAFTAR GURU: 5 KOLOM X 2 BARIS & PAGINASI ANAK PANAH
+   ========================================================================== */
+.teacher-directory-grid {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 20px !important;
+    margin-bottom: 45px !important;
+}
+
+@media (max-width: 1200px) {
+    .teacher-directory-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .teacher-directory-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .teacher-directory-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 14px !important;
+    }
+}
+
+@media (max-width: 440px) {
+    .teacher-directory-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+.teacher-directory-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    flex: unset !important;
+    cursor: pointer !important;
+}
+
+/* Teacher pagination with arrow navigation */
+.teacher-pagination {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 18px !important;
+    margin-top: 20px !important;
+    padding-top: 25px !important;
+    border-top: 1px solid #eef2f0 !important;
+}
+
+.teacher-pagination-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 10px 22px !important;
+    background: #ffffff !important;
+    color: #176b3a !important;
+    border: 1.5px solid #176b3a !important;
+    border-radius: 30px !important;
+    font-size: 0.92rem !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    transition: all 0.25s ease !important;
+    cursor: pointer !important;
+}
+
+.teacher-pagination-btn:hover:not(.disabled) {
+    background: #176b3a !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 14px rgba(23, 107, 58, 0.25) !important;
+}
+
+.teacher-pagination-btn.disabled {
+    opacity: 0.4 !important;
+    border-color: #cbd5e1 !important;
+    color: #94a3b8 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+}
+
+.teacher-pagination-info {
+    font-size: 0.95rem !important;
+    color: #475569 !important;
+    font-weight: 500 !important;
+}
+
+.teacher-pagination-info strong {
+    color: #0f3d24 !important;
+    font-weight: 700 !important;
+}

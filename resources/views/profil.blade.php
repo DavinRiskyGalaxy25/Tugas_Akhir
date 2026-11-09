@@ -21,7 +21,6 @@
     <section id="tentang" class="content-section">
         <div class="section-container">
             <div class="section-heading">
-                <span class="section-label">TENTANG SEKOLAH</span>
                 <h2>Tentang {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad' }}</h2>
             </div>
 
@@ -50,7 +49,6 @@
     <section id="sejarah" class="content-section alternate-section">
         <div class="section-container">
             <div class="section-heading">
-                <span class="section-label">SEJARAH</span>
                 <h2>Sejarah {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad' }}</h2>
             </div>
 
@@ -82,7 +80,6 @@
     <section id="visi-misi" class="content-section">
         <div class="section-container">
             <div class="section-heading">
-                <span class="section-label">ARAH PENDIDIKAN</span>
                 <h2>Visi &amp; Misi</h2>
             </div>
 
@@ -114,7 +111,6 @@
     <section id="identitas" class="content-section alternate-section">
         <div class="section-container">
             <div class="section-heading">
-                <span class="section-label">DATA SEKOLAH</span>
                 <h2>Identitas Sekolah</h2>
             </div>
 
@@ -169,9 +165,7 @@
     <section id="struktur" class="content-section">
         <div class="section-container">
             <div class="section-heading">
-                <span class="section-label">SUSUNAN PENGURUS</span>
                 <h2>Struktur Organisasi</h2>
-                <p>Struktur organisasi dan manajemen {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.</p>
             </div>
 
             {{-- Jika ada gambar bagan infografis struktur yang diunggah --}}
