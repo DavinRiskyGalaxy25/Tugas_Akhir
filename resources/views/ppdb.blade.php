@@ -12,19 +12,44 @@
         </div>
     </section>
 
-    <!-- POSTER SECTION (DINAMIS DARI PENGATURAN ADMIN) -->
+    <!-- INFORMASI / POSTER SECTION -->
     <section class="ppdb-poster-section">
         <div class="ppdb-poster-container">
             @if(!empty($pengaturan['poster_spmb']))
                 <div class="ppdb-poster-image-wrap text-center">
-                    <img src="{{ asset('storage/' . $pengaturan['poster_spmb']) }}" alt="Poster SPMB {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad' }}" style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: var(--shadow-md, 0 10px 30px rgba(0,0,0,0.08));">
+                    <img src="{{ asset('storage/' . $pengaturan['poster_spmb']) }}" alt="Poster SPMB {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad' }}" class="ppdb-poster-img">
                 </div>
             @else
-                <div class="ppdb-poster-placeholder">
-                    <i class="fa-regular fa-image"></i>
-                    <h1>POSTER SPMB</h1>
-                    <p>Tempat Poster PPDB / SPMB {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}</p>
-                    <span>Poster resmi dapat diunggah melalui Admin Panel &gt; Pengaturan Website</span>
+                <!-- ALUR 3 LANGKAH PENDAFTARAN RESMI (MENGGANTIKAN PLACEHOLDER KOSONG) -->
+                <div class="spmb-guide-wrapper">
+                    <div class="spmb-guide-header">
+                        <span class="spmb-guide-eyebrow">PANDUAN PENDAFTARAN</span>
+                        <h2>Alur Pendaftaran Calon Siswa Baru</h2>
+                        <p>Tiga tahapan mudah untuk bergabung menjadi bagian dari keluarga besar {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.</p>
+                    </div>
+                    <div class="spmb-steps-grid">
+                        <div class="spmb-step-item">
+                            <div class="spmb-step-num">01</div>
+                            <div class="spmb-step-info">
+                                <h3>Pengisian Formulir</h3>
+                                <p>Lengkapi biodata calon siswa, nomor identitas (NIK/NISN), dan data kontak wali pada formulir di bawah ini.</p>
+                            </div>
+                        </div>
+                        <div class="spmb-step-item">
+                            <div class="spmb-step-num">02</div>
+                            <div class="spmb-step-info">
+                                <h3>Verifikasi Berkas</h3>
+                                <p>Panitia SPMB memeriksa kelengkapan data dan akan menghubungi Anda via WhatsApp resmi untuk jadwal pemetaan/wawancara.</p>
+                            </div>
+                        </div>
+                        <div class="spmb-step-item">
+                            <div class="spmb-step-num">03</div>
+                            <div class="spmb-step-info">
+                                <h3>Daftar Ulang</h3>
+                                <p>Penyerahan dokumen fisik (KK, Akta Kelahiran, Ijazah/SKL) dan konfirmasi administrasi di sekretariat sekolah.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             @endif
         </div>
@@ -32,10 +57,10 @@
 
     <section class="content-section" id="formulirSpmb">
         <div class="form-card">
-            <div class="section-heading left">
-                <span class="section-label">FORMULIR PENDAFTARAN</span>
-                <h2>Formulir Pendaftaran SPMB Online</h2>
-                <p>Silakan isi data calon peserta didik dan wali dengan lengkap dan valid sesuai data KK/Akta.</p>
+            <div class="form-card-header">
+                <span class="form-eyebrow">FORMULIR PENDAFTARAN</span>
+                <h2 class="form-title">Pendaftaran SPMB Online</h2>
+                <p class="form-desc">Isi formulir pendaftaran dengan teliti dan benar sesuai dokumen kependudukan resmi (Kartu Keluarga / Akta Kelahiran).</p>
             </div>
 
             <!-- FEEDBACK ALERTS -->
@@ -71,169 +96,202 @@
 
             <form method="POST" action="{{ route('ppdb.store') }}" id="ppdbForm" novalidate>
                 @csrf
-                <div class="form-grid">
-                    <!-- NAMA LENGKAP -->
-                    <div class="form-group">
-                        <div class="form-label-wrap">
-                            <label for="nama_lengkap">Nama Lengkap Siswa <span class="required-star">*</span></label>
-                            <span class="field-feedback" id="nama_lengkap_feedback"></span>
-                        </div>
-                        <input type="text" id="nama_lengkap" name="nama_lengkap" required value="{{ old('nama_lengkap') }}" placeholder="Masukkan nama lengkap siswa sesuai KK/Akta" class="@error('nama_lengkap') input-has-error @enderror">
-                        @error('nama_lengkap')
-                            <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
-                        @enderror
+
+                <!-- SEKSI 1: DATA CALON SISWA -->
+                <div class="form-section-block">
+                    <div class="form-section-header">
+                        <span class="form-section-badge">01</span>
+                        <h3 class="form-section-heading">Data Identitas Calon Siswa</h3>
                     </div>
 
-                    <!-- NIK -->
-                    <div class="form-group">
-                        <div class="form-label-wrap">
-                            <label for="nik">NIK (16 Digit Angka) <span class="required-star">*</span></label>
-                            <span class="field-feedback" id="nik_feedback"></span>
+                    <div class="form-grid">
+                        <!-- NAMA LENGKAP -->
+                        <div class="form-group form-group-full">
+                            <div class="form-label-wrap">
+                                <label for="nama_lengkap">Nama Lengkap Siswa <span class="required-star">*</span></label>
+                                <span class="field-feedback" id="nama_lengkap_feedback"></span>
+                            </div>
+                            <input type="text" id="nama_lengkap" name="nama_lengkap" required value="{{ old('nama_lengkap') }}" placeholder="Masukkan nama lengkap siswa sesuai KK/Akta" class="@error('nama_lengkap') input-has-error @enderror">
+                            @error('nama_lengkap')
+                                <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
+                            @enderror
                         </div>
-                        <input type="text" id="nik" name="nik" required maxlength="16" inputmode="numeric" value="{{ old('nik') }}" placeholder="16 digit sesuai Kartu Keluarga (KK)" class="@error('nik') input-has-error @enderror">
-                        @error('nik')
-                            <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
-                        @enderror
-                    </div>
 
-                    <!-- NISN -->
-                    <div class="form-group">
-                        <div class="form-label-wrap">
-                            <label for="nisn">NISN (opsional)</label>
-                            <span class="field-feedback" id="nisn_feedback"></span>
+                        <!-- NIK -->
+                        <div class="form-group">
+                            <div class="form-label-wrap">
+                                <label for="nik">NIK Siswa (16 Digit) <span class="required-star">*</span></label>
+                                <span class="field-feedback" id="nik_feedback"></span>
+                            </div>
+                            <input type="text" id="nik" name="nik" required maxlength="16" inputmode="numeric" value="{{ old('nik') }}" placeholder="16 digit angka sesuai Kartu Keluarga (KK)" class="@error('nik') input-has-error @enderror">
+                            @error('nik')
+                                <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
+                            @enderror
                         </div>
-                        <input type="text" id="nisn" name="nisn" maxlength="20" inputmode="numeric" value="{{ old('nisn') }}" placeholder="Nomor Induk Siswa Nasional (jika ada)" class="@error('nisn') input-has-error @enderror">
-                        @error('nisn')
-                            <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
-                        @enderror
-                    </div>
 
-                    <!-- TEMPAT LAHIR -->
-                    <div class="form-group">
-                        <div class="form-label-wrap">
-                            <label for="tempat_lahir">Tempat Lahir <span class="required-star">*</span></label>
-                            <span class="field-feedback" id="tempat_lahir_feedback"></span>
+                        <!-- NISN -->
+                        <div class="form-group">
+                            <div class="form-label-wrap">
+                                <label for="nisn">NISN (opsional)</label>
+                                <span class="field-feedback" id="nisn_feedback"></span>
+                            </div>
+                            <input type="text" id="nisn" name="nisn" maxlength="20" inputmode="numeric" value="{{ old('nisn') }}" placeholder="Nomor Induk Siswa Nasional (jika ada)" class="@error('nisn') input-has-error @enderror">
+                            @error('nisn')
+                                <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
+                            @enderror
                         </div>
-                        <input type="text" id="tempat_lahir" name="tempat_lahir" required value="{{ old('tempat_lahir') }}" placeholder="Kota / Kabupaten tempat lahir" class="@error('tempat_lahir') input-has-error @enderror">
-                        @error('tempat_lahir')
-                            <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
-                        @enderror
-                    </div>
 
-                    <!-- TANGGAL LAHIR -->
-                    <div class="form-group">
-                        <div class="form-label-wrap">
-                            <label for="tanggal_lahir">Tanggal Lahir <span class="required-star">*</span></label>
-                            <span class="field-feedback" id="tanggal_lahir_feedback"></span>
+                        <!-- TEMPAT LAHIR -->
+                        <div class="form-group">
+                            <div class="form-label-wrap">
+                                <label for="tempat_lahir">Tempat Lahir <span class="required-star">*</span></label>
+                                <span class="field-feedback" id="tempat_lahir_feedback"></span>
+                            </div>
+                            <input type="text" id="tempat_lahir" name="tempat_lahir" required value="{{ old('tempat_lahir') }}" placeholder="Kota / Kabupaten tempat lahir" class="@error('tempat_lahir') input-has-error @enderror">
+                            @error('tempat_lahir')
+                                <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
+                            @enderror
                         </div>
-                        <input type="date" id="tanggal_lahir" name="tanggal_lahir" required value="{{ old('tanggal_lahir') }}" max="{{ date('Y-m-d') }}" class="@error('tanggal_lahir') input-has-error @enderror">
-                        @error('tanggal_lahir')
-                            <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
-                        @enderror
-                    </div>
 
-                    <!-- JENIS KELAMIN -->
-                    <div class="form-group">
-                        <div class="form-label-wrap">
-                            <label for="jenis_kelamin">Jenis Kelamin <span class="required-star">*</span></label>
-                            <span class="field-feedback" id="jenis_kelamin_feedback"></span>
+                        <!-- TANGGAL LAHIR -->
+                        <div class="form-group">
+                            <div class="form-label-wrap">
+                                <label for="tanggal_lahir">Tanggal Lahir <span class="required-star">*</span></label>
+                                <span class="field-feedback" id="tanggal_lahir_feedback"></span>
+                            </div>
+                            <input type="date" id="tanggal_lahir" name="tanggal_lahir" required value="{{ old('tanggal_lahir') }}" max="{{ date('Y-m-d') }}" class="@error('tanggal_lahir') input-has-error @enderror">
+                            @error('tanggal_lahir')
+                                <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
+                            @enderror
                         </div>
-                        <select id="jenis_kelamin" name="jenis_kelamin" required class="@error('jenis_kelamin') input-has-error @enderror">
-                            <option value="">-- Pilih Jenis Kelamin --</option>
-                            <option value="Laki-laki" @selected(old('jenis_kelamin')=='Laki-laki')>Laki-laki</option>
-                            <option value="Perempuan" @selected(old('jenis_kelamin')=='Perempuan')>Perempuan</option>
-                        </select>
-                        @error('jenis_kelamin')
-                            <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
-                        @enderror
-                    </div>
 
-                    <!-- NOMOR HP / WA SISWA -->
-                    <div class="form-group">
-                        <div class="form-label-wrap">
-                            <label for="no_hp">No. HP / WhatsApp Siswa <span class="required-star">*</span></label>
-                            <span class="field-feedback" id="no_hp_feedback"></span>
+                        <!-- JENIS KELAMIN -->
+                        <div class="form-group">
+                            <div class="form-label-wrap">
+                                <label for="jenis_kelamin">Jenis Kelamin <span class="required-star">*</span></label>
+                                <span class="field-feedback" id="jenis_kelamin_feedback"></span>
+                            </div>
+                            <select id="jenis_kelamin" name="jenis_kelamin" required class="@error('jenis_kelamin') input-has-error @enderror">
+                                <option value="">-- Pilih Jenis Kelamin --</option>
+                                <option value="Laki-laki" @selected(old('jenis_kelamin')=='Laki-laki')>Laki-laki</option>
+                                <option value="Perempuan" @selected(old('jenis_kelamin')=='Perempuan')>Perempuan</option>
+                            </select>
+                            @error('jenis_kelamin')
+                                <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
+                            @enderror
                         </div>
-                        <input type="tel" id="no_hp" name="no_hp" required inputmode="numeric" value="{{ old('no_hp') }}" placeholder="Contoh: 081234567890" class="@error('no_hp') input-has-error @enderror">
-                        @error('no_hp')
-                            <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
-                        @enderror
-                    </div>
 
-                    <!-- EMAIL SISWA -->
-                    <div class="form-group">
-                        <div class="form-label-wrap">
-                            <label for="email">Email Siswa / Wali (opsional)</label>
-                            <span class="field-feedback" id="email_feedback"></span>
+                        <!-- ASAL SEKOLAH -->
+                        <div class="form-group">
+                            <div class="form-label-wrap">
+                                <label for="asal_sekolah">Asal Sekolah (SD/MI) <span class="required-star">*</span></label>
+                                <span class="field-feedback" id="asal_sekolah_feedback"></span>
+                            </div>
+                            <input type="text" id="asal_sekolah" name="asal_sekolah" required value="{{ old('asal_sekolah') }}" placeholder="Contoh: SDN Krian 1 / MI Al Ahmad" class="@error('asal_sekolah') input-has-error @enderror">
+                            @error('asal_sekolah')
+                                <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
+                            @enderror
                         </div>
-                        <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="siswa@email.com" class="@error('email') input-has-error @enderror">
-                        @error('email')
-                            <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <!-- ASAL SEKOLAH -->
-                    <div class="form-group">
-                        <div class="form-label-wrap">
-                            <label for="asal_sekolah">Asal Sekolah (SD/MI) <span class="required-star">*</span></label>
-                            <span class="field-feedback" id="asal_sekolah_feedback"></span>
-                        </div>
-                        <input type="text" id="asal_sekolah" name="asal_sekolah" required value="{{ old('asal_sekolah') }}" placeholder="Contoh: SDN Krian 1 / MI Al Ahmad" class="@error('asal_sekolah') input-has-error @enderror">
-                        @error('asal_sekolah')
-                            <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <!-- NAMA ORANG TUA / WALI -->
-                    <div class="form-group">
-                        <div class="form-label-wrap">
-                            <label for="nama_wali">Nama Orang Tua / Wali <span class="required-star">*</span></label>
-                            <span class="field-feedback" id="nama_wali_feedback"></span>
-                        </div>
-                        <input type="text" id="nama_wali" name="nama_wali" required value="{{ old('nama_wali') }}" placeholder="Nama ayah / ibu / wali" class="@error('nama_wali') input-has-error @enderror">
-                        @error('nama_wali')
-                            <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <!-- NO HP ORANG TUA / WALI -->
-                    <div class="form-group">
-                        <div class="form-label-wrap">
-                            <label for="no_hp_wali">No. HP / WhatsApp Orang Tua / Wali <span class="required-star">*</span></label>
-                            <span class="field-feedback" id="no_hp_wali_feedback"></span>
-                        </div>
-                        <input type="tel" id="no_hp_wali" name="no_hp_wali" required inputmode="numeric" value="{{ old('no_hp_wali') }}" placeholder="Contoh: 081234567890" class="@error('no_hp_wali') input-has-error @enderror">
-                        @error('no_hp_wali')
-                            <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
-                        @enderror
                     </div>
                 </div>
 
-                <!-- ALAMAT LENGKAP -->
-                <div class="form-group" style="margin-top: 15px;">
-                    <div class="form-label-wrap">
-                        <label for="alamat">Alamat Lengkap Tempat Tinggal <span class="required-star">*</span></label>
-                        <span class="field-feedback" id="alamat_feedback"></span>
+                <!-- SEKSI 2: DATA KONTAK & WALI -->
+                <div class="form-section-block">
+                    <div class="form-section-header">
+                        <span class="form-section-badge">02</span>
+                        <h3 class="form-section-heading">Data Kontak &amp; Orang Tua / Wali</h3>
                     </div>
-                    <textarea id="alamat" name="alamat" rows="3" required placeholder="Jalan, RT/RW, Dusun/Kelurahan/Desa, Kecamatan, Kota/Kabupaten" class="@error('alamat') input-has-error @enderror">{{ old('alamat') }}</textarea>
-                    @error('alamat')
-                        <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
-                    @enderror
+
+                    <div class="form-grid">
+                        <!-- NOMOR HP / WA SISWA -->
+                        <div class="form-group">
+                            <div class="form-label-wrap">
+                                <label for="no_hp">No. HP / WhatsApp Siswa <span class="required-star">*</span></label>
+                                <span class="field-feedback" id="no_hp_feedback"></span>
+                            </div>
+                            <input type="tel" id="no_hp" name="no_hp" required inputmode="numeric" value="{{ old('no_hp') }}" placeholder="Contoh: 081234567890" class="@error('no_hp') input-has-error @enderror">
+                            @error('no_hp')
+                                <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- EMAIL SISWA -->
+                        <div class="form-group">
+                            <div class="form-label-wrap">
+                                <label for="email">Email Siswa / Wali (opsional)</label>
+                                <span class="field-feedback" id="email_feedback"></span>
+                            </div>
+                            <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="siswa@email.com" class="@error('email') input-has-error @enderror">
+                            @error('email')
+                                <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- NAMA ORANG TUA / WALI -->
+                        <div class="form-group">
+                            <div class="form-label-wrap">
+                                <label for="nama_wali">Nama Orang Tua / Wali <span class="required-star">*</span></label>
+                                <span class="field-feedback" id="nama_wali_feedback"></span>
+                            </div>
+                            <input type="text" id="nama_wali" name="nama_wali" required value="{{ old('nama_wali') }}" placeholder="Nama ayah / ibu / wali murid" class="@error('nama_wali') input-has-error @enderror">
+                            @error('nama_wali')
+                                <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- NO HP ORANG TUA / WALI -->
+                        <div class="form-group">
+                            <div class="form-label-wrap">
+                                <label for="no_hp_wali">No. HP / WhatsApp Orang Tua / Wali <span class="required-star">*</span></label>
+                                <span class="field-feedback" id="no_hp_wali_feedback"></span>
+                            </div>
+                            <input type="tel" id="no_hp_wali" name="no_hp_wali" required inputmode="numeric" value="{{ old('no_hp_wali') }}" placeholder="Contoh: 081234567890" class="@error('no_hp_wali') input-has-error @enderror">
+                            @error('no_hp_wali')
+                                <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
                 </div>
 
-                <!-- KETERANGAN TAMBAHAN -->
-                <div class="form-group">
-                    <div class="form-label-wrap">
-                        <label for="keterangan_tambahan">Keterangan Tambahan / Minat Bakat (opsional)</label>
+                <!-- SEKSI 3: ALAMAT & KETERANGAN TAMBAHAN -->
+                <div class="form-section-block">
+                    <div class="form-section-header">
+                        <span class="form-section-badge">03</span>
+                        <h3 class="form-section-heading">Alamat Domisili &amp; Catatan</h3>
                     </div>
-                    <textarea id="keterangan_tambahan" name="keterangan_tambahan" rows="2" placeholder="Catatan prestasi, cabang ekstrakurikuler yang diminati, atau kebutuhan khusus">{{ old('keterangan_tambahan') }}</textarea>
+
+                    <!-- ALAMAT LENGKAP -->
+                    <div class="form-group">
+                        <div class="form-label-wrap">
+                            <label for="alamat">Alamat Lengkap Tempat Tinggal <span class="required-star">*</span></label>
+                            <span class="field-feedback" id="alamat_feedback"></span>
+                        </div>
+                        <textarea id="alamat" name="alamat" rows="3" required placeholder="Nama jalan, RT/RW, Dusun/Kelurahan/Desa, Kecamatan, Kota/Kabupaten" class="@error('alamat') input-has-error @enderror">{{ old('alamat') }}</textarea>
+                        @error('alamat')
+                            <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <!-- KETERANGAN TAMBAHAN -->
+                    <div class="form-group">
+                        <div class="form-label-wrap">
+                            <label for="keterangan_tambahan">Keterangan Tambahan / Minat Bakat (opsional)</label>
+                        </div>
+                        <textarea id="keterangan_tambahan" name="keterangan_tambahan" rows="2" placeholder="Catatan prestasi siswa, cabang ekstrakurikuler yang diminati, atau kebutuhan pendampingan">{{ old('keterangan_tambahan') }}</textarea>
+                    </div>
                 </div>
 
-                <div class="form-actions">
-                    <button type="button" class="secondary-button dark" id="btnReset">Reset Formulir</button>
-                    <button type="submit" class="primary-button" id="btnSubmit">
-                        <span id="btnSubmitText">Kirim Pendaftaran</span>
-                    </button>
+                <div class="form-actions-bar">
+                    <div class="form-security-note">
+                        <i class="fa-solid fa-shield-halved"></i> Data pendaftaran dienkripsi dan hanya digunakan untuk keperluan resmi SPMB.
+                    </div>
+                    <div class="form-btn-group">
+                        <button type="button" class="btn-form-secondary" id="btnReset">Reset Formulir</button>
+                        <button type="submit" class="btn-form-primary" id="btnSubmit">
+                            <span id="btnSubmitText">Kirim Pendaftaran</span>
+                            <i class="fa-solid fa-arrow-right ms-2"></i>
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
