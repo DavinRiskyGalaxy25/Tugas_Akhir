@@ -2343,13 +2343,28 @@ body:has(.page-hero) {
 }
 
 /* 2. GENERAL SECTION & HEADING HARMONY */
+.section-container {
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    box-sizing: border-box !important;
+}
+
 .content-section {
-    padding-top: 85px !important;
-    padding-bottom: 85px !important;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+    position: relative !important;
+    box-sizing: border-box !important;
 }
 
 .alternate-section {
-    background: #f4f7f4 !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    background: #f8fafc !important;
 }
 
 .section-heading h2,
@@ -3396,8 +3411,12 @@ button[type="reset"].secondary-button:hover {
         height: 38px !important;
     }
     .content-section {
-        padding-top: 55px !important;
-        padding-bottom: 55px !important;
+        padding-top: 42px !important;
+        padding-bottom: 42px !important;
+    }
+    .section-container {
+        padding-left: 18px !important;
+        padding-right: 18px !important;
     }
     .form-card {
         padding: 26px 18px !important;
