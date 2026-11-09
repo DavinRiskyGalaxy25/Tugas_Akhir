@@ -71,6 +71,7 @@
                     <li><a href="{{ route('kesiswaan') }}#prestasi">Galeri Prestasi</a></li>
                     <li><a href="{{ route('ppdb.create') }}">Pendaftaran SPMB Online</a></li>
                     <li><a href="{{ route('kontak') }}">Hubungi Sekolah</a></li>
+                    <li><a href="{{ route('admin.login') }}">Portal Guru &amp; Staf</a></li>
                 </ul>
             </div>
 
@@ -114,7 +115,7 @@
         <div class="footer-bottom-container">
             <div class="footer-bottom-text">
                 <p>&copy; {{ date('Y') }} {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}. Seluruh hak cipta dilindungi undang-undang.</p>
-                <p class="footer-credits">Supported by RPL SMK Krian 1 Sidoarjo</p>
+                <p class="footer-credits">Supported by RPL SMK Krian 1 Sidoarjo &middot; <a href="{{ route('admin.login') }}" style="color: inherit; text-decoration: none; opacity: 0.85;" title="Login Staf / Administrator">Portal Staf</a></p>
             </div>
             <a href="#siteHeader" class="footer-back-top" aria-label="Kembali ke atas">
                 <i class="fa-solid fa-arrow-up"></i>
