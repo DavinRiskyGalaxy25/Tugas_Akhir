@@ -6,15 +6,28 @@
     <form method="POST" action="{{ route('admin.pengaturan.update') }}" enctype="multipart/form-data">
         @csrf @method('PUT')
         <div class="row g-3">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <label class="form-label">Nama Sekolah</label>
                 <input type="text" name="nama_sekolah" class="form-control" value="{{ old('nama_sekolah', $pengaturan['nama_sekolah'] ?? '') }}" required>
             </div>
-            <div class="col-md-4">
-                <label class="form-label">Logo {{ !empty($pengaturan['logo']) ? '(kosongkan jika tidak diubah)' : '' }}</label>
+            <div class="col-md-3">
+                <label class="form-label">Logo Website {{ !empty($pengaturan['logo']) ? '(kosongkan jika tidak diubah)' : '' }}</label>
                 <input type="file" name="logo" class="form-control" accept="image/*">
-                @if(!empty($pengaturan['logo']))
-                    <img src="{{ asset('storage/'.$pengaturan['logo']) }}" class="img-thumb mt-2">
+                @if(!empty($pengaturan['logo_url']))
+                    <div class="mt-2 d-flex align-items-center gap-2">
+                        <span class="small text-muted">Preview logo:</span>
+                        <img src="{{ $pengaturan['logo_url'] }}" class="p-1 bg-white border rounded" style="height: 44px; width: auto; max-width: 100px; object-fit: contain;">
+                    </div>
+                @endif
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Poster SPMB / PPDB {{ !empty($pengaturan['poster_spmb']) ? '(kosongkan jika tidak diubah)' : '' }}</label>
+                <input type="file" name="poster_spmb" class="form-control" accept="image/*">
+                @if(!empty($pengaturan['poster_spmb']))
+                    <div class="mt-2 d-flex align-items-center gap-2">
+                        <span class="small text-muted">Poster aktif:</span>
+                        <a href="{{ asset('storage/'.$pengaturan['poster_spmb']) }}" target="_blank" class="badge bg-success text-decoration-none">Lihat Poster</a>
+                    </div>
                 @endif
             </div>
             <div class="col-12">

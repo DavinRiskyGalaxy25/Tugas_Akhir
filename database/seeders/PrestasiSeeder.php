@@ -10,9 +10,9 @@ class PrestasiSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            ['nama_prestasi' => 'Prestasi Siswa 1', 'foto' => 'prestasi/prestasi1.jpg'],
-            ['nama_prestasi' => 'Prestasi Siswa 2'],
-            ['nama_prestasi' => 'Prestasi Siswa 3'],
+            ['nama_prestasi' => 'Prestasi Siswa 1', 'foto' => null],
+            ['nama_prestasi' => 'Prestasi Siswa 2', 'foto' => null],
+            ['nama_prestasi' => 'Prestasi Siswa 3', 'foto' => null],
         ];
 
         foreach ($data as $i => $row) {

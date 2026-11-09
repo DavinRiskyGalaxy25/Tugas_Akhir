@@ -28,6 +28,10 @@ class PengaturanController extends Controller
             $data['logo'] = $this->storeImage($request->file('logo'), 'pengaturan');
         }
 
+        if ($request->hasFile('poster_spmb')) {
+            $data['poster_spmb'] = $this->storeImage($request->file('poster_spmb'), 'pengaturan');
+        }
+
         foreach ($data as $key => $value) {
             PengaturanWebsite::set($key, $value);
         }

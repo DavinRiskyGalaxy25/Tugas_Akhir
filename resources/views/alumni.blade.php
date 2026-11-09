@@ -21,16 +21,23 @@
             </div>
 
             @if(session('success'))
-                <div class="alert-box success">{{ session('success') }}</div>
+                <div class="alert-box success">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <div>{{ session('success') }}</div>
+                </div>
             @endif
 
             @if($errors->any())
                 <div class="alert-box error">
-                    <ul style="margin:0; padding-left:18px;">
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div>
+                        <strong>Mohon periksa kembali formulir Anda:</strong>
+                        <ul style="margin:4px 0 0; padding-left:18px;">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             @endif
 
@@ -38,24 +45,47 @@
                 @csrf
                 <div class="form-grid">
                     <div class="form-group">
-                        <label>Nama Lengkap</label>
-                        <input type="text" name="nama" required value="{{ old('nama') }}" placeholder="Masukkan nama lengkap">
+                        <div class="form-label-wrap">
+                            <label for="nama">Nama Lengkap <span class="required-star">*</span></label>
+                            <span class="field-feedback" id="nama_feedback"></span>
+                        </div>
+                        <input type="text" id="nama" name="nama" required value="{{ old('nama') }}" placeholder="Masukkan nama lengkap" class="@error('nama') input-has-error @enderror">
+                        @error('nama')
+                            <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="form-group">
-                        <label>Tahun Lulus</label>
-                        <input type="text" name="tahun_lulus" value="{{ old('tahun_lulus') }}" placeholder="Contoh: 2022">
+                        <div class="form-label-wrap">
+                            <label for="tahun_lulus">Tahun Lulus (opsional)</label>
+                            <span class="field-feedback" id="tahun_lulus_feedback"></span>
+                        </div>
+                        <input type="text" id="tahun_lulus" name="tahun_lulus" maxlength="4" inputmode="numeric" value="{{ old('tahun_lulus') }}" placeholder="Contoh: 2022" class="@error('tahun_lulus') input-has-error @enderror">
+                        @error('tahun_lulus')
+                            <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="form-group">
-                        <label>Kegiatan / Pekerjaan Sekarang</label>
-                        <input type="text" name="pekerjaan_sekarang" value="{{ old('pekerjaan_sekarang') }}" placeholder="Contoh: Mahasiswa, Wirausaha">
+                        <div class="form-label-wrap">
+                            <label for="pekerjaan_sekarang">Kegiatan / Pekerjaan Sekarang</label>
+                        </div>
+                        <input type="text" id="pekerjaan_sekarang" name="pekerjaan_sekarang" value="{{ old('pekerjaan_sekarang') }}" placeholder="Contoh: Mahasiswa, Wirausaha, dsb." class="@error('pekerjaan_sekarang') input-has-error @enderror">
+                        @error('pekerjaan_sekarang')
+                            <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Kesan &amp; Pesan</label>
-                    <textarea name="pesan_kesan" rows="5" required placeholder="Tuliskan kesan dan pesan Anda">{{ old('pesan_kesan') }}</textarea>
+                    <div class="form-label-wrap">
+                        <label for="pesan_kesan">Kesan &amp; Pesan <span class="required-star">*</span></label>
+                        <span class="field-feedback" id="pesan_kesan_feedback"></span>
+                    </div>
+                    <textarea id="pesan_kesan" name="pesan_kesan" rows="4" required placeholder="Tuliskan cerita, kesan, dan pesan inspiratif Anda selama di sekolah..." class="@error('pesan_kesan') input-has-error @enderror">{{ old('pesan_kesan') }}</textarea>
+                    @error('pesan_kesan')
+                        <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-actions">
@@ -89,3 +119,27 @@
     </section>
 </main>
 @endsection
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const tahunInput = document.getElementById('tahun_lulus');
+    const tahunFeedback = document.getElementById('tahun_lulus_feedback');
+
+    tahunInput?.addEventListener('input', function () {
+        let val = tahunInput.value.replace(/\D/g, '').slice(0, 4);
+        tahunInput.value = val;
+        if (val.length > 0 && val.length < 4) {
+            tahunFeedback.className = 'field-feedback warning';
+            tahunFeedback.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Format 4 digit (contoh: 2022)`;
+        } else if (val.length === 4) {
+            tahunFeedback.className = 'field-feedback success';
+            tahunFeedback.innerHTML = `<i class="fa-solid fa-circle-check"></i> Sesuai`;
+        } else {
+            tahunFeedback.className = 'field-feedback';
+            tahunFeedback.textContent = '';
+        }
+    });
+});
+</script>
+@endpush

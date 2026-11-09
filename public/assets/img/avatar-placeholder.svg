@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8f5e9" />
+      <stop offset="100%" stop-color="#c8e6c9" />
+    </linearGradient>
+  </defs>
+  <rect width="300" height="300" fill="url(#grad)" rx="150" />
+  <g fill="#176b3a" opacity="0.85">
+    <!-- Kepala -->
+    <circle cx="150" cy="115" r="48" />
+    <!-- Bahu / Badan -->
+    <path d="M75 240 C75 185, 110 180, 150 180 C190 180, 225 185, 225 240 Z" />
+  </g>
+</svg>
+

@@ -8,11 +8,14 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EkstrakurikulerController as AdminEkstrakurikulerController;
 use App\Http\Controllers\Admin\FasilitasController as AdminFasilitasController;
 use App\Http\Controllers\Admin\GuruController as AdminGuruController;
+use App\Http\Controllers\Admin\HeroSliderController as AdminHeroSliderController;
 use App\Http\Controllers\Admin\KegiatanController as AdminKegiatanController;
 use App\Http\Controllers\Admin\PengaturanController;
 use App\Http\Controllers\Admin\PpdbController as AdminPpdbController;
 use App\Http\Controllers\Admin\PrestasiController as AdminPrestasiController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ProfilSekolahController as AdminProfilSekolahController;
+use App\Http\Controllers\Admin\StrukturOrganisasiController as AdminStrukturOrganisasiController;
 use App\Http\Controllers\Frontend\AlumniController;
 use App\Http\Controllers\Frontend\BeritaController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -32,7 +35,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/profil', [PageController::class, 'profil'])->name('profil');
 Route::get('/akademik', [PageController::class, 'akademik'])->name('akademik');
 Route::get('/kesiswaan', [PageController::class, 'kesiswaan'])->name('kesiswaan');
-Route::get('/informasi', [PageController::class, 'informasi'])->name('informasi');
+Route::get('/informasi', [PageController::class, 'kontak'])->name('informasi');
+Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
 Route::get('/guru', [PageController::class, 'guru'])->name('guru');
 Route::get('/fasilitas', [PageController::class, 'fasilitas'])->name('fasilitas');
 Route::get('/ekstrakurikuler', [PageController::class, 'ekstrakurikuler'])->name('ekstrakurikuler');
@@ -48,9 +52,13 @@ Route::get('/prestasi/{slug}', [PrestasiController::class, 'show'])->name('prest
 
 Route::get('/ppdb', [PpdbController::class, 'create'])->name('ppdb.create');
 Route::post('/ppdb', [PpdbController::class, 'store'])->name('ppdb.store');
+Route::get('/spmb', [PpdbController::class, 'create'])->name('spmb');
+Route::post('/spmb', [PpdbController::class, 'store'])->name('spmb.store');
 
 Route::get('/alumni', [AlumniController::class, 'create'])->name('alumni.create');
 Route::post('/alumni', [AlumniController::class, 'store'])->name('alumni.store');
+
+Route::redirect('/login', '/admin/login')->name('login');
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +83,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/profil', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::put('/profil', [ProfileController::class, 'update'])->name('profile.update');
         Route::put('/profil/password', [ProfileController::class, 'updatePassword'])->name('profile.password');
+
+        // CMS Profil Sekolah (Visi Misi, Sejarah, Tentang Sekolah, Identitas, Sambutan Kepala Sekolah)
+        Route::get('/profil-sekolah', [AdminProfilSekolahController::class, 'edit'])->name('profil-sekolah.edit');
+        Route::put('/profil-sekolah', [AdminProfilSekolahController::class, 'update'])->name('profil-sekolah.update');
+
+        // CMS Slider / Banner Hero Home (Background slider)
+        Route::resource('slider', AdminHeroSliderController::class)->except('show')->parameters(['slider' => 'slider']);
+
+        // CMS Struktur Organisasi
+        Route::resource('struktur', AdminStrukturOrganisasiController::class)->except('show')->parameters(['struktur' => 'struktur']);
 
         Route::resource('guru', AdminGuruController::class)->except('show');
         Route::resource('berita', AdminBeritaController::class)->except('show')->parameters(['berita' => 'berita']);

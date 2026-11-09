@@ -19,17 +19,27 @@ class AlumniController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        $validated = $request->validate([
+        $rules = [
             'nama' => ['required', 'string', 'max:255'],
             'tahun_lulus' => ['nullable', 'string', 'max:10'],
             'pekerjaan_sekarang' => ['nullable', 'string', 'max:255'],
             'pesan_kesan' => ['required', 'string'],
-        ]);
+        ];
+
+        $messages = [
+            'nama.required' => 'Nama lengkap wajib diisi.',
+            'nama.max' => 'Nama lengkap tidak boleh lebih dari 255 karakter.',
+            'tahun_lulus.max' => 'Tahun kelulusan tidak boleh lebih dari 10 karakter.',
+            'pekerjaan_sekarang.max' => 'Kegiatan / pekerjaan saat ini tidak boleh lebih dari 255 karakter.',
+            'pesan_kesan.required' => 'Kesan dan pesan wajib diisi.',
+        ];
+
+        $validated = $request->validate($rules, $messages);
 
         $validated['status'] = 'pending';
 
         Alumni::create($validated);
 
-        return back()->with('success', 'Terima kasih! Pesan dan kesan Anda akan tampil setelah disetujui oleh admin.');
+        return back()->with('success', 'Terima kasih! Pesan dan kesan Anda telah kami terima dan akan tampil setelah disetujui oleh admin.');
     }
 }

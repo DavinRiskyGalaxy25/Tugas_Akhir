@@ -1,4 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
+    /* =====================================================
+       HEADER TRANSPARENT / SOLID ON SCROLL
+    ===================================================== */
+    const siteHeader = document.getElementById("siteHeader") || document.querySelector(".site-header");
+    if (siteHeader) {
+        function checkHeaderScroll() {
+            if (window.scrollY > 30) {
+                siteHeader.classList.add("scrolled");
+            } else {
+                siteHeader.classList.remove("scrolled");
+            }
+        }
+        window.addEventListener("scroll", checkHeaderScroll, { passive: true });
+        checkHeaderScroll();
+    }
+
 
     /* =====================================================
        ACTIVE NAVBAR
@@ -1476,8 +1492,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             stars +=
                 i <= total
-                    ? "★"
-                    : "☆";
+                    ? "â˜…"
+                    : "â˜†";
 
         }
 
@@ -1568,7 +1584,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                     ${escapeHTML(
                                         alumni.tahun
                                     )}
-                                    •
+                                    â€¢
                                     ${escapeHTML(
                                         alumni.pekerjaan
                                     )}
@@ -1618,203 +1634,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    if (alumniForm) {
+    // [Alumni form handled by Laravel backend in alumni.blade.php]
 
-        alumniForm.addEventListener(
-            "submit",
-            function (event) {
-
-                event.preventDefault();
-
-
-                const formData =
-                    new FormData(
-                        alumniForm
-                    );
-
-
-                const nama =
-                    String(
-                        formData.get(
-                            "nama"
-                        ) || ""
-                    ).trim();
-
-
-                const tahun =
-                    String(
-                        formData.get(
-                            "tahun"
-                        ) || ""
-                    ).trim();
-
-
-                const pekerjaan =
-                    String(
-                        formData.get(
-                            "pekerjaan"
-                        ) || ""
-                    ).trim();
-
-
-                const rating =
-                    String(
-                        formData.get(
-                            "rating"
-                        ) || ""
-                    );
-
-
-                const pesan =
-                    String(
-                        formData.get(
-                            "pesan"
-                        ) || ""
-                    ).trim();
-
-
-                if (
-                    !nama ||
-                    !tahun ||
-                    !pekerjaan ||
-                    !rating ||
-                    !pesan
-                ) {
-
-                    showToast(
-                        "Silakan lengkapi semua data."
-                    );
-
-                    return;
-
-                }
-
-
-                const data =
-                    getAlumniData();
-
-
-                const today =
-                    new Date();
-
-
-                const tanggal =
-                    today.toLocaleDateString(
-                        "id-ID",
-                        {
-                            day: "numeric",
-                            month: "long",
-                            year: "numeric"
-                        }
-                    );
-
-
-                data.unshift({
-
-                    nama:
-                        nama,
-
-                    tahun:
-                        tahun,
-
-                    pekerjaan:
-                        pekerjaan,
-
-                    rating:
-                        Number(rating),
-
-                    tanggal:
-                        tanggal,
-
-                    pesan:
-                        pesan
-
-                });
-
-
-                saveAlumniData(
-                    data
-                );
-
-
-                alumniForm.reset();
-
-
-                showToast(
-                    "Kesan dan pesan berhasil dikirim."
-                );
-
-
-                setTimeout(
-                    function () {
-
-                        window.location.href =
-                            "informasi.html#alumni";
-
-                    },
-                    800
-                );
-
-            }
-        );
-
-    }
 
 
     renderAlumni();
 
 
 
-    /* =====================================================
-       FORM PPDB
-    ===================================================== */
+    // [PPDB form handled by Laravel backend in ppdb.blade.php]
 
-    const ppdbForm =
-        document.getElementById(
-            "ppdbForm"
-        );
-
-
-    if (ppdbForm) {
-
-        ppdbForm.addEventListener(
-            "submit",
-            function (event) {
-
-                event.preventDefault();
-
-
-                const formData =
-                    new FormData(
-                        ppdbForm
-                    );
-
-
-                const data =
-                    Object.fromEntries(
-                        formData.entries()
-                    );
-
-
-                localStorage.setItem(
-                    "ppdbSmpAlAhmad",
-                    JSON.stringify(
-                        data
-                    )
-                );
-
-
-                ppdbForm.reset();
-
-
-                showToast(
-                    "Data pendaftaran berhasil disimpan."
-                );
-
-            }
-        );
-
-    }
 
 
 

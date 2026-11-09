@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Guru extends Model
 {
@@ -28,6 +29,24 @@ class Guru extends Model
 
     public function getFotoUrlAttribute(): string
     {
-        return $this->foto ? asset('storage/'.$this->foto) : asset('assets/img/no-image.svg');
+        if (empty($this->foto)) {
+            return asset('assets/img/avatar-placeholder.svg');
+        }
+
+        if (str_starts_with($this->foto, 'http://') || str_starts_with($this->foto, 'https://')) {
+            return $this->foto;
+        }
+
+        if (str_starts_with($this->foto, 'assets/')) {
+            return (file_exists(public_path($this->foto)) && filesize(public_path($this->foto)) > 0)
+                ? asset($this->foto)
+                : asset('assets/img/avatar-placeholder.svg');
+        }
+
+        if (Storage::disk('public')->exists($this->foto)) {
+            return asset('storage/'.$this->foto);
+        }
+
+        return asset('assets/img/avatar-placeholder.svg');
     }
 }

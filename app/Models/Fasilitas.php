@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Fasilitas extends Model
 {
@@ -17,6 +18,9 @@ class Fasilitas extends Model
 
     public function getFotoUrlAttribute(): string
     {
-        return $this->foto ? asset('storage/'.$this->foto) : asset('assets/img/no-image.svg');
+        if ($this->foto && Storage::disk('public')->exists($this->foto)) {
+            return asset('storage/'.$this->foto);
+        }
+        return asset('assets/img/no-image.svg');
     }
 }

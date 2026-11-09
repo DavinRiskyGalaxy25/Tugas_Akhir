@@ -12,7 +12,7 @@
 
             <article class="news-detail">
                 <div class="news-detail-heading">
-                    <span>{{ $kegiatan->tanggal->translatedFormat('d F Y') }}@if($kegiatan->lokasi) &middot; {{ $kegiatan->lokasi }} @endif</span>
+                    <span>{{ optional($kegiatan->tanggal)->translatedFormat('d F Y') ?? '' }}@if($kegiatan->lokasi) &middot; {{ $kegiatan->lokasi }} @endif</span>
                     <h1>{{ $kegiatan->nama_kegiatan }}</h1>
                 </div>
 
@@ -38,7 +38,7 @@
                                 <img src="{{ $item->foto_url }}" alt="{{ $item->nama_kegiatan }}">
                             </div>
                             <div class="activity-info">
-                                <span>{{ $item->tanggal->translatedFormat('d F Y') }}</span>
+                                <span>{{ optional($item->tanggal)->translatedFormat('d F Y') ?? '' }}</span>
                                 <h3>{{ $item->nama_kegiatan }}</h3>
                                 <a href="{{ route('kegiatan.show', $item->slug) }}" class="text-button">
                                     Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i>

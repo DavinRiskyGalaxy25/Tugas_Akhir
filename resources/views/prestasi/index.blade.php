@@ -4,30 +4,36 @@
 
 @section('content')
 <main>
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <span class="section-label">CAPAIAN MEMBANGGAKAN</span>
+            <h2>Prestasi Siswa</h2>
+            <p>Pencapaian dan prestasi kejuaraan yang diraih oleh siswa-siswi {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.</p>
+        </div>
+    </section>
+
     <section class="content-section">
         <div class="section-container">
-            <div class="section-heading">
-                <h2>Prestasi {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad' }}</h2>
-                <p>Pencapaian dan prestasi yang diraih oleh siswa {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.</p>
-            </div>
-
             <div class="achievement-page-grid">
                 @forelse($prestasi as $item)
                     <article class="achievement-card">
                         <div class="achievement-image">
                             <img src="{{ $item->foto_url }}" alt="{{ $item->nama_prestasi }}">
-                            <span>PRESTASI</span>
                         </div>
                         <div class="achievement-info">
+                            <span class="achievement-year"><i class="fa-solid fa-trophy me-1"></i> Tahun {{ $item->tahun }}</span>
                             <h3>{{ $item->nama_prestasi }}</h3>
+                            @if($item->nama_siswa)
+                                <p class="achievement-winner"><strong>Peraih:</strong> {{ $item->nama_siswa }} &middot; {{ $item->pencapaian ?? '' }}</p>
+                            @endif
                             <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->deskripsi), 110) }}</p>
-                            <a href="{{ route('prestasi.show', $item->slug) }}" class="text-button">
-                                Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i>
+                            <a href="{{ route('prestasi.show', $item->slug) }}" class="activity-link">
+                                Selengkapnya &rarr;
                             </a>
                         </div>
                     </article>
                 @empty
-                    <p class="empty-state">Belum ada prestasi yang dipublikasikan.</p>
+                    <p class="empty-state">Belum ada data prestasi yang dipublikasikan.</p>
                 @endforelse
             </div>
 

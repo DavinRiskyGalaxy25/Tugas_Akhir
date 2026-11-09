@@ -9,7 +9,7 @@
                 <tr><th width="220">Nama Lengkap</th><td>{{ $pendaftar->nama_lengkap }}</td></tr>
                 <tr><th>NIK</th><td>{{ $pendaftar->nik }}</td></tr>
                 <tr><th>NISN</th><td>{{ $pendaftar->nisn ?? '-' }}</td></tr>
-                <tr><th>Tempat, Tanggal Lahir</th><td>{{ $pendaftar->tempat_lahir }}, {{ $pendaftar->tanggal_lahir->format('d F Y') }}</td></tr>
+                <tr><th>Tempat, Tanggal Lahir</th><td>{{ $pendaftar->tempat_lahir }}, {{ optional($pendaftar->tanggal_lahir)->format('d F Y') ?? '-' }}</td></tr>
                 <tr><th>Jenis Kelamin</th><td>{{ $pendaftar->jenis_kelamin }}</td></tr>
                 <tr><th>Alamat</th><td>{{ $pendaftar->alamat }}</td></tr>
                 <tr><th>No HP</th><td>{{ $pendaftar->no_hp }}</td></tr>

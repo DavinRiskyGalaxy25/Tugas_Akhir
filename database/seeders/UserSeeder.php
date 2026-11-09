@@ -10,6 +10,7 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
+        // Akun bawaan project repo
         User::updateOrCreate(
             ['email' => 'admin@sekolah.test'],
             [
@@ -19,6 +20,17 @@ class UserSeeder extends Seeder
             ]
         );
 
+        // Akun resmi sekolah (dari db_smp_alahmad)
+        User::updateOrCreate(
+            ['email' => 'admin@smpalahmad.sch.id'],
+            [
+                'name' => 'Admin SMP Al Ahmad',
+                'password' => Hash::make('password'),
+                'role' => 'super_admin',
+            ]
+        );
+
+        // Akun staf konten
         User::updateOrCreate(
             ['email' => 'staff@sekolah.test'],
             [

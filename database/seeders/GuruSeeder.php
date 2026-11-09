@@ -10,7 +10,7 @@ class GuruSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            ['nama' => 'Budi Santoso', 'jabatan' => 'Kepala Sekolah', 'mata_pelajaran' => null, 'foto' => 'guru/guru1.jpg'],
+            ['nama' => 'Budi Santoso', 'jabatan' => 'Kepala Sekolah', 'mata_pelajaran' => null, 'foto' => null],
             ['nama' => 'Siti Aminah', 'jabatan' => 'Wakil Kepala Sekolah', 'mata_pelajaran' => 'Bahasa Indonesia', 'foto' => null],
             ['nama' => 'Ahmad Fauzi', 'jabatan' => 'Guru', 'mata_pelajaran' => 'Matematika', 'foto' => null],
             ['nama' => 'Dewi Lestari', 'jabatan' => 'Guru', 'mata_pelajaran' => 'IPA', 'foto' => null],

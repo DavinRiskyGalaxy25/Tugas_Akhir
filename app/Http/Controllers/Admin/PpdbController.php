@@ -14,9 +14,11 @@ class PpdbController extends Controller
     public function index(Request $request): View
     {
         $pendaftar = PendaftaranPpdb::when($request->filled('q'), function ($q) use ($request) {
-                $q->where('nama_lengkap', 'like', '%'.$request->q.'%')
-                    ->orWhere('nik', 'like', '%'.$request->q.'%')
-                    ->orWhere('asal_sekolah', 'like', '%'.$request->q.'%');
+                $q->where(function ($sub) use ($request) {
+                    $sub->where('nama_lengkap', 'like', '%'.$request->q.'%')
+                        ->orWhere('nik', 'like', '%'.$request->q.'%')
+                        ->orWhere('asal_sekolah', 'like', '%'.$request->q.'%');
+                });
             })
             ->when($request->filled('status'), fn ($q) => $q->where('status', $request->status))
             ->latest()

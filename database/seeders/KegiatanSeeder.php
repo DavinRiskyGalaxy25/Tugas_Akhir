@@ -10,9 +10,9 @@ class KegiatanSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            ['nama_kegiatan' => 'Kegiatan Siswa 1', 'deskripsi' => 'Informasi singkat mengenai kegiatan siswa SMP Al Ahmad.', 'tanggal' => now()->subDays(20), 'foto' => 'kegiatan/kegiatan1.jpg'],
-            ['nama_kegiatan' => 'Kegiatan Siswa 2', 'deskripsi' => 'Kegiatan pengembangan bakat dan minat siswa di lingkungan sekolah.', 'tanggal' => now()->subDays(10)],
-            ['nama_kegiatan' => 'Kegiatan Siswa 3', 'deskripsi' => 'Kegiatan gotong royong dan kebersihan lingkungan sekolah.', 'tanggal' => now()->subDays(3)],
+            ['nama_kegiatan' => 'Kegiatan Siswa 1', 'deskripsi' => 'Informasi singkat mengenai kegiatan siswa SMP Al Ahmad.', 'tanggal' => now()->subDays(20), 'foto' => null],
+            ['nama_kegiatan' => 'Kegiatan Siswa 2', 'deskripsi' => 'Kegiatan pengembangan bakat dan minat siswa di lingkungan sekolah.', 'tanggal' => now()->subDays(10), 'foto' => null],
+            ['nama_kegiatan' => 'Kegiatan Siswa 3', 'deskripsi' => 'Kegiatan gotong royong dan kebersihan lingkungan sekolah.', 'tanggal' => now()->subDays(3), 'foto' => null],
         ];
 
         foreach ($data as $row) {

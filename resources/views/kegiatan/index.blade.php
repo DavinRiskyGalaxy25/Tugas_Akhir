@@ -4,13 +4,16 @@
 
 @section('content')
 <main>
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <span class="section-label">AKTIVITAS SISWA</span>
+            <h2>Kegiatan Sekolah</h2>
+            <p>Dokumentasi aktivitas pembelajaran, kepesantrenan, dan kesiswaan {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.</p>
+        </div>
+    </section>
+
     <section class="content-section">
         <div class="section-container">
-            <div class="section-heading">
-                <h2>Kegiatan {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad' }}</h2>
-                <p>Dokumentasi kegiatan siswa {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.</p>
-            </div>
-
             <div class="activity-page-grid">
                 @forelse($kegiatan as $item)
                     <article class="activity-card">
@@ -18,11 +21,11 @@
                             <img src="{{ $item->foto_url }}" alt="{{ $item->nama_kegiatan }}">
                         </div>
                         <div class="activity-info">
-                            <span>{{ $item->tanggal->translatedFormat('d F Y') }}</span>
+                            <span class="activity-date"><i class="fa-regular fa-calendar me-1"></i> {{ $item->tanggal ? $item->tanggal->translatedFormat('d F Y') : '' }}</span>
                             <h3>{{ $item->nama_kegiatan }}</h3>
                             <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->deskripsi), 110) }}</p>
-                            <a href="{{ route('kegiatan.show', $item->slug) }}" class="text-button">
-                                Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i>
+                            <a href="{{ route('kegiatan.show', $item->slug) }}" class="activity-link">
+                                Selengkapnya &rarr;
                             </a>
                         </div>
                     </article>

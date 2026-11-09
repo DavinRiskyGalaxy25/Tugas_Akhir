@@ -12,7 +12,7 @@
 
             <article class="news-detail">
                 <div class="news-detail-heading">
-                    <span>{{ $berita->tanggal_publikasi->translatedFormat('d F Y') }}</span>
+                    <span>{{ optional($berita->tanggal_publikasi)->translatedFormat('d F Y') ?? '' }}</span>
                     <h1>{{ $berita->judul }}</h1>
                     @if($berita->penulis)<p><small>Oleh {{ $berita->penulis }}</small></p>@endif
                 </div>
@@ -39,7 +39,7 @@
                                 <img src="{{ $item->thumbnail_url }}" alt="{{ $item->judul }}">
                             </div>
                             <div class="news-page-info">
-                                <span>{{ $item->tanggal_publikasi->translatedFormat('d F Y') }}</span>
+                                <span>{{ optional($item->tanggal_publikasi)->translatedFormat('d F Y') ?? '' }}</span>
                                 <h3>{{ $item->judul }}</h3>
                                 <a href="{{ route('berita.show', $item->slug) }}" class="text-button">
                                     Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i>

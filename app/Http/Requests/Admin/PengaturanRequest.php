@@ -16,6 +16,7 @@ class PengaturanRequest extends FormRequest
         return [
             'nama_sekolah' => ['required', 'string', 'max:255'],
             'logo' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:1024'],
+            'poster_spmb' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:3072'],
             'alamat' => ['required', 'string'],
             'telepon' => ['required', 'string', 'max:30'],
             'email' => ['required', 'email', 'max:255'],

@@ -12,7 +12,7 @@
                     @csrf
                     @method('PUT')
                     <div class="mb-3 text-center">
-                        <img src="{{ $user->photo ? asset('storage/'.$user->photo) : asset('assets/img/no-image.svg') }}" class="rounded-circle mb-2" style="width:90px;height:90px;object-fit:cover;">
+                        <img src="{{ $user->photo_url }}" class="rounded-circle mb-2" style="width:90px;height:90px;object-fit:cover;">
                         <input type="file" name="photo" class="form-control">
                     </div>
                     <div class="mb-3">

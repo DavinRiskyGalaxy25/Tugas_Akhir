@@ -9,18 +9,21 @@ use App\Models\Fasilitas;
 use App\Models\Guru;
 use App\Models\Kegiatan;
 use App\Models\Prestasi;
+use App\Models\StrukturOrganisasi;
 use Illuminate\View\View;
 
 /**
  * Renders the mostly-static informational pages, with the sections
  * that the client asked to be manageable (guru, fasilitas, kegiatan,
- * prestasi, ekstrakurikuler, berita) pulled live from the database.
+ * prestasi, ekstrakurikuler, berita, profil, kontak) pulled live from the database.
  */
 class PageController extends Controller
 {
     public function profil(): View
     {
-        return view('profil');
+        $struktur = StrukturOrganisasi::aktif()->orderBy('urutan')->get();
+
+        return view('profil', compact('struktur'));
     }
 
     public function akademik(): View
@@ -40,11 +43,14 @@ class PageController extends Controller
         return view('kesiswaan', compact('kegiatan', 'prestasi', 'ekstrakurikuler'));
     }
 
+    public function kontak(): View
+    {
+        return view('kontak');
+    }
+
     public function informasi(): View
     {
-        $berita = Berita::published()->latest('tanggal_publikasi')->take(3)->get();
-
-        return view('informasi', compact('berita'));
+        return view('kontak');
     }
 
     public function guru(): View
