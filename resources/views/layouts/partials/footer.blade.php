@@ -6,10 +6,9 @@
             <svg viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="footerWaveGrad1" x1="0" y1="0" x2="0" y2="100%">
-                        <stop offset="0%" stop-color="#22c55e" stop-opacity="0.30"/>
-                        <stop offset="50%" stop-color="#22c55e" stop-opacity="0.22"/>
-                        <stop offset="85%" stop-color="#22c55e" stop-opacity="0.08"/>
-                        <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+                        <stop offset="0%" stop-color="#22c55e" stop-opacity="0.38"/>
+                        <stop offset="50%" stop-color="#22c55e" stop-opacity="0.25"/>
+                        <stop offset="100%" stop-color="#22c55e" stop-opacity="0.10"/>
                     </linearGradient>
                 </defs>
                 <path d="M0,45 C90,18 270,18 360,45 C450,72 630,72 720,45 C810,18 990,18 1080,45 C1170,72 1350,72 1440,45 C1530,18 1710,18 1800,45 C1890,72 2070,72 2160,45 C2250,18 2430,18 2520,45 C2610,72 2790,72 2880,45 L2880,120 L0,120 Z" fill="url(#footerWaveGrad1)"></path>
@@ -20,10 +19,9 @@
             <svg viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="footerWaveGrad2" x1="0" y1="0" x2="0" y2="100%">
-                        <stop offset="0%" stop-color="#10b981" stop-opacity="0.42"/>
-                        <stop offset="50%" stop-color="#10b981" stop-opacity="0.28"/>
-                        <stop offset="85%" stop-color="#10b981" stop-opacity="0.10"/>
-                        <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+                        <stop offset="0%" stop-color="#10b981" stop-opacity="0.52"/>
+                        <stop offset="50%" stop-color="#10b981" stop-opacity="0.35"/>
+                        <stop offset="100%" stop-color="#10b981" stop-opacity="0.15"/>
                     </linearGradient>
                 </defs>
                 <path d="M0,58 C90,84 270,84 360,58 C450,32 630,32 720,58 C810,84 990,84 1080,58 C1170,32 1350,32 1440,58 C1530,84 1710,84 1800,58 C1890,32 2070,32 2160,58 C2250,84 2430,84 2520,58 C2610,32 2790,32 2880,58 L2880,120 L0,120 Z" fill="url(#footerWaveGrad2)"></path>
@@ -35,10 +33,9 @@
                 <defs>
                     <linearGradient id="footerWaveGrad3" x1="0" y1="0" x2="0" y2="100%">
                         <stop offset="0%" stop-color="#072113" stop-opacity="1"/>
-                        <stop offset="40%" stop-color="#072113" stop-opacity="0.95"/>
-                        <stop offset="70%" stop-color="#082816" stop-opacity="0.55"/>
-                        <stop offset="90%" stop-color="#092d1a" stop-opacity="0.18"/>
-                        <stop offset="100%" stop-color="#092d1a" stop-opacity="0"/>
+                        <stop offset="60%" stop-color="#072113" stop-opacity="1"/>
+                        <stop offset="85%" stop-color="#082816" stop-opacity="1"/>
+                        <stop offset="100%" stop-color="#072113" stop-opacity="1"/>
                     </linearGradient>
                 </defs>
                 <path d="M0,72 C60,52 180,52 240,72 C300,92 420,92 480,72 C540,52 660,52 720,72 C780,92 900,92 960,72 C1020,52 1140,52 1200,72 C1260,92 1380,92 1440,72 C1500,52 1620,52 1680,72 C1740,92 1860,92 1920,72 C1980,52 2100,52 2160,72 C2220,92 2340,92 2400,72 C2460,52 2580,52 2640,72 C2700,92 2820,92 2880,72 L2880,120 L0,120 Z" fill="url(#footerWaveGrad3)"></path>
