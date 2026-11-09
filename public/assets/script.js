@@ -1922,10 +1922,9 @@ if (teacherSlider && teacherWindow && teacherTrack) {
     let teacherPosition = 0;
 
     function getTeacherStep() {
-        const card = teacherTrack.querySelector(".teacher-card");
-        if (!card) return 0;
-        const gap = parseFloat(getComputedStyle(teacherTrack).gap) || 14;
-        return card.offsetWidth + gap;
+        const gap = parseFloat(getComputedStyle(teacherTrack).gap) || 12;
+        // Geser tepat 5 kartu sekaligus (1 tampilan penuh)
+        return teacherWindow.clientWidth + gap;
     }
 
     function getTeacherMaxPosition() {
