@@ -226,8 +226,8 @@
     <div class="login-wrapper">
         <div class="login-card">
             <div class="text-center">
-                <div class="logo-badge d-inline-flex align-items-center justify-content-center" style="width: 64px; height: 64px; border-radius: 16px; background: rgba(21, 128, 61, 0.1); margin: 0 auto 16px;">
-                    <i class="fa-solid fa-shield-halved text-success" style="font-size: 1.8rem;"></i>
+                <div class="logo-badge d-inline-flex align-items-center justify-content-center" style="width: 72px; height: 72px; border-radius: 18px; background: #ffffff; box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08); margin: 0 auto 16px; padding: 6px;">
+                    <img src="{{ $pengaturan['logo_url'] ?? asset('assets/img/logo.png') }}" alt="Logo {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad' }}" style="width: 100%; height: 100%; object-fit: contain;">
                 </div>
                 <h1 class="login-title">{{ $pengaturan['nama_sekolah'] ?? 'SMP AL AHMAD KRIAN' }}</h1>
                 <p class="login-subtitle">Panel Masuk Administrator Sekolah</p>

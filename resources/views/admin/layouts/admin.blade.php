@@ -25,8 +25,8 @@
     <aside class="admin-sidebar" id="adminSidebar">
         <div class="brand">
             <a href="{{ route('admin.dashboard') }}" class="brand-info">
-                <div class="brand-icon">
-                    <i class="fa-solid fa-shield-halved"></i>
+                <div class="brand-icon brand-logo-wrap">
+                    <img src="{{ $pengaturan['logo_url'] ?? asset('assets/img/logo.png') }}" alt="Logo {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad' }}" class="brand-logo-img">
                 </div>
                 <div class="brand-text">
                     <span class="brand-name">{{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad' }}</span>
