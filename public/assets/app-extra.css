@@ -2944,6 +2944,89 @@ body:has(.page-hero) {
     gap: 10px !important;
 }
 
+/* Layout 2 Kolom Kegiatan Siswa */
+.activity-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 32px !important;
+}
+
+.activity-grid .activity-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    border-radius: 20px !important;
+}
+
+.activity-grid .activity-image {
+    height: 270px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.activity-grid .activity-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+.activity-grid .activity-badge {
+    position: absolute !important;
+    top: 16px !important;
+    left: 16px !important;
+    background: rgba(20, 83, 45, 0.9) !important;
+    backdrop-filter: blur(4px) !important;
+    color: #ffffff !important;
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    padding: 5px 14px !important;
+    border-radius: 9999px !important;
+    z-index: 2 !important;
+}
+
+.activity-grid .activity-info {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+    padding: 24px 26px !important;
+}
+
+.activity-grid .activity-info h3 {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    line-height: 1.4 !important;
+    margin: 0 0 16px 0 !important;
+}
+
+.activity-grid .activity-link {
+    margin-top: auto !important;
+    font-size: 0.92rem !important;
+    font-weight: 700 !important;
+    color: #15803d !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    transition: gap 0.2s ease, color 0.2s ease !important;
+}
+
+.activity-grid .activity-link:hover {
+    gap: 10px !important;
+    color: #166534 !important;
+}
+
+@media (max-width: 860px) {
+    .activity-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+
+    .activity-grid .activity-image {
+        height: 230px !important;
+    }
+}
+
 /* 6. BERITA / NEWS CARDS & DETAIL */
 .news-page-card {
     border: none !important;

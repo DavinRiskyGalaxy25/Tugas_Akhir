@@ -14,7 +14,6 @@
         <div class="section-container">
             <div class="section-heading">
                 <h2>Kegiatan Siswa</h2>
-                <p>Dokumentasi aktivitas pembelajaran dan kegiatan kesiswaan.</p>
             </div>
 
             <div class="activity-grid">
@@ -29,7 +28,6 @@
                         <div class="activity-info">
                             <span class="activity-date"><i class="fa-regular fa-calendar me-1"></i> {{ $item->tanggal ? $item->tanggal->translatedFormat('d F Y') : '' }}</span>
                             <h3>{{ $item->judul }}</h3>
-                            <p>{{ Str::limit($item->deskripsi ?? '', 120) }}</p>
                             <a href="{{ route('kegiatan.show', $item->slug) }}" class="activity-link">Selengkapnya &rarr;</a>
                         </div>
                     </article>
@@ -48,7 +46,6 @@
         <div class="section-container">
             <div class="section-heading">
                 <h2>Prestasi Siswa</h2>
-                <p>Capaian membanggakan siswa-siswi {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.</p>
             </div>
 
             <div class="achievement-grid">
@@ -82,7 +79,6 @@
         <div class="section-container">
             <div class="section-heading">
                 <h2>Ekstrakurikuler</h2>
-                <p>Berbagai kegiatan ekstrakurikuler yang dapat diikuti oleh siswa {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.</p>
             </div>
 
             <div class="extra-grid">
