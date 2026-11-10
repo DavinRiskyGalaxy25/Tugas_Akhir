@@ -3180,10 +3180,10 @@ body:has(.page-hero) {
     max-width: 860px !important;
     margin: 0 auto !important;
     background: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 14px !important;
-    padding: 38px 34px !important;
-    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05) !important;
+    border: none !important;
+    border-radius: 24px !important;
+    padding: 42px 38px !important;
+    box-shadow: 0 12px 35px -6px rgba(15, 23, 42, 0.06) !important;
 }
 
 .form-card-header {
@@ -3518,87 +3518,267 @@ button[type="reset"].secondary-button:hover {
     box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
 }
 
-/* ALUMNI STORIES CARDS */
+/* ALUMNI STORIES CARDS - MODERN, BORDERLESS */
+.alumni-hero-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 36px 38px;
+    background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+    border-radius: 24px;
+    border: none !important;
+    box-shadow: 0 10px 30px -6px rgba(15, 23, 42, 0.05);
+    margin-bottom: 36px;
+}
+
+.alumni-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #15803d;
+    background: #e8f5e9;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    margin-bottom: 8px;
+}
+
+.alumni-cta-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin: 6px 0 8px 0 !important;
+}
+
+.alumni-cta-desc {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 680px;
+    margin: 0;
+}
+
+.alumni-send-btn {
+    white-space: nowrap;
+    padding: 13px 26px !important;
+}
+
 .alumni-stories-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 22px;
+    gap: 26px;
     max-width: 1140px;
     margin: 0 auto;
 }
 
 .alumni-card {
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+    border: none !important;
+    border-radius: 22px !important;
+    padding: 30px 28px;
+    box-shadow: 0 10px 30px -6px rgba(15, 23, 42, 0.06);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: all 0.25s ease;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .alumni-card:hover {
-    border-color: #cbd5e1;
-    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -8px rgba(20, 83, 45, 0.1);
+    transform: translateY(-5px);
+}
+
+.alumni-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.alumni-stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.star-gold {
+    color: #f59e0b !important;
+    font-size: 0.95rem;
+}
+
+.star-muted {
+    color: #cbd5e1 !important;
+    font-size: 0.95rem;
+}
+
+.alumni-stars-val {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-left: 6px;
+}
+
+.alumni-quote-mark {
+    color: #e2e8f0;
+    font-size: 1.6rem;
+    line-height: 1;
 }
 
 .alumni-quote-text {
-    font-size: 0.925rem;
+    font-size: 0.96rem;
     color: #334155;
-    line-height: 1.65;
-    margin: 0 0 18px 0;
+    line-height: 1.7;
+    margin: 0 0 22px 0;
     font-style: normal;
+    flex-grow: 1;
 }
 
 .alumni-author-meta {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding-top: 14px;
+    gap: 14px;
+    padding-top: 18px;
     border-top: 1px solid #f1f5f9;
 }
 
 .alumni-avatar-badge {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    background: #ecfdf5;
-    border: 1px solid #a7f3d0;
-    color: #047857;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+    border: none;
+    color: #ffffff;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(21, 128, 61, 0.25);
+}
+
+.alumni-author-details {
+    overflow: hidden;
 }
 
 .alumni-name {
-    font-size: 0.925rem;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1.02rem;
     font-weight: 700;
     color: #0f172a;
-    margin: 0 0 2px 0;
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .alumni-sub {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     color: #64748b;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.alumni-tag {
+    background: #f0fdf4;
+    color: #15803d;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.76rem;
+}
+
+.alumni-job {
+    color: #64748b;
+}
+
+/* INTERACTIVE STAR RATING IN FORM */
+.star-rating-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: none !important;
+}
+
+.star-rating-inputs {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    gap: 6px;
+}
+
+.star-rating-inputs input {
+    display: none;
+}
+
+.star-rating-inputs label {
+    font-size: 1.65rem;
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0;
+    line-height: 1;
+}
+
+.star-rating-inputs label:hover,
+.star-rating-inputs label:hover ~ label,
+.star-rating-inputs input:checked ~ label {
+    color: #f59e0b;
+}
+
+.star-rating-inputs label:hover {
+    transform: scale(1.18);
+}
+
+.rating-text-hint {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #f59e0b;
+}
+
+.field-note {
+    display: block;
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 6px;
 }
 
 .empty-state-box {
     text-align: center;
-    padding: 40px 20px;
+    padding: 50px 24px;
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    max-width: 500px;
+    border: none !important;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px -6px rgba(15, 23, 42, 0.05);
+    max-width: 540px;
     margin: 0 auto;
     color: #64748b;
-    font-size: 0.92rem;
+    font-size: 0.95rem;
+}
+
+.empty-state-box .empty-icon {
+    font-size: 2.8rem;
+    color: #cbd5e1;
+    margin-bottom: 14px;
+}
+
+.empty-state-box h3 {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin: 0 0 8px 0 !important;
 }
 
 /* 8. MOBILE PHONE EXTRA REFINEMENTS */

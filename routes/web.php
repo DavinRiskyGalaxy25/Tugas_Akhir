@@ -55,7 +55,8 @@ Route::post('/ppdb', [PpdbController::class, 'store'])->name('ppdb.store');
 Route::get('/spmb', [PpdbController::class, 'create'])->name('spmb');
 Route::post('/spmb', [PpdbController::class, 'store'])->name('spmb.store');
 
-Route::get('/alumni', [AlumniController::class, 'create'])->name('alumni.create');
+Route::get('/alumni', [AlumniController::class, 'index'])->name('alumni.index');
+Route::get('/alumni/kirim', [AlumniController::class, 'create'])->name('alumni.create');
 Route::post('/alumni', [AlumniController::class, 'store'])->name('alumni.store');
 
 Route::redirect('/login', '/admin/login')->name('login');

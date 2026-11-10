@@ -56,7 +56,7 @@
                 </button>
                 <div class="dropdown-menu">
                     <a href="{{ route('berita.index') }}"> Berita </a>
-                    <a href="{{ route('alumni.create') }}"> Alumni </a>
+                    <a href="{{ route('alumni.index') }}"> Alumni </a>
                     <a href="{{ route('ppdb.create') }}"> PPDB </a>
                     <a href="{{ route('kontak') }}"> Kontak </a>
                 </div>
@@ -151,7 +151,7 @@
             </button>
             <div class="mobile-dropdown-content">
                 <a href="{{ route('berita.index') }}">Berita</a>
-                <a href="{{ route('alumni.create') }}">Alumni</a>
+                <a href="{{ route('alumni.index') }}">Alumni</a>
                 <a href="{{ route('ppdb.create') }}">PPDB</a>
                 <a href="{{ route('kontak') }}">Kontak</a>
             </div>

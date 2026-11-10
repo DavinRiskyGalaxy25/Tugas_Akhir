@@ -12,7 +12,7 @@ class Alumni extends Model
     protected $table = 'alumni';
 
     protected $fillable = [
-        'nama', 'tahun_lulus', 'pekerjaan_sekarang', 'pesan_kesan', 'foto', 'status',
+        'nama', 'tahun_lulus', 'pekerjaan_sekarang', 'pesan_kesan', 'rating', 'foto', 'status',
     ];
 
     public function scopePublished($query)
