@@ -71,7 +71,7 @@
         .login-card {
             background: #ffffff;
             border: none;
-            border-radius: 24px;
+            border-radius: 8px;
             box-shadow: 0 25px 60px -15px rgba(5, 30, 15, 0.35);
             padding: 42px 34px 34px;
             transition: transform 0.3s ease;
@@ -133,7 +133,7 @@
             background-color: #f8fafc;
             font-size: 0.92rem;
             padding: 12px 14px;
-            border-radius: 12px;
+            border-radius: 6px;
             transition: all 0.2s ease;
         }
 
@@ -147,8 +147,8 @@
             background-color: #f8fafc;
             border: none;
             color: #64748b;
-            border-top-right-radius: 12px;
-            border-bottom-right-radius: 12px;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
             padding: 0 14px;
         }
 
@@ -169,7 +169,7 @@
             font-weight: 600;
             font-size: 0.96rem;
             padding: 13px 20px;
-            border-radius: 12px;
+            border-radius: 6px;
             width: 100%;
             transition: all 0.25s ease;
             box-shadow: 0 8px 20px rgba(23, 107, 58, 0.28);
@@ -207,7 +207,7 @@
         }
 
         .alert-custom {
-            border-radius: 12px;
+            border-radius: 6px;
             font-size: 0.86rem;
             padding: 12px 14px;
             display: flex;

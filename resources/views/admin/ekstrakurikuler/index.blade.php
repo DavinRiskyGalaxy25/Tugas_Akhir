@@ -31,7 +31,7 @@
                     @forelse($ekstrakurikuler as $e)
                         <tr>
                             <td>
-                                <img src="{{ $e->foto_url }}" alt="{{ $e->nama }}" class="img-thumb" style="width: 52px; height: 52px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);">
+                                <img src="{{ $e->foto_url }}" alt="{{ $e->nama }}" class="img-thumb" style="width: 52px; height: 52px; object-fit: cover; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);">
                             </td>
                             <td>
                                 <a href="{{ route('admin.ekstrakurikuler.edit', $e) }}" class="dashboard-table-link">

@@ -1,7 +1,7 @@
 @extends('admin.layouts.admin')
 @section('title', 'Kesan & Pesan Alumni')
 @section('content')
-<div class="card border-0 shadow-sm" style="border-radius: 16px;">
+<div class="card border-0 shadow-sm" style="border-radius: 8px;">
     <div class="card-body p-4">
         <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
             <div>
@@ -9,7 +9,7 @@
                 <p class="text-muted small mb-0">Kelola dan setujui (ACC) kiriman cerita testimoni dari alumni sekolah.</p>
             </div>
             <form class="d-flex gap-2" method="GET">
-                <select name="status" class="form-select form-select-sm" onchange="this.form.submit()" style="border-radius: 8px;">
+                <select name="status" class="form-select form-select-sm" onchange="this.form.submit()" style="border-radius: 6px;">
                     <option value="">Semua Status</option>
                     @foreach(['pending' => 'Pending (Menunggu ACC)', 'published' => 'Disetujui (ACC)', 'rejected' => 'Ditolak / Sembunyi'] as $key => $label)
                         <option value="{{ $key }}" {{ request('status') === $key ? 'selected' : '' }}>{{ $label }}</option>

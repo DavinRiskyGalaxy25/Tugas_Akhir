@@ -307,7 +307,7 @@
 .extra-card.has-image {
     padding: 0 !important;
     border: none !important;
-    border-radius: 20px !important;
+    border-radius: 8px !important;
     background: #ffffff !important;
     box-shadow: 0 10px 30px -6px rgba(15, 23, 42, 0.06) !important;
     overflow: hidden !important;
@@ -386,7 +386,7 @@
     gap: 16px;
     padding: 22px 24px;
     background: #ffffff;
-    border-radius: 20px;
+    border-radius: 8px;
     border: none !important;
     text-decoration: none;
     color: inherit;
@@ -403,7 +403,7 @@
 .channel-icon {
     width: 50px;
     height: 50px;
-    border-radius: 14px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -456,7 +456,7 @@
 .contact-text-card {
     background: #ffffff;
     padding: 38px 34px;
-    border-radius: 24px;
+    border-radius: 8px;
     border: none !important;
     box-shadow: 0 10px 30px -4px rgba(15, 23, 42, 0.05);
     display: flex;
@@ -507,7 +507,7 @@
     align-items: center;
     padding: 11px 16px;
     background: #f8fafc;
-    border-radius: 12px;
+    border-radius: 6px;
     border: none !important;
     font-size: 0.88rem;
 }
@@ -528,7 +528,7 @@
 }
 
 .contact-map-frame {
-    border-radius: 24px;
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 10px 30px -4px rgba(15, 23, 42, 0.05);
     border: none !important;
@@ -695,7 +695,7 @@ body:not(.home-page) {
 /* DROPDOWN MENU OVERLAY */
 .site-header .dropdown-menu {
     border: none !important;
-    border-radius: 18px !important;
+    border-radius: 8px !important;
     background: rgba(255, 255, 255, 0.98) !important;
     backdrop-filter: blur(16px);
     box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.14) !important;
@@ -709,7 +709,7 @@ body:not(.home-page) {
     font-size: 0.88rem !important;
     font-weight: 500 !important;
     padding: 10px 14px !important;
-    border-radius: 10px !important;
+    border-radius: 6px !important;
     transition: all 0.2s ease !important;
 }
 
@@ -1200,7 +1200,7 @@ body:not(.home-page) {
 
 .stat-island-container {
     background: #ffffff;
-    border-radius: 24px;
+    border-radius: 8px;
     padding: 30px 40px;
     box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.08), 0 0 1px rgba(0, 0, 0, 0.05);
     border: none !important;
@@ -1219,7 +1219,7 @@ body:not(.home-page) {
 .stat-icon-wrap {
     width: 52px;
     height: 52px;
-    border-radius: 16px;
+    border-radius: 6px;
     background: #f0fdf4;
     color: #15803d;
     font-size: 1.35rem;
@@ -1288,7 +1288,7 @@ body:not(.home-page) {
     position: relative;
     width: 100%;
     max-width: 400px;
-    border-radius: 28px;
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 24px 48px -12px rgba(20, 83, 45, 0.14);
 }
@@ -1312,7 +1312,7 @@ body:not(.home-page) {
     right: 20px;
     background: rgba(255, 255, 255, 0.94);
     backdrop-filter: blur(12px);
-    border-radius: 16px;
+    border-radius: 6px;
     padding: 12px 18px;
     display: flex;
     align-items: center;
@@ -1349,7 +1349,7 @@ body:not(.home-page) {
 
 .editorial-quote-box {
     background: #f0fdf4;
-    border-radius: 20px;
+    border-radius: 8px;
     padding: 24px 28px;
     margin-bottom: 22px;
     border: none;
@@ -1446,7 +1446,7 @@ body:not(.home-page) {
     align-items: flex-start;
     padding: 16px 20px;
     background: #ffffff;
-    border-radius: 18px;
+    border-radius: 8px;
     box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
     border: none;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -1460,7 +1460,7 @@ body:not(.home-page) {
 .pillar-icon {
     width: 44px;
     height: 44px;
-    border-radius: 12px;
+    border-radius: 6px;
     background: #e8f5e9;
     color: #166534;
     font-size: 1.15rem;
@@ -1508,7 +1508,7 @@ body:not(.home-page) {
 
 .about-image-frame {
     position: relative;
-    border-radius: 28px;
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -1534,7 +1534,7 @@ body:not(.home-page) {
     backdrop-filter: blur(12px);
     color: #ffffff;
     padding: 14px 22px;
-    border-radius: 18px;
+    border-radius: 6px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
@@ -1600,7 +1600,7 @@ body:not(.home-page) {
     flex-direction: column;
     padding: 32px 24px;
     background: #fafbfa;
-    border-radius: 22px;
+    border-radius: 8px;
     border: none !important;
     box-shadow: 0 4px 18px rgba(15, 23, 42, 0.02);
     text-decoration: none;
@@ -1617,7 +1617,7 @@ body:not(.home-page) {
 .hub-icon-box {
     width: 56px;
     height: 56px;
-    border-radius: 16px;
+    border-radius: 6px;
     background: #ecfdf5;
     color: #15803d;
     font-size: 1.45rem;
@@ -1870,7 +1870,7 @@ main:has(.alternate-section:last-child) + .site-footer {
 .footer-social a {
     width: 38px;
     height: 38px;
-    border-radius: 12px;
+    border-radius: 6px;
     background: rgba(255, 255, 255, 0.08);
     border: none !important;
     display: flex;
@@ -1933,7 +1933,7 @@ main:has(.alternate-section:last-child) + .site-footer {
     line-height: 1.55 !important;
     text-decoration: none !important;
     padding: 6px 10px;
-    border-radius: 10px;
+    border-radius: 6px;
     transition: all 0.2s ease;
 }
 
@@ -1946,7 +1946,7 @@ main:has(.alternate-section:last-child) + .site-footer {
 .footer-contact-icon {
     width: 32px;
     height: 32px;
-    border-radius: 8px;
+    border-radius: 6px;
     background: rgba(34, 197, 94, 0.15);
     border: none !important;
     display: flex;
@@ -1967,7 +1967,7 @@ main:has(.alternate-section:last-child) + .site-footer {
 .footer-contact.whatsapp-highlight {
     background: rgba(37, 211, 102, 0.14);
     border: none !important;
-    border-radius: 12px;
+    border-radius: 6px;
     padding: 9px 14px;
     color: #dcfce7 !important;
     font-weight: 500;
@@ -1992,7 +1992,7 @@ main:has(.alternate-section:last-child) + .site-footer {
     background: rgba(255, 255, 255, 0.05);
     border: none !important;
     box-shadow: none;
-    border-radius: 12px;
+    border-radius: 6px;
     font-size: 0.82rem;
     color: rgba(255, 255, 255, 0.85);
 }
@@ -2481,7 +2481,7 @@ body:has(.page-hero) {
 
 .content-image,
 .intro-image {
-    border-radius: 24px !important;
+    border-radius: 8px !important;
     overflow: hidden !important;
     box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08) !important;
     border: none !important;
@@ -2489,7 +2489,7 @@ body:has(.page-hero) {
 
 .content-image img,
 .intro-image img {
-    border-radius: 24px !important;
+    border-radius: 8px !important;
     box-shadow: none !important;
     border: none !important;
 }
@@ -2518,7 +2518,7 @@ body:has(.page-hero) {
 .history-box {
     background: #f0fdf4 !important;
     border: none !important;
-    border-radius: 24px !important;
+    border-radius: 8px !important;
     box-shadow: 0 12px 35px -6px rgba(22, 163, 74, 0.1) !important;
     padding: 36px 30px !important;
 }
@@ -2549,7 +2549,7 @@ body:has(.page-hero) {
 
 .vision-card {
     border: none !important;
-    border-radius: 24px !important;
+    border-radius: 8px !important;
     background: #ffffff !important;
     box-shadow: 0 12px 36px -8px rgba(15, 23, 42, 0.06) !important;
     padding: 38px 34px !important;
@@ -2564,7 +2564,7 @@ body:has(.page-hero) {
 .vision-card .card-icon {
     width: 52px !important;
     height: 52px !important;
-    border-radius: 16px !important;
+    border-radius: 6px !important;
     background: #ecfdf5 !important;
     color: #15803d !important;
     font-size: 1.4rem !important;
@@ -2673,7 +2673,7 @@ body:has(.page-hero) {
 /* STRUKTUR ORGANISASI CARDS */
 .organization-card {
     border: none !important;
-    border-radius: 22px !important;
+    border-radius: 8px !important;
     background: #ffffff !important;
     box-shadow: 0 10px 30px -6px rgba(15, 23, 42, 0.06) !important;
     padding: 26px 20px !important;
@@ -2728,7 +2728,7 @@ body:has(.page-hero) {
 /* 4. AKADEMIK & DIREKTORI (TEACHER & FACILITY CARDS) */
 .teacher-card {
     border: none !important;
-    border-radius: 22px !important;
+    border-radius: 8px !important;
     background: #ffffff !important;
     box-shadow: 0 10px 30px -6px rgba(15, 23, 42, 0.06) !important;
     overflow: hidden !important;
@@ -2741,7 +2741,7 @@ body:has(.page-hero) {
 }
 
 .teacher-photo {
-    border-radius: 22px 22px 0 0 !important;
+    border-radius: 8px 8px 0 0 !important;
     overflow: hidden !important;
 }
 
@@ -2792,7 +2792,7 @@ body:has(.page-hero) {
 /* FACILITY CARDS */
 .facility-card {
     border: none !important;
-    border-radius: 22px !important;
+    border-radius: 8px !important;
     background: #ffffff !important;
     box-shadow: 0 10px 30px -6px rgba(15, 23, 42, 0.06) !important;
     overflow: hidden !important;
@@ -2848,7 +2848,7 @@ body:has(.page-hero) {
 .achievement-card,
 .extra-card {
     border: none !important;
-    border-radius: 22px !important;
+    border-radius: 8px !important;
     background: #ffffff !important;
     box-shadow: 0 10px 30px -6px rgba(15, 23, 42, 0.06) !important;
     overflow: hidden !important;
@@ -2965,7 +2965,7 @@ body:has(.page-hero) {
     display: flex !important;
     flex-direction: column !important;
     height: 100% !important;
-    border-radius: 20px !important;
+    border-radius: 8px !important;
 }
 
 .activity-grid .activity-image {
@@ -3040,7 +3040,7 @@ body:has(.page-hero) {
 /* 6. BERITA / NEWS CARDS & DETAIL */
 .news-page-card {
     border: none !important;
-    border-radius: 22px !important;
+    border-radius: 8px !important;
     background: #ffffff !important;
     box-shadow: 0 10px 30px -6px rgba(15, 23, 42, 0.06) !important;
     overflow: hidden !important;
@@ -3127,7 +3127,7 @@ body:has(.page-hero) {
     max-width: 860px !important;
     margin: 0 auto !important;
     background: #ffffff !important;
-    border-radius: 28px !important;
+    border-radius: 8px !important;
     padding: 44px 40px !important;
     box-shadow: 0 16px 40px -8px rgba(15, 23, 42, 0.06) !important;
 }
@@ -3142,7 +3142,7 @@ body:has(.page-hero) {
 }
 
 .news-detail-image img {
-    border-radius: 20px !important;
+    border-radius: 8px !important;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
     margin: 20px 0 30px !important;
     width: 100% !important;
@@ -3160,7 +3160,7 @@ body:has(.page-hero) {
     margin: 0 auto !important;
     background: #ffffff !important;
     border: none !important;
-    border-radius: 24px !important;
+    border-radius: 8px !important;
     padding: 42px 38px !important;
     box-shadow: 0 12px 35px -6px rgba(15, 23, 42, 0.06) !important;
 }
@@ -3446,7 +3446,7 @@ button[type="reset"].secondary-button:hover {
 .spmb-step-item {
     background: #ffffff;
     border: none !important;
-    border-radius: 20px;
+    border-radius: 8px;
     padding: 26px 22px;
     display: flex;
     gap: 16px;
@@ -3468,7 +3468,7 @@ button[type="reset"].secondary-button:hover {
     border: none !important;
     width: 44px;
     height: 44px;
-    border-radius: 12px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3492,7 +3492,7 @@ button[type="reset"].secondary-button:hover {
 .ppdb-poster-img {
     max-width: 100%;
     height: auto;
-    border-radius: 20px;
+    border-radius: 8px;
     border: none !important;
     box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
@@ -3500,7 +3500,7 @@ button[type="reset"].secondary-button:hover {
 /* PPDB MODERN BORDERLESS ENHANCEMENTS */
 .ppdb-modern-card {
     border: none !important;
-    border-radius: 28px !important;
+    border-radius: 8px !important;
     padding: 46px 40px !important;
     box-shadow: 0 16px 45px -8px rgba(15, 23, 42, 0.07) !important;
     background: #ffffff !important;
@@ -3524,7 +3524,7 @@ button[type="reset"].secondary-button:hover {
 .ppdb-modern-card .form-group textarea {
     border: none !important;
     background: #f8fafc !important;
-    border-radius: 12px !important;
+    border-radius: 6px !important;
     padding: 12px 16px !important;
     box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.03) !important;
     transition: all 0.2s ease !important;
@@ -3549,7 +3549,7 @@ button[type="reset"].secondary-button:hover {
     border: none !important;
     background: #ecfdf5 !important;
     color: #059669 !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     font-weight: 800;
 }
 
@@ -3571,7 +3571,7 @@ button[type="reset"].secondary-button:hover {
 .doc-upload-card {
     background: #f8fafc;
     border: none !important;
-    border-radius: 18px;
+    border-radius: 8px;
     padding: 18px 20px;
     display: flex;
     flex-direction: column;
@@ -3603,7 +3603,7 @@ button[type="reset"].secondary-button:hover {
 .doc-icon {
     width: 42px;
     height: 42px;
-    border-radius: 12px;
+    border-radius: 6px;
     background: #ffffff;
     color: #166534;
     display: flex;
@@ -3646,7 +3646,7 @@ button[type="reset"].secondary-button:hover {
     color: #1e293b;
     font-size: 0.8rem;
     font-weight: 600;
-    border-radius: 10px;
+    border-radius: 6px;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
     transition: all 0.2s ease;
@@ -3689,7 +3689,7 @@ button[type="reset"].secondary-button:hover {
 .recaptcha-box-wrapper {
     background: #f8fafc;
     border: none !important;
-    border-radius: 22px;
+    border-radius: 8px;
     padding: 24px;
     display: flex;
     flex-direction: column;
@@ -3711,7 +3711,7 @@ button[type="reset"].secondary-button:hover {
 .recaptcha-icon {
     width: 46px;
     height: 46px;
-    border-radius: 14px;
+    border-radius: 6px;
     background: #ecfdf5;
     color: #059669;
     display: flex;
@@ -3743,14 +3743,14 @@ button[type="reset"].secondary-button:hover {
 
 .ppdb-contact-callout {
     border: none !important;
-    border-radius: 24px !important;
+    border-radius: 8px !important;
     box-shadow: 0 12px 35px -6px rgba(15, 23, 42, 0.05) !important;
     background: #ffffff !important;
 }
 
 .ppdb-wa-btn {
     border: none !important;
-    border-radius: 12px !important;
+    border-radius: 6px !important;
     background: #16a34a !important;
     box-shadow: 0 6px 18px rgba(22, 163, 74, 0.25) !important;
 }
@@ -3781,7 +3781,7 @@ button[type="reset"].secondary-button:hover {
     gap: 24px;
     padding: 36px 38px;
     background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
-    border-radius: 24px;
+    border-radius: 8px;
     border: none !important;
     box-shadow: 0 10px 30px -6px rgba(15, 23, 42, 0.05);
     margin-bottom: 36px;
@@ -3833,7 +3833,7 @@ button[type="reset"].secondary-button:hover {
 .alumni-card {
     background: #ffffff;
     border: none !important;
-    border-radius: 22px !important;
+    border-radius: 8px !important;
     padding: 30px 28px;
     box-shadow: 0 10px 30px -6px rgba(15, 23, 42, 0.06);
     display: flex;
@@ -3904,7 +3904,7 @@ button[type="reset"].secondary-button:hover {
 .alumni-avatar-badge {
     width: 44px;
     height: 44px;
-    border-radius: 12px;
+    border-radius: 6px;
     background: linear-gradient(135deg, #15803d 0%, #166534 100%);
     border: none;
     color: #ffffff;
@@ -3962,7 +3962,7 @@ button[type="reset"].secondary-button:hover {
     gap: 12px;
     padding: 8px 16px;
     background: #f8fafc;
-    border-radius: 12px;
+    border-radius: 6px;
     border: none !important;
 }
 
@@ -4013,7 +4013,7 @@ button[type="reset"].secondary-button:hover {
     padding: 50px 24px;
     background: #ffffff;
     border: none !important;
-    border-radius: 24px;
+    border-radius: 8px;
     box-shadow: 0 10px 30px -6px rgba(15, 23, 42, 0.05);
     max-width: 540px;
     margin: 0 auto;
@@ -4068,7 +4068,7 @@ button[type="reset"].secondary-button:hover {
     }
     .form-card {
         padding: 26px 18px !important;
-        border-radius: 12px !important;
+        border-radius: 8px !important;
     }
     .form-grid {
         grid-template-columns: 1fr !important;
@@ -4096,10 +4096,10 @@ button[type="reset"].secondary-button:hover {
     }
     .news-detail {
         padding: 26px 18px !important;
-        border-radius: 20px !important;
+        border-radius: 8px !important;
     }
     .identity-table-wrapper {
-        border-radius: 18px !important;
+        border-radius: 8px !important;
         padding: 4px !important;
         overflow-x: auto !important;
     }
@@ -4110,7 +4110,7 @@ button[type="reset"].secondary-button:hover {
     }
     .vision-card {
         padding: 26px 20px !important;
-        border-radius: 20px !important;
+        border-radius: 8px !important;
     }
     .history-box {
         padding: 26px 20px !important;
@@ -4218,7 +4218,7 @@ button[type="reset"].secondary-button:hover {
         grid-template-columns: 1fr 1fr !important;
         gap: 12px !important;
         padding: 18px 16px !important;
-        border-radius: 20px !important;
+        border-radius: 8px !important;
     }
 
     .stat-item-block {
@@ -4227,14 +4227,14 @@ button[type="reset"].secondary-button:hover {
         gap: 8px !important;
         background: #fbfdfc !important;
         padding: 14px 12px !important;
-        border-radius: 16px !important;
+        border-radius: 8px !important;
     }
 
     .stat-icon-wrap {
         width: 40px !important;
         height: 40px !important;
         font-size: 1.1rem !important;
-        border-radius: 12px !important;
+        border-radius: 6px !important;
     }
 
     .stat-number-display {
@@ -4256,7 +4256,7 @@ button[type="reset"].secondary-button:hover {
 
     .editorial-photo-wrapper {
         max-width: 290px !important;
-        border-radius: 22px !important;
+        border-radius: 8px !important;
     }
 
     .photo-floating-badge {
@@ -4274,7 +4274,7 @@ button[type="reset"].secondary-button:hover {
 
     .editorial-quote-box {
         padding: 20px !important;
-        border-radius: 16px !important;
+        border-radius: 8px !important;
     }
 
     .editorial-quote-box p {
@@ -4292,7 +4292,7 @@ button[type="reset"].secondary-button:hover {
 
     .about-image-frame {
         max-width: 100% !important;
-        border-radius: 22px !important;
+        border-radius: 8px !important;
     }
 
     .about-image-frame img {
@@ -4301,7 +4301,7 @@ button[type="reset"].secondary-button:hover {
 
     .image-corner-tag {
         padding: 10px 16px !important;
-        border-radius: 14px !important;
+        border-radius: 6px !important;
         bottom: 14px !important;
         right: 14px !important;
     }
@@ -4325,12 +4325,13 @@ button[type="reset"].secondary-button:hover {
 
     .hub-card {
         padding: 24px 20px !important;
-        border-radius: 20px !important;
+        border-radius: 8px !important;
     }
 
     .hub-icon-box {
         width: 48px !important;
         height: 48px !important;
+        border-radius: 6px !important;
         font-size: 1.25rem !important;
         margin-bottom: 16px !important;
     }
@@ -4623,7 +4624,7 @@ button[type="reset"].secondary-button:hover {
     max-width: none !important;
     box-sizing: border-box !important;
     margin: 0 !important;
-    border-radius: 12px !important;
+    border-radius: 8px !important;
     overflow: hidden !important;
     background: #ffffff !important;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06) !important;
