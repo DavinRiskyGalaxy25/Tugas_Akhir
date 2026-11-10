@@ -24,7 +24,6 @@
                             @if($item->nama_siswa)
                                 <p class="achievement-winner"><strong>Peraih:</strong> {{ $item->nama_siswa }} &middot; {{ $item->pencapaian ?? '' }}</p>
                             @endif
-                            <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->deskripsi), 110) }}</p>
                             <a href="{{ route('prestasi.show', $item->slug) }}" class="activity-link">
                                 Selengkapnya &rarr;
                             </a>

@@ -2927,7 +2927,24 @@ body:has(.page-hero) {
     border-radius: 8px !important;
     font-size: 0.85rem !important;
     display: inline-block !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 12px !important;
+}
+
+.achievement-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.achievement-info {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+}
+
+.achievement-info .activity-link {
+    margin-top: auto !important;
+    padding-top: 6px !important;
 }
 
 .activity-link {

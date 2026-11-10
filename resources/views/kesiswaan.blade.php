@@ -60,7 +60,6 @@
                             @if($item->nama_peraih)
                                 <p class="achievement-winner"><strong>Peraih:</strong> {{ $item->nama_peraih }}</p>
                             @endif
-                            <p>{{ Str::limit($item->deskripsi, 100) }}</p>
                             <a href="{{ route('prestasi.show', $item->slug) }}" class="activity-link">Selengkapnya &rarr;</a>
                         </div>
                     </article>
