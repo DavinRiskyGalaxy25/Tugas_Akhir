@@ -70,10 +70,10 @@
 
         .login-card {
             background: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.7);
+            border: none;
             border-radius: 24px;
-            box-shadow: 0 25px 60px -15px rgba(5, 30, 15, 0.45);
-            padding: 38px 32px 32px;
+            box-shadow: 0 25px 60px -15px rgba(5, 30, 15, 0.35);
+            padding: 42px 34px 34px;
             transition: transform 0.3s ease;
         }
 
@@ -82,8 +82,8 @@
             height: 76px;
             border-radius: 50%;
             background: #ffffff;
-            border: 3px solid #e8f5e9;
-            box-shadow: 0 10px 25px rgba(23, 107, 58, 0.18);
+            border: none;
+            box-shadow: 0 10px 25px rgba(23, 107, 58, 0.12);
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -120,7 +120,7 @@
 
         .input-group-text {
             background-color: #f8fafc;
-            border-color: #e2e8f0;
+            border: none;
             color: var(--primary-green);
             font-size: 0.95rem;
             border-top-left-radius: 12px;
@@ -129,7 +129,8 @@
         }
 
         .form-control {
-            border-color: #e2e8f0;
+            border: none;
+            background-color: #f8fafc;
             font-size: 0.92rem;
             padding: 12px 14px;
             border-radius: 12px;
@@ -137,13 +138,14 @@
         }
 
         .form-control:focus {
-            border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(23, 107, 58, 0.16);
+            background-color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 0 0 3px rgba(23, 107, 58, 0.16), 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .btn-toggle-password {
             background-color: #f8fafc;
-            border-color: #e2e8f0;
+            border: none;
             color: #64748b;
             border-top-right-radius: 12px;
             border-bottom-right-radius: 12px;
