@@ -24,9 +24,7 @@
                         <img src="{{ $item->thumbnail_url }}" alt="{{ $item->judul }}">
                     </div>
                     <div class="news-page-info">
-                        <span>{{ $item->tanggal_publikasi->translatedFormat('d F Y') }}</span>
                         <h3>{{ $item->judul }}</h3>
-                        <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->isi), 100) }}</p>
                         <a href="{{ route('berita.show', $item->slug) }}" class="text-button">
                             Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i>
                         </a>

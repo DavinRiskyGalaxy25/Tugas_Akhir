@@ -39,7 +39,6 @@
                                 <img src="{{ $item->thumbnail_url }}" alt="{{ $item->judul }}">
                             </div>
                             <div class="news-page-info">
-                                <span>{{ optional($item->tanggal_publikasi)->translatedFormat('d F Y') ?? '' }}</span>
                                 <h3>{{ $item->judul }}</h3>
                                 <a href="{{ route('berita.show', $item->slug) }}" class="text-button">
                                     Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i>

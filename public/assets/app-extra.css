@@ -3066,6 +3066,9 @@ body:has(.page-hero) {
     box-shadow: 0 10px 30px -6px rgba(15, 23, 42, 0.06) !important;
     overflow: hidden !important;
     transition: all 0.3s ease !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
 }
 
 .news-page-card:hover {
@@ -3091,6 +3094,9 @@ body:has(.page-hero) {
 
 .news-page-info {
     padding: 24px 22px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
 }
 
 .news-page-info .news-date {
@@ -3107,7 +3113,12 @@ body:has(.page-hero) {
     font-weight: 700 !important;
     color: #0f172a !important;
     line-height: 1.35 !important;
-    margin: 0 0 12px 0 !important;
+    margin: 0 0 16px 0 !important;
+}
+
+.news-page-info .text-button {
+    margin-top: auto !important;
+    align-self: flex-start !important;
 }
 
 .news-page-info p {
