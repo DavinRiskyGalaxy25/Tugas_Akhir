@@ -27,11 +27,11 @@ class Ekstrakurikuler extends Model
         return $query->where('status_aktif', true);
     }
 
-    public function getFotoUrlAttribute(): ?string
+    public function getFotoUrlAttribute(): string
     {
         if ($this->foto && Storage::disk('public')->exists($this->foto)) {
             return asset('storage/'.$this->foto);
         }
-        return null;
+        return asset('assets/img/no-image.svg');
     }
 }

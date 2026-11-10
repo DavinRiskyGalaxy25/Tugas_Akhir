@@ -306,39 +306,53 @@
 
 .extra-card.has-image {
     padding: 0 !important;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    border: none !important;
+    border-radius: 20px !important;
+    background: #ffffff !important;
+    box-shadow: 0 10px 30px -6px rgba(15, 23, 42, 0.06) !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transition: all 0.3s ease !important;
+}
+
+.extra-card.has-image:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 20px 40px -8px rgba(20, 83, 45, 0.1) !important;
 }
 
 .extra-card .extra-image {
-    width: 100%;
-    height: 190px;
-    overflow: hidden;
-    position: relative;
-    background: #f1f5f9;
+    width: 100% !important;
+    height: 220px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    background: #f1f5f9 !important;
 }
 
 .extra-card .extra-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.5s ease !important;
 }
 
 .extra-card:hover .extra-image img {
-    transform: scale(1.06);
+    transform: scale(1.05) !important;
 }
 
 .extra-card .extra-body {
-    padding: 22px 20px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+    padding: 18px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
 }
 
 .extra-card .extra-body h3 {
-    margin-bottom: 8px;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin: 0 !important;
 }
 
 .extra-card .extra-body p {
