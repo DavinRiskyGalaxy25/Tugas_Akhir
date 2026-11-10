@@ -6,7 +6,7 @@
 <main class="page-content">
     <section class="page-hero">
         <div class="page-hero-content">
-            <h2>Formulir Alumni</h2>
+            <h2>Pesan &amp; Kesan Alumni</h2>
         </div>
     </section>
 
@@ -18,9 +18,7 @@
 
             <div class="form-card alumni-form-card">
                 <div class="form-card-header">
-                    <span class="alumni-badge"><i class="fa-solid fa-feather-pointed me-1"></i> Partisipasi Alumni</span>
                     <h2 class="form-title">Tulis Kesan &amp; Cerita Alumni</h2>
-                    <p class="form-subtitle">Bagikan pengalaman berharga, pesan inspiratif untuk adik kelas, atau kesan terhadap guru dan sekolah.</p>
                 </div>
 
                 @if(session('success'))
@@ -52,7 +50,7 @@
                                 <label for="nama">Nama Lengkap <span class="required-star">*</span></label>
                                 <span class="field-feedback" id="nama_feedback"></span>
                             </div>
-                            <input type="text" id="nama" name="nama" required value="{{ old('nama') }}" placeholder="Contoh: Ahmad Fauzi, S.Kom." class="@error('nama') input-has-error @enderror">
+                            <input type="text" id="nama" name="nama" required value="{{ old('nama') }}" placeholder="Masukkan nama lengkap Anda" class="@error('nama') input-has-error @enderror">
                             @error('nama')
                                 <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
                             @enderror
@@ -63,7 +61,7 @@
                                 <label for="tahun_lulus">Tahun Kelulusan</label>
                                 <span class="field-feedback" id="tahun_lulus_feedback"></span>
                             </div>
-                            <input type="text" id="tahun_lulus" name="tahun_lulus" maxlength="4" inputmode="numeric" value="{{ old('tahun_lulus') }}" placeholder="Contoh: 2020" class="@error('tahun_lulus') input-has-error @enderror">
+                            <input type="text" id="tahun_lulus" name="tahun_lulus" maxlength="4" inputmode="numeric" value="{{ old('tahun_lulus') }}" placeholder="Masukkan tahun kelulusan" class="@error('tahun_lulus') input-has-error @enderror">
                             @error('tahun_lulus')
                                 <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
                             @enderror
@@ -73,7 +71,7 @@
                             <div class="form-label-wrap">
                                 <label for="pekerjaan_sekarang">Pendidikan / Profesi Saat Ini</label>
                             </div>
-                            <input type="text" id="pekerjaan_sekarang" name="pekerjaan_sekarang" value="{{ old('pekerjaan_sekarang') }}" placeholder="Contoh: Mahasiswa ITS / Software Engineer" class="@error('pekerjaan_sekarang') input-has-error @enderror">
+                            <input type="text" id="pekerjaan_sekarang" name="pekerjaan_sekarang" value="{{ old('pekerjaan_sekarang') }}" placeholder="Masukkan pendidikan atau profesi saat ini" class="@error('pekerjaan_sekarang') input-has-error @enderror">
                             @error('pekerjaan_sekarang')
                                 <div class="field-error-msg"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</div>
                             @enderror
@@ -114,10 +112,6 @@
                     </div>
 
                     <div class="form-actions-bar">
-                        <div class="form-security-note">
-                            <i class="fa-solid fa-shield-halved"></i>
-                            <span>Pesan yang dikirimkan akan ditinjau dan disetujui (ACC) oleh pihak admin sekolah sebelum dipublikasikan.</span>
-                        </div>
                         <div class="form-btn-group">
                             <button type="reset" class="btn-form-secondary">Reset</button>
                             <button type="submit" class="btn-form-primary">

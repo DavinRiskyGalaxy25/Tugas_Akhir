@@ -51,9 +51,9 @@ Route::get('/prestasi', [PrestasiController::class, 'index'])->name('prestasi.in
 Route::get('/prestasi/{slug}', [PrestasiController::class, 'show'])->name('prestasi.show');
 
 Route::get('/ppdb', [PpdbController::class, 'create'])->name('ppdb.create');
-Route::post('/ppdb', [PpdbController::class, 'store'])->name('ppdb.store');
+Route::post('/ppdb', [PpdbController::class, 'store'])->name('ppdb.store')->middleware('throttle:5,1');
 Route::get('/spmb', [PpdbController::class, 'create'])->name('spmb');
-Route::post('/spmb', [PpdbController::class, 'store'])->name('spmb.store');
+Route::post('/spmb', [PpdbController::class, 'store'])->name('spmb.store')->middleware('throttle:5,1');
 
 Route::get('/alumni', [AlumniController::class, 'index'])->name('alumni.index');
 Route::get('/alumni/kirim', [AlumniController::class, 'create'])->name('alumni.create');

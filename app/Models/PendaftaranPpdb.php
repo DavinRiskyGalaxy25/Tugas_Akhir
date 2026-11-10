@@ -15,6 +15,7 @@ class PendaftaranPpdb extends Model
         'nama_lengkap', 'nik', 'nisn', 'tempat_lahir', 'tanggal_lahir',
         'jenis_kelamin', 'alamat', 'no_hp', 'asal_sekolah', 'nama_wali',
         'no_hp_wali', 'email', 'keterangan_tambahan', 'status',
+        'kartu_keluarga', 'akta_kelahiran', 'ijazah_skl', 'pas_foto',
     ];
 
     protected function casts(): array

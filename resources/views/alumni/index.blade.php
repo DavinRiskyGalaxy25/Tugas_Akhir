@@ -24,11 +24,7 @@
             <!-- ALUMNI CTA BANNER (MODERN, CLEAN, BORDERLESS) -->
             <div class="alumni-hero-cta">
                 <div class="alumni-cta-content">
-                    <span class="alumni-badge"><i class="fa-solid fa-graduation-cap me-1"></i> Jejak Langkah Alumni</span>
                     <h2 class="alumni-cta-title">Cerita &amp; Inspirasi dari Alumni</h2>
-                    <p class="alumni-cta-desc">
-                        Simak pengalaman berharga dari para alumni {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}. Apakah Anda juga bagian dari keluarga besar alumni? Bagikan cerita dan pesan inspiratif Anda!
-                    </p>
                 </div>
                 <div class="alumni-cta-action">
                     <a href="{{ route('alumni.create') }}" class="primary-button alumni-send-btn">

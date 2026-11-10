@@ -3461,35 +3461,35 @@ button[type="reset"].secondary-button:hover {
 .spmb-steps-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 24px;
 }
 
 .spmb-step-item {
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 22px 18px;
+    border: none !important;
+    border-radius: 20px;
+    padding: 26px 22px;
     display: flex;
-    gap: 14px;
+    gap: 16px;
     align-items: flex-start;
-    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 10px 25px -4px rgba(15, 23, 42, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .spmb-step-item:hover {
-    border-color: #cbd5e1;
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 32px -6px rgba(15, 23, 42, 0.08);
 }
 
 .spmb-step-num {
     font-size: 1.05rem;
     font-weight: 800;
-    color: #15803d;
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
-    width: 38px;
-    height: 38px;
-    border-radius: 8px;
+    color: #166534;
+    background: #ecfdf5;
+    border: none !important;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3497,14 +3497,14 @@ button[type="reset"].secondary-button:hover {
 }
 
 .spmb-step-info h3 {
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     font-weight: 700;
     color: #0f172a;
     margin: 0 0 6px 0;
 }
 
 .spmb-step-info p {
-    font-size: 0.84rem;
+    font-size: 0.85rem;
     color: #64748b;
     line-height: 1.55;
     margin: 0;
@@ -3513,9 +3513,284 @@ button[type="reset"].secondary-button:hover {
 .ppdb-poster-img {
     max-width: 100%;
     height: auto;
+    border-radius: 20px;
+    border: none !important;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* PPDB MODERN BORDERLESS ENHANCEMENTS */
+.ppdb-modern-card {
+    border: none !important;
+    border-radius: 28px !important;
+    padding: 46px 40px !important;
+    box-shadow: 0 16px 45px -8px rgba(15, 23, 42, 0.07) !important;
+    background: #ffffff !important;
+}
+
+.ppdb-verified-badge {
+    background: #ecfdf5;
+    color: #047857;
+    font-size: 0.76rem;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    border: none !important;
+}
+
+.ppdb-modern-card .form-group input,
+.ppdb-modern-card .form-group select,
+.ppdb-modern-card .form-group textarea {
+    border: none !important;
+    background: #f8fafc !important;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+    box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.03) !important;
+    transition: all 0.2s ease !important;
+}
+
+.ppdb-modern-card .form-group input:focus,
+.ppdb-modern-card .form-group select:focus,
+.ppdb-modern-card .form-group textarea:focus {
+    background: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2), 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+    outline: none !important;
+}
+
+.ppdb-modern-card .form-group input.input-has-error,
+.ppdb-modern-card .form-group select.input-has-error,
+.ppdb-modern-card .form-group textarea.input-has-error {
+    background: #fff8f8 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+}
+
+.ppdb-modern-card .form-section-badge {
+    border: none !important;
+    background: #ecfdf5 !important;
+    color: #059669 !important;
+    border-radius: 8px !important;
+    font-weight: 800;
+}
+
+.form-section-subtext {
+    font-size: 0.82rem;
+    color: #64748b;
+    margin: 4px 0 0;
+    line-height: 1.5;
+}
+
+/* WAJIB DOKUMEN UPLOAD CARDS */
+.docs-upload-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 14px;
+}
+
+.doc-upload-card {
+    background: #f8fafc;
+    border: none !important;
+    border-radius: 18px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
+}
+
+.doc-upload-card:hover {
+    background: #f1f5f9;
+}
+
+.doc-upload-card.card-has-success {
+    background: #f0fdf4 !important;
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.35) !important;
+}
+
+.doc-upload-card.card-has-error {
+    background: #fef2f2 !important;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.35) !important;
+}
+
+.doc-upload-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.doc-icon {
+    width: 42px;
+    height: 42px;
     border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+    background: #ffffff;
+    color: #166534;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.06);
+    flex-shrink: 0;
+}
+
+.doc-info {
+    flex: 1;
+}
+
+.doc-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.doc-hint {
+    font-size: 0.76rem;
+    color: #64748b;
+    display: block;
+    margin-top: 2px;
+}
+
+.doc-file-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+}
+
+.doc-pick-btn {
+    padding: 8px 16px;
+    background: #ffffff;
+    color: #1e293b;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    border: none !important;
+}
+
+.doc-pick-btn:hover {
+    background: #15803d;
+    color: #ffffff;
+}
+
+.doc-file-status {
+    font-size: 0.78rem;
+    color: #64748b;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+}
+
+.doc-format-badge {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.doc-hidden-input {
+    display: none !important;
+}
+
+/* reCAPTCHA CONTAINER */
+.ppdb-recaptcha-section {
+    margin-top: 10px;
+}
+
+.recaptcha-box-wrapper {
+    background: #f8fafc;
+    border: none !important;
+    border-radius: 22px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
+}
+
+.recaptcha-guidance {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+    max-width: 520px;
+}
+
+.recaptcha-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: #ecfdf5;
+    color: #059669;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    flex-shrink: 0;
+}
+
+.recaptcha-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 2px;
+}
+
+.recaptcha-desc {
+    font-size: 0.82rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.45;
+}
+
+.recaptcha-widget-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 4px;
+}
+
+.ppdb-contact-callout {
+    border: none !important;
+    border-radius: 24px !important;
+    box-shadow: 0 12px 35px -6px rgba(15, 23, 42, 0.05) !important;
+    background: #ffffff !important;
+}
+
+.ppdb-wa-btn {
+    border: none !important;
+    border-radius: 12px !important;
+    background: #16a34a !important;
+    box-shadow: 0 6px 18px rgba(22, 163, 74, 0.25) !important;
+}
+
+.ppdb-wa-btn:hover {
+    background: #15803d !important;
+}
+
+@media (max-width: 768px) {
+    .docs-upload-grid {
+        grid-template-columns: 1fr;
+    }
+    .ppdb-modern-card {
+        padding: 30px 20px !important;
+    }
+    .recaptcha-guidance {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
 /* ALUMNI STORIES CARDS - MODERN, BORDERLESS */

@@ -55,7 +55,7 @@ class PpdbController extends Controller
     {
         $filename = 'pendaftar-ppdb-'.now()->format('Ymd-His').'.csv';
 
-        $columns = ['Nama Lengkap', 'NIK', 'NISN', 'Tempat Lahir', 'Tanggal Lahir', 'Jenis Kelamin', 'Alamat', 'No HP', 'Asal Sekolah', 'Nama Wali', 'No HP Wali', 'Email', 'Status', 'Tanggal Daftar'];
+        $columns = ['Nama Lengkap', 'NIK', 'NISN', 'Tempat Lahir', 'Tanggal Lahir', 'Jenis Kelamin', 'Alamat', 'No HP', 'Asal Sekolah', 'Nama Wali', 'No HP Wali', 'Email', 'Kartu Keluarga', 'Akta Kelahiran', 'Ijazah / SKL', 'Pas Foto', 'Status', 'Tanggal Daftar'];
 
         return Response::streamDownload(function () use ($columns) {
             $handle = fopen('php://output', 'w');
@@ -67,7 +67,12 @@ class PpdbController extends Controller
                         $row->nama_lengkap, $row->nik, $row->nisn, $row->tempat_lahir,
                         optional($row->tanggal_lahir)->format('d-m-Y'), $row->jenis_kelamin,
                         $row->alamat, $row->no_hp, $row->asal_sekolah, $row->nama_wali,
-                        $row->no_hp_wali, $row->email, $row->status, $row->created_at->format('d-m-Y H:i'),
+                        $row->no_hp_wali, $row->email,
+                        $row->kartu_keluarga ? asset('storage/' . $row->kartu_keluarga) : '-',
+                        $row->akta_kelahiran ? asset('storage/' . $row->akta_kelahiran) : '-',
+                        $row->ijazah_skl ? asset('storage/' . $row->ijazah_skl) : '-',
+                        $row->pas_foto ? asset('storage/' . $row->pas_foto) : '-',
+                        $row->status, $row->created_at->format('d-m-Y H:i'),
                     ]);
                 }
             });
