@@ -22,25 +22,25 @@ $perluTindakan = ($stats['ppdb_menunggu'] ?? 0) + ($stats['alumni_pending'] ?? 0
 @endphp
 
 <!-- WELCOME BANNER (CALM, SERENE, REASSURING) -->
-<div class="card mb-4" style="background: linear-gradient(135deg, #092015 0%, #15803d 100%); color: #ffffff; border-radius: 22px; overflow: hidden; position: relative;">
-    <div style="position: absolute; right: -20px; bottom: -30px; font-size: 10rem; color: rgba(255,255,255,0.04); pointer-events: none;">
+<div class="card welcome-banner mb-4">
+    <div style="position: absolute; right: -20px; bottom: -30px; font-size: 10rem; color: rgba(255,255,255,0.05); pointer-events: none;">
         <i class="fa-solid fa-graduation-cap"></i>
     </div>
     <div class="card-body p-4 p-md-5 position-relative">
         <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
-            <div class="d-inline-flex align-items-center gap-2 px-3 py-1" style="background: rgba(255,255,255,0.12); border-radius: 30px; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.04em;">
-                <span class="d-inline-block rounded-circle bg-success" style="width: 8px; height: 8px;"></span>
+            <div class="d-inline-flex align-items-center gap-2 px-3 py-1 banner-pill" style="border-radius: 30px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em;">
+                <span class="d-inline-block rounded-circle banner-pill-dot" style="width: 8px; height: 8px;"></span>
                 <span>PANEL ADMINISTRATOR</span>
             </div>
-            <span style="font-size: 0.82rem; color: rgba(255,255,255,0.7); font-weight: 500;">
-                <i class="fa-regular fa-calendar me-1"></i> {{ now()->translatedFormat('l, d F Y') }}
+            <span style="font-size: 0.85rem; font-weight: 600;">
+                <i class="fa-regular fa-calendar me-1 banner-date-icon"></i> {{ now()->translatedFormat('l, d F Y') }}
             </span>
         </div>
-        <h2 class="fw-bold mb-2 text-white" style="font-size: 1.65rem;">{{ $greeting }}, {{ auth()->user()?->name ?? 'Admin' }}!</h2>
-        <p class="mb-0" style="color: rgba(255,255,255,0.8); max-width: 640px; font-size: 0.92rem; line-height: 1.6;">
+        <h2 class="fw-bold mb-2 text-white" style="font-size: 1.75rem;">{{ $greeting }}, {{ auth()->user()?->name ?? 'Admin' }}!</h2>
+        <p class="mb-0" style="color: #f8fafc; max-width: 680px; font-size: 0.94rem; line-height: 1.6; font-weight: 400;">
             Portal pengelolaan data dan informasi {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.
             @if($perluTindakan > 0)
-                Terdapat <strong class="text-white">{{ $perluTindakan }} berkas/pesan baru</strong> yang memerlukan perhatian Anda hari ini.
+                Terdapat <strong class="text-white" style="font-weight: 700; text-decoration: underline;">{{ $perluTindakan }} berkas/pesan baru</strong> yang memerlukan perhatian Anda hari ini.
             @else
                 Seluruh berkas pendaftaran dan pesan masuk telah selesai ditinjau.
             @endif
@@ -58,11 +58,11 @@ $perluTindakan = ($stats['ppdb_menunggu'] ?? 0) + ($stats['alumni_pending'] ?? 0
                 <div class="d-flex justify-content-between align-items-center mb-2">
                     <div class="d-flex align-items-center gap-2">
                         <span class="d-inline-block rounded-circle bg-warning" style="width: 10px; height: 10px;"></span>
-                        <h6 class="fw-bold mb-0 text-dark">Pendaftaran PPDB Masuk</h6>
+                        <h6 class="fw-bold mb-0">Pendaftaran PPDB Masuk</h6>
                     </div>
                     <span class="badge bg-warning">{{ $stats['ppdb_menunggu'] }} Berkas Menunggu</span>
                 </div>
-                <p class="text-muted small mb-3">Terdapat pendaftar siswa baru yang dokumennya belum diverifikasi panitia.</p>
+                <p class="mb-3">Terdapat pendaftar siswa baru yang dokumennya belum diverifikasi panitia.</p>
             </div>
             <div>
                 <a href="{{ route('admin.ppdb.index') }}" class="btn btn-primary btn-sm">
@@ -80,11 +80,11 @@ $perluTindakan = ($stats['ppdb_menunggu'] ?? 0) + ($stats['alumni_pending'] ?? 0
                 <div class="d-flex justify-content-between align-items-center mb-2">
                     <div class="d-flex align-items-center gap-2">
                         <span class="d-inline-block rounded-circle bg-success" style="width: 10px; height: 10px;"></span>
-                        <h6 class="fw-bold mb-0 text-dark">Pesan &amp; Kesan Alumni</h6>
+                        <h6 class="fw-bold mb-0">Pesan &amp; Kesan Alumni</h6>
                     </div>
                     <span class="badge bg-success">{{ $stats['alumni_pending'] }} Menunggu ACC</span>
                 </div>
-                <p class="text-muted small mb-3">Testimoni baru dari alumni yang menunggu persetujuan sebelum dipublikasikan ke situs.</p>
+                <p class="mb-3">Testimoni baru dari alumni yang menunggu persetujuan sebelum dipublikasikan ke situs.</p>
             </div>
             <div>
                 <a href="{{ route('admin.alumni.index') }}" class="btn btn-primary btn-sm">
@@ -108,8 +108,8 @@ $perluTindakan = ($stats['ppdb_menunggu'] ?? 0) + ($stats['alumni_pending'] ?? 0
                             <i class="fa-solid {{ $c['icon'] }}"></i>
                         </div>
                         <div class="min-w-0">
-                            <div class="fs-4 fw-bold text-dark lh-1 mb-1">{{ $c['value'] }}</div>
-                            <div class="text-muted small text-truncate">{{ $c['label'] }}</div>
+                            <div class="stat-value">{{ $c['value'] }}</div>
+                            <div class="stat-label text-truncate">{{ $c['label'] }}</div>
                         </div>
                     </div>
                 </div>
@@ -125,8 +125,8 @@ $perluTindakan = ($stats['ppdb_menunggu'] ?? 0) + ($stats['alumni_pending'] ?? 0
         <div class="card h-100">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h6 class="fw-bold mb-0 text-dark">Pendaftar PPDB Terbaru</h6>
-                    <a href="{{ route('admin.ppdb.index') }}" class="small text-decoration-none fw-semibold" style="color: var(--admin-primary);">Lihat Semua &rarr;</a>
+                    <h6 class="fw-bold mb-0 text-dark" style="font-size: 1rem;">Pendaftar PPDB Terbaru</h6>
+                    <a href="{{ route('admin.ppdb.index') }}" class="small text-decoration-none fw-bold" style="color: var(--admin-primary);">Lihat Semua &rarr;</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table align-middle">
@@ -141,12 +141,14 @@ $perluTindakan = ($stats['ppdb_menunggu'] ?? 0) + ($stats['alumni_pending'] ?? 0
                         <tbody>
                             @forelse($ppdbTerbaru as $p)
                                 <tr>
-                                    <td class="fw-bold text-dark">
-                                        <a href="{{ route('admin.ppdb.show', $p) }}" class="text-decoration-none text-dark">
+                                    <td>
+                                        <a href="{{ route('admin.ppdb.show', $p) }}" class="dashboard-table-link">
                                             {{ $p->nama_lengkap }}
                                         </a>
                                     </td>
-                                    <td class="text-muted small">{{ \Illuminate\Support\Str::limit($p->asal_sekolah, 18) }}</td>
+                                    <td>
+                                        <span class="table-secondary-text">{{ \Illuminate\Support\Str::limit($p->asal_sekolah, 18) }}</span>
+                                    </td>
                                     <td>
                                         @if($p->status === 'menunggu')
                                             <span class="badge bg-warning">Menunggu</span>
@@ -158,7 +160,9 @@ $perluTindakan = ($stats['ppdb_menunggu'] ?? 0) + ($stats['alumni_pending'] ?? 0
                                             <span class="badge bg-secondary">{{ ucfirst($p->status) }}</span>
                                         @endif
                                     </td>
-                                    <td class="text-end text-muted small">{{ $p->created_at->format('d M Y') }}</td>
+                                    <td class="text-end">
+                                        <span class="table-secondary-text">{{ $p->created_at->format('d M Y') }}</span>
+                                    </td>
                                 </tr>
                             @empty
                                 <tr><td colspan="4" class="text-muted text-center py-4">Belum ada pendaftar terbaru.</td></tr>
@@ -175,8 +179,8 @@ $perluTindakan = ($stats['ppdb_menunggu'] ?? 0) + ($stats['alumni_pending'] ?? 0
         <div class="card h-100">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h6 class="fw-bold mb-0 text-dark">Berita &amp; Artikel Terkini</h6>
-                    <a href="{{ route('admin.berita.index') }}" class="small text-decoration-none fw-semibold" style="color: var(--admin-primary);">Lihat Semua &rarr;</a>
+                    <h6 class="fw-bold mb-0 text-dark" style="font-size: 1rem;">Berita &amp; Artikel Terkini</h6>
+                    <a href="{{ route('admin.berita.index') }}" class="small text-decoration-none fw-bold" style="color: var(--admin-primary);">Lihat Semua &rarr;</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table align-middle">
@@ -190,8 +194,8 @@ $perluTindakan = ($stats['ppdb_menunggu'] ?? 0) + ($stats['alumni_pending'] ?? 0
                         <tbody>
                             @forelse($beritaTerbaru as $b)
                                 <tr>
-                                    <td class="fw-bold text-dark">
-                                        <a href="{{ route('admin.berita.edit', $b) }}" class="text-decoration-none text-dark">
+                                    <td>
+                                        <a href="{{ route('admin.berita.edit', $b) }}" class="dashboard-table-link">
                                             {{ \Illuminate\Support\Str::limit($b->judul, 36) }}
                                         </a>
                                     </td>
@@ -200,7 +204,9 @@ $perluTindakan = ($stats['ppdb_menunggu'] ?? 0) + ($stats['alumni_pending'] ?? 0
                                             {{ ucfirst($b->status) }}
                                         </span>
                                     </td>
-                                    <td class="text-end text-muted small">{{ optional($b->tanggal_publikasi ?? $b->created_at)->format('d M Y') }}</td>
+                                    <td class="text-end">
+                                        <span class="table-secondary-text">{{ optional($b->tanggal_publikasi ?? $b->created_at)->format('d M Y') }}</span>
+                                    </td>
                                 </tr>
                             @empty
                                 <tr><td colspan="3" class="text-muted text-center py-4">Belum ada artikel berita.</td></tr>

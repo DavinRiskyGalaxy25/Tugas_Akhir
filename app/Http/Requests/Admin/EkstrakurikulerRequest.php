@@ -15,14 +15,24 @@ class EkstrakurikulerRequest extends FormRequest
     {
         return [
             'nama' => ['required', 'string', 'max:255'],
-            'icon' => ['nullable', 'string', 'max:100'],
+            'foto' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
             'deskripsi' => ['nullable', 'string'],
             'pembina' => ['nullable', 'string', 'max:255'],
             'jadwal' => ['nullable', 'string', 'max:255'],
             'lokasi' => ['nullable', 'string', 'max:255'],
             'status_aktif' => ['nullable', 'boolean'],
             'urutan' => ['nullable', 'integer', 'min:0'],
-            'foto' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+            'icon' => ['nullable', 'string', 'max:100'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'nama.required' => 'Nama ekstrakurikuler wajib diisi.',
+            'foto.image' => 'File harus berupa gambar.',
+            'foto.mimes' => 'Format gambar harus berupa JPG, JPEG, PNG, atau WebP.',
+            'foto.max' => 'Ukuran gambar maksimal 2MB.',
         ];
     }
 }
