@@ -22,9 +22,7 @@
                 <!-- ALUR 3 LANGKAH PENDAFTARAN RESMI BORDERLESS -->
                 <div class="spmb-guide-wrapper">
                     <div class="spmb-guide-header">
-                        <span class="spmb-guide-eyebrow">PANDUAN PENDAFTARAN</span>
                         <h2>Alur Pendaftaran Calon Siswa Baru</h2>
-                        <p>Tiga tahapan mudah untuk bergabung menjadi bagian dari keluarga besar {{ $pengaturan['nama_sekolah'] ?? 'SMP Al Ahmad Krian' }}.</p>
                     </div>
                     <div class="spmb-steps-grid">
                         <div class="spmb-step-item">
@@ -58,12 +56,7 @@
     <section class="content-section" id="formulirSpmb">
         <div class="form-card ppdb-modern-card">
             <div class="form-card-header">
-                <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
-                    <span class="form-eyebrow"><i class="fa-solid fa-file-signature me-1"></i> FORMULIR PENDAFTARAN RESMI</span>
-                    <span class="ppdb-verified-badge"><i class="fa-solid fa-shield-halved me-1"></i> Sistem Terverifikasi Anti-Bot</span>
-                </div>
                 <h2 class="form-title">Pendaftaran SPMB Online</h2>
-                <p class="form-desc">Mohon isi data calon peserta didik dengan teliti dan benar sesuai dokumen kependudukan resmi. Dokumen berkas wajib dilampirkan dalam format PDF atau Gambar (maks. 2MB).</p>
             </div>
 
             <!-- FEEDBACK ALERTS -->
@@ -396,14 +389,6 @@
                 <!-- SEKSI 5: PROTEKSI KEAMANAN reCAPTCHA -->
                 <div class="form-section-block ppdb-recaptcha-section">
                     <div class="recaptcha-box-wrapper">
-                        <div class="recaptcha-guidance">
-                            <div class="recaptcha-icon"><i class="fa-solid fa-shield-virus"></i></div>
-                            <div>
-                                <h4 class="recaptcha-title">Verifikasi Keamanan Anti-Bot &amp; Orang Iseng</h4>
-                                <p class="recaptcha-desc">Silakan centang kotak reCAPTCHA di bawah ini untuk mengonfirmasi pendaftaran resmi calon peserta didik.</p>
-                            </div>
-                        </div>
-
                         <div class="recaptcha-widget-container">
                             <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key', env('RECAPTCHA_SITE_KEY', '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI')) }}"></div>
                         </div>
@@ -412,9 +397,6 @@
 
                 <!-- ACTIONS BAR -->
                 <div class="form-actions-bar">
-                    <div class="form-security-note">
-                        <i class="fa-solid fa-circle-check"></i> Seluruh data &amp; dokumen dienkripsi serta diproteksi protokol keamanan resmi SPMB.
-                    </div>
                     <div class="form-btn-group">
                         <button type="button" class="btn-form-secondary" id="btnReset">Reset Isian</button>
                         <button type="submit" class="btn-form-primary" id="btnSubmit">
